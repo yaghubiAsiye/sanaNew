@@ -37,15 +37,15 @@ class RouteServiceProvider extends ServiceProvider
             //     ->group(base_path('routes/web.php'));
             
             /* -------------------------------------------------------------------------- */
-            /*                          route fore version1 site                          */
+            /*                          route for version1 operator                          */
             /* -------------------------------------------------------------------------- */
             Route::middleware('web')
-                ->group(base_path('routes/v1/site.php'));
+                ->group(base_path('routes/v1/operator.php'));
             /* -------------------------------------------------------------------------- */
-            /*                          route fore version1 panel                          */
+            /*                          route for version1 employee                          */
             /* -------------------------------------------------------------------------- */
             Route::middleware('web')
-                ->group(base_path('routes/v1/panel.php'));
+                ->group(base_path('routes/v1/employee.php'));
         });
     }
 

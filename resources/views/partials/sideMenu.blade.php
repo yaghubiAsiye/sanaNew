@@ -78,7 +78,7 @@
         </li>
         <li>
             <a href="#" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
                 <div class="side-menu__title"> فیش حقوقی </div>
             </a>
         </li>
@@ -172,6 +172,42 @@
                 <div class="side-menu__title">  لاگ </div>
             </a>
         </li>
+        @can('Accountants-crud')
+            <li class="side-nav__devider my-6"></li>
+            <li>
+                <a href="javascript:;" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
+                    <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
+                    <div class="side-menu__title">
+                        امور مالی 
+                        <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}"> 
+                            <i data-feather="chevron-down"></i> 
+                        </div>
+                    </div>
+                </a>
+                <ul class="{{ (Request::is('auth/reset-password-page') ? 'side-menu__sub-open' : '') }}">
+                    <li>
+                        <a href="{{route('reset-password-page')}}" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title">  بارگزاری فیش حقوقی </div>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title"> اطلاعات کاربری </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('logout')}}" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title">خروج </div>
+                        </a>
+                    </li> -->
+                </ul>
+            </li>
+        @endcan
+
+
         {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="layout"></i> </div>

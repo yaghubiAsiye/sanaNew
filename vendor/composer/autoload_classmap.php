@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Requests\\V1\\Site\\RegisterRequest' => $baseDir . '/app/Http/Requests/V1/Site/RegisterRequest.php',
     'App\\Http\\Requests\\V1\\Site\\ResetPasswordRequest' => $baseDir . '/app/Http/Requests/V1/Site/ResetPasswordRequest.php',
     'App\\Models\\ActiveCode' => $baseDir . '/app/Models/ActiveCode.php',
+    'App\\Models\\Payslip' => $baseDir . '/app/Models/Payslip.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Notifications\\ActiveCodeNotification' => $baseDir . '/app/Notifications/ActiveCodeNotification.php',
     'App\\Notifications\\Channels\\GhasedakChannel' => $baseDir . '/app/Notifications/Channels/GhasedakChannel.php',

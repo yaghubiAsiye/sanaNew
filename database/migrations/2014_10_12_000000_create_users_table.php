@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('password');
             $table->timestamp('password_update_at')->nullable();
             $table->boolean('active')->default(false);
+            $table->boolean('is_operator')->default(false);
             $table->string('register_ip')->nullable();
             $table->rememberToken();
             $table->timestamps();

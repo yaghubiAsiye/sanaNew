@@ -592,6 +592,7 @@ class ComposerStaticInit96bafb41b1ab80727b259af4b2359e28
         'App\\Http\\Requests\\V1\\Site\\RegisterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/V1/Site/RegisterRequest.php',
         'App\\Http\\Requests\\V1\\Site\\ResetPasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/V1/Site/ResetPasswordRequest.php',
         'App\\Models\\ActiveCode' => __DIR__ . '/../..' . '/app/Models/ActiveCode.php',
+        'App\\Models\\Payslip' => __DIR__ . '/../..' . '/app/Models/Payslip.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\ActiveCodeNotification' => __DIR__ . '/../..' . '/app/Notifications/ActiveCodeNotification.php',
         'App\\Notifications\\Channels\\GhasedakChannel' => __DIR__ . '/../..' . '/app/Notifications/Channels/GhasedakChannel.php',
