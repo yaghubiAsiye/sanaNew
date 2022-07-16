@@ -41,41 +41,43 @@
                 <table class="table table-report -mt-2">
                     <thead>
                         <tr>
-                            <th class="whitespace-nowrap">فایل</th>
+                            {{-- <th class="whitespace-nowrap">فایل</th> --}}
                                 <th class="whitespace-nowrap">تاریخ فیش</th>
                                 <th class="text-center whitespace-nowrap">تاریخ آپلود</th>
                                 <th class="text-center whitespace-nowrap">وضعیت</th>
-                                <th class="text-center whitespace-nowrap">آپلود کننده</th>
+                                {{-- <th class="text-center whitespace-nowrap">آپلود کننده</th> --}}
                                 <th class="text-center whitespace-nowrap">فعالیت</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="intro-x">
-                            <td class="w-40">
-                                <div class="flex">
-                                    <div class="w-10 h-10 image-fit zoom-in">
-                                        <img alt="Rubick Tailwind HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-1.jpg" title="اپلود شده 11مهر 1400">
+                        @foreach ($payslips as $item)
+                            <tr class="intro-x">
+                                {{-- <td class="w-40">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 image-fit zoom-in">
+                                            <a  class="tooltip rounded-full" href="/{{$item->file}}">
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="" class="font-medium whitespace-nowrap">سامسونگ کیوناین تی‌وی</a>
-                                <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">الکترونیک</div>
-                            </td>
-                            <td class="text-center">90</td>
-                            <td class="w-40">
-                                <div class="flex items-center justify-center text-theme-9"> <i data-feather="check-square" class="w-4 h-4 ml-2"></i> فعال </div>
-                            </td>
-                            <td class="text-center">90</td>
+                                </td> --}}
+                                <td>
+                                    <a href="" class="font-medium whitespace-nowrap">{{ jdate($item->created_at) ?? ''}}</a>
+                                    {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">الکترونیک</div> --}}
+                                </td>
+                                <td class="text-center">{{ jdate($item->created_at) ?? ''}}</td>
+                                <td class="w-40">
+                                    <div class="flex items-center justify-center text-theme-9"> <i data-feather="check-square" class="w-4 h-4 ml-2"></i> {{$item->status ?? ''}} </div>
+                                </td>
+                                {{-- <td class="text-center">{{$item->status ?? ''}}</td> --}}
 
-                            <td class="table-report__action w-56">
-                                <div class="flex justify-center items-center">
-                                    <a class="flex items-center ml-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> ویرایش</a>
-                                    <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="intro-x">
+                                <td class="table-report__action w-56">
+                                    <div class="flex justify-center items-center">
+                                        <a class="flex items-center ml-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> ویرایش</a>
+                                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        {{-- <tr class="intro-x">
                             <td class="w-40">
                                 <div class="flex">
                                     <div class="w-10 h-10 image-fit zoom-in">
@@ -98,7 +100,7 @@
                                     <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> --}}
 
                     </tbody>
                 </table>

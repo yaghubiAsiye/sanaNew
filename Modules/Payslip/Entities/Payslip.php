@@ -9,8 +9,8 @@ class Payslip extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
-    
+    protected $guarded = [];
+
     protected static function newFactory()
     {
         return \Modules\Payslip\Database\factories\PayslipFactory::new();

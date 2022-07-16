@@ -37,7 +37,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
                 <div class="side-menu__title">
-                    چینش منو 
+                    چینش منو
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -68,8 +68,8 @@
                 <div class="side-menu__title"> داشبرد </div>
             </a>
         </li>
-       
-       
+
+
         <li>
             <a href="#" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
@@ -87,7 +87,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
                 <div class="side-menu__title">
-                     کراد 
+                     کراد
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -110,7 +110,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title">
-                    کاربران 
+                    کاربران
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -139,9 +139,9 @@
             <a href="javascript:;" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
                 <div class="side-menu__title">
-                    پروفایل 
-                    <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}"> 
-                        <i data-feather="chevron-down"></i> 
+                    پروفایل
+                    <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}">
+                        <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
@@ -178,17 +178,23 @@
                 <a href="javascript:;" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
                     <div class="side-menu__title">
-                        امور مالی 
-                        <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}"> 
-                            <i data-feather="chevron-down"></i> 
+                        امور مالی
+                        <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}">
+                            <i data-feather="chevron-down"></i>
                         </div>
                     </div>
                 </a>
-                <ul class="{{ (Request::is('auth/reset-password-page') ? 'side-menu__sub-open' : '') }}">
+                <ul class="{{ (Request::is('Payslip*') ? 'side-menu__sub-open' : '') }}">
                     <li>
-                        <a href="{{route('reset-password-page')}}" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
+                        <a href="{{ route('Payslip.create') }}" class="side-menu {{ (Request::is('Payslip/create') ? 'side-menu--active' : '') }}">
                             <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                             <div class="side-menu__title">  بارگزاری فیش حقوقی </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('Payslip.index') }}" class="side-menu {{ (Request::is('Payslip') ? 'side-menu--active' : '') }}">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title">   فیش حقوقی </div>
                         </a>
                     </li>
                     <!-- <li>
@@ -250,7 +256,7 @@
                     <a href="javascript:;" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">
-                            بلاگ 
+                            بلاگ
                             <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                         </div>
                     </a>
@@ -279,7 +285,7 @@
                     <a href="javascript:;" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">
-                            قیمت‌گذاری 
+                            قیمت‌گذاری
                             <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                         </div>
                     </a>
@@ -325,7 +331,7 @@
                     <a href="javascript:;" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">
-                            پرسش و پاسخ 
+                            پرسش و پاسخ
                             <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                         </div>
                     </a>
@@ -387,7 +393,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                 <div class="side-menu__title">
-                    کامپوننت‌ها 
+                    کامپوننت‌ها
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -396,7 +402,7 @@
                     <a href="javascript:;" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">
-                            جدول 
+                            جدول
                             <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                         </div>
                     </a>
@@ -504,7 +510,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="sidebar"></i> </div>
                 <div class="side-menu__title">
-                    فرم‌ها 
+                    فرم‌ها
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -551,7 +557,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
                 <div class="side-menu__title">
-                    ویجت‌ها 
+                    ویجت‌ها
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>

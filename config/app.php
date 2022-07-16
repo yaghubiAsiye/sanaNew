@@ -197,6 +197,8 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
+
 
     ],
 
@@ -214,6 +216,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Module' => Nwidart\Modules\Facades\Module::class,
+        'Verta' => Hekmatinasser\Verta\Verta::class,
     ])->toArray(),
 
 ];

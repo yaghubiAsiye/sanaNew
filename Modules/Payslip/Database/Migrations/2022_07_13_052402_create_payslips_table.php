@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('payslips', function (Blueprint $table) {
             $table->id();
-
+            $table->timestamp('date_pay')->nullable();
+            $table->enum('status', ['پرداخت شده', 'پرداخت نشده'])->nullable();
+            $table->string('file')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
