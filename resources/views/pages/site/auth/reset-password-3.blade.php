@@ -18,7 +18,7 @@
             </div>
             <div class="grid grid-cols-12 gap-6">
                 <!-- BEGIN: Profile Menu -->
-                <div class="col-span-12 lg:col-span-4 xxl:col-span-3 flex lg:block flex-col-reverse">
+                {{-- <div class="col-span-12 lg:col-span-4 xxl:col-span-3 flex lg:block flex-col-reverse">
                     <div class="intro-y box mt-5">
                         <div class="relative flex items-center p-5">
                             <div class="w-12 h-12 image-fit">
@@ -67,7 +67,7 @@
                             <button type="button" class="btn btn-outline-secondary py-1 px-2 mr-auto">لینک سریع جدید </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- END: Profile Menu -->
                 <div class="col-span-12 lg:col-span-8 xxl:col-span-9">
                     @include('partials.alert')
@@ -95,8 +95,8 @@
                                         @error('password_confirmation')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                
-                            
+
+
                                 <button type="submit" class="btn btn-primary mt-4">تایید </button>
                             </div>
                         </div>

@@ -50,6 +50,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->moduleNamespace . '\Employee')
+            ->prefix('Employee')
             ->group(module_path('Payslip', '/Routes/v1/employee.php'));
     }
 
@@ -64,6 +65,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->moduleNamespace . '\Operator')
+            ->prefix('Operator')
             ->group(module_path('Payslip', '/Routes/v1/operator.php'));
     }
 

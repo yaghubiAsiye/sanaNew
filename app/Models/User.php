@@ -31,6 +31,10 @@ class User extends Authenticatable
         'password',
         'phone_verified_at',
         'password_update_at',
+        'personal_code',
+        'code_meli',
+        'job_title',
+        'bank_account_number',
         'last_seen'
     ];
 
@@ -52,7 +56,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     /**
      # Date: 2022/6/27 , Developr: Asiye Yaghubi
      * activeCode

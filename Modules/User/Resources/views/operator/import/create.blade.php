@@ -12,7 +12,7 @@
         <!-- END: Top Bar -->
         <div class="intro-y flex items-center mt-8">
             <h2 class="text-lg font-medium ml-auto">
-              بارگزاری فیش حقوقی این ماه
+              ورود لیست کاربران
             </h2>
         </div>
         @include('partials.alert')
@@ -27,32 +27,10 @@
                         </h2>
                     </div>
                     <div class="p-5">
-                        <form action="{{ route('Payslip.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('ImportUser.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="flex flex-col-reverse xl:flex-row flex-col">
-                                <div class="flex-1 mt-6 xl:mt-0">
-                                    <div class="grid grid-cols-12 gap-x-5">
-                                        <div class="col-span-12 xxl:col-span-6">
-                                            {{-- <div id="input-group-datepicker">
-                                                <label for="update-profile-form-1" class="form-label"> تاریخ</label>
-                                                <div class="relative">
-                                                    <div class="absolute rounded-r w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 dark:bg-dark-1 dark:border-dark-4"> <i data-feather="calendar" class="w-4 h-4"></i> </div>
-                                                    <input type="text" name="date_pay" class="datepicker form-control pr-12" data-single-mode="true">
-                                                </div>
-                                            </div> --}}
-                                            <div class="mt-3">
-                                                <label for="update-profile-form-2" class="form-label"> وضعیت </label>
-                                                <select id="update-profile-form-2" name="status" data-search="true" class="tail-select w-full">
-                                                    <option value="1">پرداخت شده </option>
-                                                    <option value="2">پرداخت نشده</option>
-                                                </select>
-                                            </div>
-                                        </div>
 
-
-                                    </div>
-                                    {{-- <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button> --}}
-                                </div>
                                 <div class="w-52 mx-auto xl:ml-0 xl:mr-6">
                                     <div class="border-2 border-dashed shadow-sm border-gray-200 dark:border-dark-5 rounded-md p-5">
                                         <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
@@ -61,16 +39,16 @@
                                                     <div class="file__icon__file-name">Excel</div>
                                                 </a>
                                             </div>
-                                            {{-- <div title="Remove this profile photo?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 left-0 top-0 -ml-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div> --}}
                                         </div>
                                         <div class="mx-auto cursor-pointer relative mt-5">
                                             <button type="button" class="btn btn-primary w-full">آپلود فایل حقوقی</button>
                                             <input type="file" name="file" class="w-full h-full top-0 left-0 absolute opacity-0">
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button>
+
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button>
                         </form>
                     </div>
                 </div>

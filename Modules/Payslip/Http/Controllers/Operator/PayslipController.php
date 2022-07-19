@@ -5,11 +5,13 @@ namespace Modules\Payslip\Http\Controllers\Operator;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+// use Services\UploaderService;
 use Hekmatinasser\Verta\Verta;
 use Morilog\Jalali\CalendarUtils;
 use Illuminate\Routing\Controller;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Modules\Payslip\Entities\Payslip;
+use Modules\Payslip\Entities\PayslipLog;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Payslip\Http\Requests\PayslipStoreRequest;
 
@@ -21,8 +23,8 @@ class PayslipController extends Controller
      */
     public function index()
     {
-        $payslips = Payslip::all();
-        return view('payslip::operator.index', compact('payslips'));
+        $payslips = PayslipLog::all();
+        return view('payslip::operator.payslipShow', compact('payslips'));
     }
 
     /**
@@ -31,7 +33,7 @@ class PayslipController extends Controller
      */
     public function create()
     {
-        return view('payslip::operator.create');
+        return view('payslip::operator.payslipUpload');
     }
 
     /**
@@ -41,28 +43,35 @@ class PayslipController extends Controller
      */
     public function store(PayslipStoreRequest $request)
     {
-        // dd($request->date_pay);
-        // dd();
-        // $date = CalendarUtils::createCarbonFromFormat('d m, y', $request->date_pay);
-        // $date = Verta::parse($request->date_pay);
-        // var_dump($date);
-        // dd();
-        // $payslip = Payslip::create([
-        //     'status' => $request->status,
-        //     'date_pay' => Carbon::now(),
-        //     'file' => $request->file,
-        // ]);
-        // dd($request->file);
-
         $users = (new FastExcel)->import($request->file, function ($line) {
-            return User::create([
-                'first_name' => $line['first_name'],
-                'last_name' => $line['last_name'],
-                'phone' => $line['phone'],
-                'email' => $line['email'],
-                'password' => bcrypt($line['password'])
+            return Payslip::create([
+                'Code' => $line['Code'],
+                'Name' => $line['Name'],
+                'Family' => $line['Family'],
+                'FatherName' => $line['FatherName'],
+                'NationalCode' => $line['NationalCode'],
+                'TotalBimeh' => $line['TotalBimeh'],
+                'BimehShare' => $line['BimehShare'],
+                'JameKosoor' => $line['JameKosoor'],
+                'JameMazaya' => $line['JameMazaya'],
+                'KarkardUdy' => $line['KarkardUdy'],
+                'Mabna' => $line['Mabna'],
+                'DRes1' => $line['DRes1'],
+                'DRes2' => $line['DRes2'],
+                'withName' => $line['withName'],
+                'FactorValue' => $line['FactorValue'],
+                'FSType' => $line['FSType'],
             ]);
         });
+        $path = 'PayslipFile/';
+        $file = \App\Services\UploaderService::fileUploader($request->file, $path);
+
+        $PayslipLog = PayslipLog::create([
+            'name' => $request->name,
+            'date_pay' => $request->date_pay,
+            'file' => $file,
+            'user_id' => auth()->user()->id,
+        ]);
 
         $request->session()->flash('alert-success' , 'عملیات موفق بود!');
         return redirect()->route('Payslip.index');

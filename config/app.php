@@ -198,6 +198,7 @@ return [
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
     ],
@@ -217,6 +218,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Module' => Nwidart\Modules\Facades\Module::class,
         'Verta' => Hekmatinasser\Verta\Verta::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
 ];

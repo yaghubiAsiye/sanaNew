@@ -16,11 +16,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Head -->
     <body class="main">
         @include('partials.mobileMenu')
-        
+
         @yield('content')
 
         {{-- @include('partials.darkMode', ['menu' => $menu]) --}}
-      
+
         @include('partials.js')
+        {{-- @yield('js') --}}
     </body>
 </html>

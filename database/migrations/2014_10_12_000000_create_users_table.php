@@ -18,12 +18,16 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('phone')->unique();
-            $table->string('email')->unique();
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
+            $table->string('personal_code')->nullable();
+            // $table->string('email')->unique();
+            // $table->string('address')->nullable();
+            // $table->string('city')->nullable();
             $table->string('code_meli')->nullable();
-            $table->enum('gender', ['male', 'female'])->nullable();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('job_title')->nullable();
+            $table->string('bank_account_number')->nullable();
+
+            // $table->enum('gender', ['male', 'female'])->nullable();
+            // $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->timestamp('last_seen')->nullable();
             $table->string('password');

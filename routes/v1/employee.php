@@ -47,3 +47,7 @@ Route::controller(ResetPasswordController::class)->middleware('auth')->group(fun
 Route::controller(HomeController::class)->middleware('auth')->group(function(){
     Route::get('home', 'home')->name('home');
 });
+
+
+
+
