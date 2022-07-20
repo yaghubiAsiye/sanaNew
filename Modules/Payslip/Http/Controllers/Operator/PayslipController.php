@@ -43,7 +43,9 @@ class PayslipController extends Controller
      */
     public function store(PayslipStoreRequest $request)
     {
-        $users = (new FastExcel)->import($request->file, function ($line) {
+        $date = $request->date_pay;
+        // dd($date);
+        $payslips = (new FastExcel)->import($request->file,function ($line) {
             return Payslip::create([
                 'Code' => $line['Code'],
                 'Name' => $line['Name'],
@@ -61,8 +63,10 @@ class PayslipController extends Controller
                 'withName' => $line['withName'],
                 'FactorValue' => $line['FactorValue'],
                 'FSType' => $line['FSType'],
+                'date_pay' => 'مرداد۱۴۰۱',
             ]);
         });
+
         $path = 'PayslipFile/';
         $file = \App\Services\UploaderService::fileUploader($request->file, $path);
 

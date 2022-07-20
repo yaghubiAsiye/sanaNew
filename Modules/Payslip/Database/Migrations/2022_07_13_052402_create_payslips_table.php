@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('Family')->nullable();
             $table->string('FatherName')->nullable();
             $table->string('NationalCode')->nullable();
-            $table->timestamp('date_pay')->nullable()->comment('تاریخ فیش');
+            $table->string('date_pay')->nullable()->comment('تاریخ فیش');
             $table->string('BimehShare')->nullable()->comment('بیمه سهم کارمند');
             $table->string('JameKosoor')->nullable()->comment('جمع کسور');
             $table->string('JameMazaya')->nullable()->comment('جمع مزایا');

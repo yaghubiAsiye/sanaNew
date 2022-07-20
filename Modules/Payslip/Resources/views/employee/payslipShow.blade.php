@@ -10,115 +10,75 @@
         <!-- BEGIN: Top Bar -->
         @include('partials.topBarSide')
         <!-- END: Top Bar -->
-        <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-            <h2 class="text-lg font-medium ml-auto">
-               چینش فاکتور
-            </h2>
-            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <button class="btn btn-primary shadow-md ml-2">پرینت</button>
-                <div class="dropdown ml-auto sm:ml-0">
-                    <button class="dropdown-toggle btn px-2 box text-gray-700 dark:text-gray-300" aria-expanded="false">
-                        <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
-                    </button>
-                    <div class="dropdown-menu w-40">
-                        <div class="dropdown-menu__content box dark:bg-dark-1 p-2">
-                            <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="file" class="w-4 h-4 ml-2"></i>تبدیل به ورد</a>
-                            <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="file" class="w-4 h-4 ml-2"></i> تبدیل به پی دی اف </a>
-                        </div>
+        <h2 class="intro-y text-lg font-medium mt-10">
+            لیست فیش های حقوقی
+        </h2>
+        <div class="grid grid-cols-12 gap-6 mt-5">
+            <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
+                <a href="{{ route('Payslip.create') }}" class="btn btn-primary shadow-md ml-2">افزودن کارمند جدید</a>
+
+                <div class="hidden md:block mx-auto text-gray-600"></div>
+                <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+                    <div class="w-56 relative text-gray-700 dark:text-gray-300">
+                        <input type="text" class="form-control w-56 box pl-10 placeholder-theme-13" placeholder="جستجو...">
+                        <i class="w-4 h-4 absolute my-auto inset-y-0 ml-3 left-0" data-feather="search"></i>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- BEGIN: Invoice -->
-        <div class="intro-y box overflow-hidden mt-5">
-            <div class="flex flex-col lg:flex-row pt-10 px-5 sm:px-20 sm:pt-20 lg:pb-20 text-center sm:text-left">
-                <div class="font-semibold text-theme-1 dark:text-theme-10 text-3xl">فاکتور</div>
-                <div class="mt-20 lg:mt-0 lg:mr-auto lg:text-left">
-                    <div class="text-xl text-theme-1 dark:text-theme-10 font-medium">آفرید</div>
-                    <div class="mt-1">afaridteam@gmail.com</div>
-                    <div class="mt-1">یک آدرس کاملا فرضی در این مکان قرار دارد..</div>
-                </div>
-            </div>
-            <div class="flex flex-col lg:flex-row border-b px-5 sm:px-20 pt-10 pb-10 sm:pb-20 text-center sm:text-right">
-                <div>
-                    <div class="text-base text-gray-600">جزییات مشتری</div>
-                    <div class="text-lg font-medium text-theme-1 dark:text-theme-10 mt-2">آرنولد شوایتگز</div>
-                    <div class="mt-1">arnodlschwarzenegger@gmail.com</div>
-                    <div class="mt-1">یک آدرس کاملا فرضی در این مکان قرار دارد..</div>
-                </div>
-                <div class="mt-10 lg:mt-0 lg:mr-auto lg:text-left">
-                    <div class="text-base text-gray-600">گیرنده</div>
-                    <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">#1923195</div>
-                    <div class="mt-1">2 مهر 1400</div>
-                </div>
-            </div>
-            <div class="px-5 sm:px-16 py-10 sm:py-20">
-                <div class="overflow-x-auto">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                               <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">توضیحات</th>
-                                    <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">تعداد</th>
-                                    <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">قیمت</th>
-                                    <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">ریز هزینه</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border-b dark:border-dark-5">
-                                    <div class="font-medium whitespace-nowrap">قالب اچ تی ام ال روبیک  </div>
-                                    <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">لیسانس عادی</div>
-                                </td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">2</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">25 تومان</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32 font-medium">50 تومان</td>
-                            </tr>
-                            <tr>
-                                <td class="border-b dark:border-dark-5">
-                                    <div class="font-medium whitespace-nowrap">قالب ادمین ویو جی اس</div>
-                                    <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">لیسانس عادی</div>
-                                </td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">1</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">25 تومان</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32 font-medium">25 تومان</td>
-                            </tr>
-                            <tr>
-                                <td class="border-b dark:border-dark-5">
-                                    <div class="font-medium whitespace-nowrap">قالب ادمین ری اکت</div>
-                                    <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">لیسانس عادی</div>
-                                </td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">1</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32">25 تومان</td>
-                                <td class="text-left border-b dark:border-dark-5 w-32 font-medium">25 تومان</td>
-                            </tr>
-                            <tr>
+            <!-- BEGIN: Data List -->
+            <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+                <table class="table table-report -mt-2">
+                    <thead>
+                        <tr>
+                            <th class="whitespace-nowrap"> تاریخ</th>
+                            <th class="text-center whitespace-nowrap">کد پرسنلی </th>
+                            <th class="text-center whitespace-nowrap">کد ملی</th>
+                            <th class="text-center whitespace-nowrap">شماره تلفن </th>
+                            <th class="text-center whitespace-nowrap">سمت</th>
+                            <th class="text-center whitespace-nowrap">شماره حساب</th>
+                            <th class="text-center whitespace-nowrap">آخرین بازدید</th>
+                            {{-- <th class="text-center whitespace-nowrap">وضعیت </th> --}}
+                            {{-- <th class="text-center whitespace-nowrap">فعالیت</th> --}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($payslips as $items)
+                        @foreach ($items as $item)
+                            <tr class="intro-x">
+                                {{-- @dd($item) --}}
                                 <td>
-                                    <div class="font-medium whitespace-nowrap">قالب ادمین لاراول</div>
-                                    <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">لیسانس عادی</div>
+                                    <a href="#" class="font-medium whitespace-nowrap">{{ $item['date_pay'] ?? ''}}</a>
+                                    <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item['date_pay'] ?? ''}}</div>
                                 </td>
-                                <td class="text-left w-32">3</td>
-                                <td class="text-left w-32">25 تومان</td>
-                                <td class="text-left w-32 font-medium">75 تومان</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? ''}}</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? ''}}</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? ''}}</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? ''}}</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? ''}}</td>
+                                <td class="text-center">{{ $item['date_pay'] ?? '' }}</td>
+
+
+
+                                {{-- <td class="table-report__action w-56">
+                                    <div class="flex justify-center items-center">
+                                        <a class="flex items-center ml-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> ویرایش</a>
+                                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
+                                    </div>
+                                </td> --}}
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                        @endforeach
+
+
+                    </tbody>
+                </table>
             </div>
-            <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
-                <div class="text-center sm:text-right mt-10 sm:mt-0">
-                    <div class="text-base text-gray-600">انتقال بانکی</div>
-                    <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">ایلان ماسک</div>
-                    <div class="mt-1">شماره حساب: 098347234832</div>
-                    <div class="mt-1">کد : LFT133243</div>
-                </div>
-                <div class="text-center sm:text-left sm:mr-auto">
-                    <div class="text-base text-gray-600">مبلغ کل</div>
-                    <div class="text-xl text-theme-1 dark:text-theme-10 font-medium mt-2"> تومان 20.600.00</div>
-                    <div class="mt-1 tetx-xs">همراه مالیات </div>
-                </div>
-            </div>
+
+            <!-- END: Data List -->
+            {{-- {{ $items->links('partials.pagination') }} --}}
+
         </div>
-        <!-- END: Invoice -->
+
     </div>
     <!-- END: Content -->
 </div>

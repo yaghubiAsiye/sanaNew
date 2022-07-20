@@ -22,6 +22,7 @@ class AdminUserSeeder extends Seeder
             'last_name' => 'admin',
             // 'email' => 'admin@gmail.com',
             'phone' => '09330945684',
+            'code_meli' => '65268822',
             'password' => bcrypt('12345678')
         ]);
 

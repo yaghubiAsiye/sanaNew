@@ -38,13 +38,29 @@
                                                 <label for="name" class="form-label"> نام </label>
                                                 <input id="name" name="name" data-search="true" class="form-control">
                                             </div>
-                                             <div id="">
+                                            <div class="mt-3">
+                                                <label for="name" class="form-label"> نام </label>
+                                                <select name="date_pay" id="date_pay" class="form-control pr-12">
+                                                    <option value="تیر۱۴۰۱">تیر ۱۴۰۱</option>
+                                                    <option value="مرداد۱۴۰۱">مرداد ۱۴۰۱</option>
+                                                    <option value="شهریور۱۴۰۱">شهریور ۱۴۰۱</option>
+                                                    <option value="مهر۱۴۰۱">مهر ۱۴۰۱</option>
+                                                    <option value="آبان۱۴۰۱">آبان ۱۴۰۱</option>
+                                                    <option value="آذر۱۴۰۱">آذر ۱۴۰۱</option>
+                                                    <option value="دی۱۴۰۱">دی ۱۴۰۱</option>
+                                                    <option value="بهمن۱۴۰۱">بهمن ۱۴۰۱</option>
+                                                    <option value="اسفند۱۴۰۱">اسفند ۱۴۰۱</option>
+                                                </select>
+                                            </div>
+
+                                             {{-- <div id="">
                                                 <label for="date_pay" class="form-label"> تاریخ</label>
                                                 <div class="relative">
                                                     <div class="absolute rounded-r w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 dark:bg-dark-1 dark:border-dark-4"> <i data-feather="calendar" class="w-4 h-4"></i> </div>
                                                     <input type="date" name="date_pay" id="date_pay" class="form-control pr-12" >
+
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
 
@@ -83,5 +99,4 @@
 @section('js')
 <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
 @endsection
-من ممنونم از شما اما الان این یک باگ هستش که سال رو به میلادی نشون میده و انتخاب گر اش ماه رو شمسی نشون میده
-شما به عنوان طراح باید بتونین این رو هندل کنید  --}}
+ --}}

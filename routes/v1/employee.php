@@ -8,7 +8,7 @@ use App\Http\Controllers\V1\Site\Auth\RegisterController;
 use App\Http\Controllers\V1\Site\Auth\ResetPasswordController;
 
 Route::get('/', function () {
-    auth()->logout();
+    // auth()->logout();
     return view('pages.site.auth.login');
 });
 
@@ -16,15 +16,18 @@ Route::get('/', function () {
 /*                                 auth route                                 */
 /* -------------------------------------------------------------------------- */
 Route::prefix('auth')->group(function(){
-    Route::controller(RegisterController::class)->group(function(){
-        Route::get('register', 'showRegister')->name('register');
-        Route::post('register', 'register');
-    });
+
     Route::controller(LoginController::class)->group(function(){
+
         Route::get('login', 'showLogin')->name('login');
+        Route::post('send-otp', 'sendOtp')->name('send-otp');
+        Route::get('login/otp', 'showLoginOtp')->name('login-otp');
         Route::post('login', 'login');
+
+
         Route::get('logout', 'logout')->name('logout');
         Route::get('dashboard', 'dashboard')->name('dashboard');
+
     });
 });
 

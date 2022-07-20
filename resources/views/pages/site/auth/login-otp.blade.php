@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!-- END: Login Info -->
                 <!-- BEGIN: Login Form -->
-                <form  action="{{route('send-otp')}}" method="POST">
+                <form  action="{{route('login')}}" method="POST">
                     @csrf
                 <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
                     <div class="my-auto mx-auto xl:mr-20 bg-white dark:bg-dark-1 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
@@ -51,34 +51,32 @@ License: You must have a valid license purchased only from themeforest(the above
                             ورود
                         </h2>
                         @include('partials.alert')
-
                         <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">چند کلیک دیگر برای ورود به اکانت خود دارید . همه حساب های تجارت الکترونیکی خود را در یک مکان مدیریت کنید</div>
                         <div class="intro-x mt-8">
-                            <div class="input-form mt-3 @error('phone') has-error @enderror">
-                                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">  تلفن همراه <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است   </span> </label>
-                                <input id="validation-form-1" value="{{old('phone')}}" type="text" name="phone" class="form-control" placeholder="09121234567"  required="">
-                                @error('phone')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
+                            <div class="input-form mt-3 @error('password') has-error @enderror">
+                                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">   پسورد <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است   </span> </label>
+                                <input id="validation-form-1" value="{{old('password')}}" type="password" name="password" class="form-control"   required="">
+                                @error('password')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
                             </div>
 
-
-                            {{-- <div class="input-form mt-3 @error('password') has-error @enderror">
-                                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">  رمز  <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است ،بایدحداقل 6 کارکتر باشد  </span> </label>
-                                <input id="validation-form-1" value="{{old('password')}}" type="password" name="password" class="form-control" placeholder="رمز"  required="">
-                                @error('password')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
-                            </div> --}}
+                            <div class="input-form mt-3 @error('code') has-error @enderror">
+                                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">  پیامک یکبار مصرف <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است ،بایدحداقل 6 کارکتر باشد  </span> </label>
+                                <input id="validation-form-1" value="{{old('code')}}" type="text" name="code" class="form-control" placeholder="درج Otp"  required="">
+                                @error('code')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
+                            </div>
 
                             {{-- <input type="text" class="intro-x login__input form-control py-3 px-4 border-gray-300 block" placeholder="ایمیل">
                             <input type="password" class="intro-x login__input form-control py-3 px-4 border-gray-300 block mt-4" placeholder="رمزعبور"> --}}
                         </div>
-                        {{-- <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
+                        <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
                             <div class="flex items-center ml-auto">
                                 <input id="remember-me" type="checkbox" class="form-check-input border ml-2">
                                 <label class="cursor-pointer select-none" for="remember-me">مرا به خاطر داشته باش</label>
                             </div>
-                            <a href="">فراموشی رمز عبور؟</a>
-                        </div> --}}
+                            {{-- <a href="">فراموشی رمز عبور؟</a>  --}}
+                        </div>
                         <div class="intro-x mt-5 xl:mt-8 text-center xl:text-right">
-                            <button class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:ml-3 align-top">ارسال پیامک</button>
+                            <button class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:ml-3 align-top">ورود</button>
                             {{-- <button class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top">ثبت نام</button> --}}
                         </div>
                         {{-- <div class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-right">
@@ -103,3 +101,5 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END: JS Assets-->
     </body>
 </html>
+
+
