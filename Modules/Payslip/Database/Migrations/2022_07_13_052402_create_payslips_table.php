@@ -27,26 +27,26 @@ return new class extends Migration
             $table->string('KarkardUdy')->nullable()->comment('روزهای کارکرد');
             $table->string('Mabna')->nullable()->comment('حقوق پایه');
 
-            $table->string('ravandMaheqabl')->nullable()->comment('روند ماه قبل');
-            $table->string('haqeMaskan')->nullable()->comment('حق مسکن');
-            $table->string('boneKargary')->nullable()->comment('بن کارگري');
-            $table->string('haqeMasuliat')->nullable()->comment('حق مسئوليت');
-            $table->string('sayerHoquq')->nullable()->comment('ساير حقوق');
-            $table->string('haqeShayestegy')->nullable()->comment('حق شايستگي');
-            $table->string('bimeTaminEjtemaii')->nullable()->comment('بيمه تامين اجتماعي');
-            $table->string('maliat')->nullable()->comment('ماليات');
-            $table->string('ravandMaheJary')->nullable()->comment('روند ماه جاري');
-            $table->string('bimeSahmeKarfarma')->nullable()->comment('بيمه سهم کارفرما');
-            $table->string('bimeBikary')->nullable()->comment('بيمه بيکاري');
-            $table->string('bimeTakmili')->nullable()->comment('بيمه تکميلي - البرز');
-            $table->string('vameSherkat')->nullable()->comment('وام شرکت');
+            // $table->string('ravandMaheqabl')->nullable()->comment('روند ماه قبل');
+            // $table->string('haqeMaskan')->nullable()->comment('حق مسکن');
+            // $table->string('boneKargary')->nullable()->comment('بن کارگري');
+            // $table->string('haqeMasuliat')->nullable()->comment('حق مسئوليت');
+            // $table->string('sayerHoquq')->nullable()->comment('ساير حقوق');
+            // $table->string('haqeShayestegy')->nullable()->comment('حق شايستگي');
+            // $table->string('bimeTaminEjtemaii')->nullable()->comment('بيمه تامين اجتماعي');
+            // $table->string('maliat')->nullable()->comment('ماليات');
+            // $table->string('ravandMaheJary')->nullable()->comment('روند ماه جاري');
+            // $table->string('bimeSahmeKarfarma')->nullable()->comment('بيمه سهم کارفرما');
+            // $table->string('bimeBikary')->nullable()->comment('بيمه بيکاري');
+            // $table->string('bimeTakmili')->nullable()->comment('بيمه تکميلي - البرز');
+            // $table->string('vameSherkat')->nullable()->comment('وام شرکت');
             $table->string('DRes1')->nullable()->comment('');
             $table->string('DRes2')->nullable()->comment('');
             $table->string('FSType')->nullable()->comment('');
 
-            $table->string('withName')->nullable()->comment('');
-            $table->string('TotalBimeh')->nullable()->comment('');
+            $table->string('withOutName')->nullable()->comment('');
             $table->string('FactorValue')->nullable()->comment('');
+            $table->string('TotalBimeh')->nullable()->comment('');
 
             $table->softDeletes();
             $table->timestamps();

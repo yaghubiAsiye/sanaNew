@@ -64,6 +64,7 @@ class PayslipController extends Controller
                 'FactorValue' => $line['FactorValue'],
                 'FSType' => $line['FSType'],
                 'date_pay' => 'مرداد۱۴۰۱',
+                // 'month_id' => 1,
             ]);
         });
 

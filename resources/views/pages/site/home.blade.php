@@ -10,25 +10,27 @@
     <div class="content">
         <!-- BEGIN: Top Bar -->
         @include('partials.topBarSide')
-       
-      
+
+
 
         <!-- END: Top Bar -->
         <div class="grid grid-cols-12 gap-6">
              <div class="col-span-12 xxl:col-span-9">
                 <div class="alert alert-outline-success alert-dismissible show flex items-center mb-2" role="alert">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle w-6 h-6 ml-2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle w-6 h-6 ml-2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     به سامانه نیروی انسانی ارتباطات پرشیا خوش آمدید!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> </button>
                 </div>
              </div>
             <div class="col-span-12 xxl:col-span-9">
                 <div class="grid grid-cols-12 gap-6">
+
+                    
                     <!-- BEGIN: General Report -->
-                    <div class="col-span-12 mt-8">
+                    {{-- <div class="col-span-12 mt-8">
                         <div class="intro-y flex items-center h-10">
                             <h2 class="text-lg font-medium truncate ml-5">
-                                 گزارش کلی 
+                                 گزارش کلی
                             </h2>
                             <a href="" class="mr-auto flex items-center text-theme-1 dark:text-theme-10"> <i data-feather="refresh-ccw" class="w-4 h-4 ml-3"></i>به روزرسانی داده</a>
                         </div>
@@ -37,7 +39,7 @@
                                 <div class="report-box zoom-in">
                                     <div class="box p-5">
                                         <div class="flex">
-                                            <i data-feather="shopping-cart" class="report-box__icon text-theme-10"></i> 
+                                            <i data-feather="shopping-cart" class="report-box__icon text-theme-10"></i>
                                             <div class="mr-auto">
                                                 <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% بالاتر از ماه گذشته"> 33% <i data-feather="chevron-up" class="w-4 h-4 mr-0.5"></i> </div>
                                             </div>
@@ -51,7 +53,7 @@
                                 <div class="report-box zoom-in">
                                     <div class="box p-5">
                                         <div class="flex">
-                                            <i data-feather="credit-card" class="report-box__icon text-theme-11"></i> 
+                                            <i data-feather="credit-card" class="report-box__icon text-theme-11"></i>
                                             <div class="mr-auto">
                                                 <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% کمتر از ماه گذشته"> 2% <i data-feather="chevron-down" class="w-4 h-4 mr-0.5"></i> </div>
                                             </div>
@@ -65,7 +67,7 @@
                                 <div class="report-box zoom-in">
                                     <div class="box p-5">
                                         <div class="flex">
-                                            <i data-feather="monitor" class="report-box__icon text-theme-12"></i> 
+                                            <i data-feather="monitor" class="report-box__icon text-theme-12"></i>
                                             <div class="mr-auto">
                                                 <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="12% بالاتر از ماه گذشته"> 12% <i data-feather="chevron-up" class="w-4 h-4 mr-0.5"></i> </div>
                                             </div>
@@ -79,7 +81,7 @@
                                 <div class="report-box zoom-in">
                                     <div class="box p-5">
                                         <div class="flex">
-                                            <i data-feather="user" class="report-box__icon text-theme-9"></i> 
+                                            <i data-feather="user" class="report-box__icon text-theme-9"></i>
                                             <div class="mr-auto">
                                                 <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="22% بالاتر از ماه گذشته"> 22% <i data-feather="chevron-up" class="w-4 h-4 mr-0.5"></i> </div>
                                             </div>
@@ -90,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- END: General Report -->
                     <!-- BEGIN: Sales Report -->
                     {{-- <div class="col-span-12 lg:col-span-6 mt-8">
@@ -99,7 +101,7 @@
                                گزارش فروش
                             </h2>
                             <div class="sm:mr-auto mt-3 sm:mt-0 relative text-gray-700 dark:text-gray-300">
-                                <i data-feather="calendar" class="w-4 h-4 z-10 absolute my-auto inset-y-0 ml-3 left-0"></i> 
+                                <i data-feather="calendar" class="w-4 h-4 z-10 absolute my-auto inset-y-0 ml-3 left-0"></i>
                                 <input type="text" class="datepicker form-control sm:w-56 box pl-10">
                             </div>
                         </div>
@@ -135,28 +137,28 @@
                             <h2 class="text-lg font-medium truncate ml-5">
                                 فروش بالای هفتگی
                             </h2>
-                            <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a> 
+                            <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a>
                         </div>
                         <div class="intro-y box p-5 mt-5">
                             <canvas class="mt-3" id="report-pie-chart" height="300"></canvas>
                             <div class="mt-8">
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-theme-11 rounded-full ml-3"></div>
-                                    <span class="truncate">17 - 30 سن </span> 
+                                    <span class="truncate">17 - 30 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">62%</span> 
+                                    <span class="font-medium xl:mr-auto">62%</span>
                                 </div>
                                 <div class="flex items-center mt-4">
                                     <div class="w-2 h-2 bg-theme-1 rounded-full ml-3"></div>
-                                    <span class="truncate">31 - 50 سن </span> 
+                                    <span class="truncate">31 - 50 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">33%</span> 
+                                    <span class="font-medium xl:mr-auto">33%</span>
                                 </div>
                                 <div class="flex items-center mt-4">
                                     <div class="w-2 h-2 bg-theme-12 rounded-full ml-3"></div>
-                                    <span class="truncate">>= 50 سن </span> 
+                                    <span class="truncate">>= 50 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">10%</span> 
+                                    <span class="font-medium xl:mr-auto">10%</span>
                                 </div>
                             </div>
                         </div>
@@ -168,28 +170,28 @@
                             <h2 class="text-lg font-medium truncate ml-5">
                                گزارش فروش
                             </h2>
-                            <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a> 
+                            <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a>
                         </div>
                         <div class="intro-y box p-5 mt-5">
                             <canvas class="mt-3" id="report-donut-chart" height="300"></canvas>
                             <div class="mt-8">
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-theme-11 rounded-full ml-3"></div>
-                                    <span class="truncate">17 - 30 سن </span> 
+                                    <span class="truncate">17 - 30 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">62%</span> 
+                                    <span class="font-medium xl:mr-auto">62%</span>
                                 </div>
                                 <div class="flex items-center mt-4">
                                     <div class="w-2 h-2 bg-theme-1 rounded-full ml-3"></div>
-                                    <span class="truncate">31 - 50 سن </span> 
+                                    <span class="truncate">31 - 50 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">33%</span> 
+                                    <span class="font-medium xl:mr-auto">33%</span>
                                 </div>
                                 <div class="flex items-center mt-4">
                                     <div class="w-2 h-2 bg-theme-12 rounded-full ml-3"></div>
-                                    <span class="truncate">>= 50 سن </span> 
+                                    <span class="truncate">>= 50 سن </span>
                                     <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                    <span class="font-medium xl:mr-auto">10%</span> 
+                                    <span class="font-medium xl:mr-auto">10%</span>
                                 </div>
                             </div>
                         </div>
@@ -199,10 +201,10 @@
                     {{-- <div class="col-span-12 xl:col-span-8 mt-6">
                         <div class="intro-y block sm:flex items-center h-10">
                             <h2 class="text-lg font-medium truncate ml-5">
-                                فروشگاه رسمی 
+                                فروشگاه رسمی
                             </h2>
                             <div class="sm:mr-auto mt-3 sm:mt-0 relative text-gray-700 dark:text-gray-300">
-                                <i data-feather="map-pin" class="w-4 h-4 z-10 absolute my-auto inset-y-0 ml-3 left-0"></i> 
+                                <i data-feather="map-pin" class="w-4 h-4 z-10 absolute my-auto inset-y-0 ml-3 left-0"></i>
                                 <input type="text" class="form-control sm:w-40 box pl-10" placeholder="فیلتر بر اساس شهر">
                             </div>
                         </div>
@@ -268,7 +270,7 @@
                                     <div class="py-1 px-2 rounded-full text-xs bg-theme-9 text-white cursor-pointer font-medium">137 فروش</div>
                                 </div>
                             </div>
-                            <a href="" class="intro-y w-full block text-center rounded-md py-4 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">مشاهده بیشتر</a> 
+                            <a href="" class="intro-y w-full block text-center rounded-md py-4 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">مشاهده بیشتر</a>
                         </div>
                     </div> --}}
                     <!-- END: Weekly Best Sellers -->
@@ -364,7 +366,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a href="" class="font-medium whitespace-nowrap">دل ایکس‌پی‌اس </a> 
+                                            <a href="" class="font-medium whitespace-nowrap">دل ایکس‌پی‌اس </a>
                                             <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">کامپیوتر و لپ تاپ</div>
                                         </td>
                                         <td class="text-center">110</td>
@@ -393,7 +395,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a href="" class="font-medium whitespace-nowrap">سامسونگ کیوناین تی‌وی</a> 
+                                            <a href="" class="font-medium whitespace-nowrap">سامسونگ کیوناین تی‌وی</a>
                                             <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">الکترونیک</div>
                                         </td>
                                         <td class="text-center">113</td>
@@ -422,7 +424,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a href="" class="font-medium whitespace-nowrap">سامسونگ اس بیست اولترا</a> 
+                                            <a href="" class="font-medium whitespace-nowrap">سامسونگ اس بیست اولترا</a>
                                             <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">گوشی هوشمند و لپتاپ</div>
                                         </td>
                                         <td class="text-center">140</td>
@@ -451,7 +453,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a href="" class="font-medium whitespace-nowrap">نیکون ضد </a> 
+                                            <a href="" class="font-medium whitespace-nowrap">نیکون ضد </a>
                                             <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">عکاسی</div>
                                         </td>
                                         <td class="text-center">50</td>
@@ -570,7 +572,7 @@
                                         <div class="text-theme-9">109+ تومان</div>
                                     </div>
                                 </div>
-                                <a href="" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">مشاهده بیشتر</a> 
+                                <a href="" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">مشاهده بیشتر</a>
                             </div>
                         </div>
                         <!-- END: Transactions -->
@@ -580,7 +582,7 @@
                                 <h2 class="text-lg font-medium truncate ml-5">
                                     فعالیت های اخیر
                                 </h2>
-                                <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a> 
+                                <a href="" class="mr-auto text-theme-1 dark:text-theme-10 truncate"> بیشتر </a>
                             </div>
                             <div class="report-timeline mt-5 relative">
                                 <div class="intro-x relative flex items-center mb-3">
@@ -712,9 +714,9 @@
                                 <div class="intro-x box">
                                     <div class="p-5">
                                         <div class="flex">
-                                            <i data-feather="chevron-right" class="w-5 h-5 text-gray-600"></i> 
+                                            <i data-feather="chevron-right" class="w-5 h-5 text-gray-600"></i>
                                             <div class="font-medium text-base mx-auto">مهر</div>
-                                            <i data-feather="chevron-left" class="w-5 h-5 text-gray-600"></i> 
+                                            <i data-feather="chevron-left" class="w-5 h-5 text-gray-600"></i>
                                         </div>
                                         <div class="grid grid-cols-7 gap-4 mt-5 text-center cal">
                                                 <div class="font-medium">شنبه</div>
@@ -771,21 +773,21 @@
                                     <div class="border-t border-gray-200 dark:border-dark-5 p-5">
                                         <div class="flex items-center">
                                             <div class="w-2 h-2 bg-theme-11 rounded-full ml-3"></div>
-                                            <span class="truncate">UI/UX ورکشاپ</span> 
+                                            <span class="truncate">UI/UX ورکشاپ</span>
                                             <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                            <span class="font-medium xl:mr-auto">23ام</span> 
+                                            <span class="font-medium xl:mr-auto">23ام</span>
                                         </div>
                                         <div class="flex items-center mt-4">
                                             <div class="w-2 h-2 bg-theme-1 dark:bg-theme-10 rounded-full ml-3"></div>
-                                            <span class="truncate">VueJs توسعه فرانت با</span> 
+                                            <span class="truncate">VueJs توسعه فرانت با</span>
                                             <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                            <span class="font-medium xl:mr-auto">10ام</span> 
+                                            <span class="font-medium xl:mr-auto">10ام</span>
                                         </div>
                                         <div class="flex items-center mt-4">
                                             <div class="w-2 h-2 bg-theme-12 rounded-full ml-3"></div>
-                                            <span class="truncate">لاراول ای پی ا رست</span> 
+                                            <span class="truncate">لاراول ای پی ا رست</span>
                                             <div class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"></div>
-                                            <span class="font-medium xl:mr-auto">31ام</span> 
+                                            <span class="font-medium xl:mr-auto">31ام</span>
                                         </div>
                                     </div>
                                 </div>

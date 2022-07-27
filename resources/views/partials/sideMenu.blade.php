@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('Employee.payslipShow') }}" class="side-menu">
+            <a href="{{ route('Employee.payslips') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
                 <div class="side-menu__title"> فیش حقوقی </div>
             </a>
