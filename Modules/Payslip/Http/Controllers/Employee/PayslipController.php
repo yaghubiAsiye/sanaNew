@@ -108,6 +108,10 @@ class PayslipController extends Controller
             return $data;
 
         });
+        //   echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        // dd('ok');
 
 
         return view('payslip::employee.payslip-single', compact('data', 'value'));
@@ -119,44 +123,61 @@ class PayslipController extends Controller
     {
         $payslips = Payslip::where('NationalCode', auth()->user()->code_meli)
         ->where('date_pay', $value)
-        ->get()
-        ->groupBy('date_pay');
+        ->get();
+        // ->groupBy('date_pay');
 
+        $data['itemWithName'] = [
+            'Code' => $payslips->first()['Code'],
+            'Name' => $payslips->first()['Name'],
+            'Family' => $payslips->first()['Family'],
+            'FatherName' => $payslips->first()['FatherName'],
+            'NationalCode' => $payslips->first()['NationalCode'],
+            'TotalBimeh' => $payslips->first()['TotalBimeh'],
+            'BimehShare' => $payslips->first()['BimehShare'],
+            'JameKosoor' => $payslips->first()['JameKosoor'],
+            'JameMazaya' => $payslips->first()['JameMazaya'],
+            'KarkardUdy' => $payslips->first()['KarkardUdy'],
+            'Mabna' => $payslips->first()['Mabna'],
+            'DRes1' => $payslips->first()['DRes1'],
+            'DRes2' => $payslips->first()['DRes2'],
+        ];
 
-        $data = $payslips->unique('date_pay')->map(function($item, $key)
-        {
+        // $data += $payslips->map(function($item, $key)
+        // {
 
-            $data['itemWithName'] = $item->map(function($line) {
-                return [
-                    'Code' => $line['Code'],
-                    'Name' => $line['Name'],
-                    'Family' => $line['Family'],
-                    'FatherName' => $line['FatherName'],
-                    'NationalCode' => $line['NationalCode'],
-                    'TotalBimeh' => $line['TotalBimeh'],
-                    'BimehShare' => $line['BimehShare'],
-                    'JameKosoor' => $line['JameKosoor'],
-                    'JameMazaya' => $line['JameMazaya'],
-                    'KarkardUdy' => $line['KarkardUdy'],
-                    'Mabna' => $line['Mabna'],
-                    'DRes1' => $line['DRes1'],
-                    'DRes2' => $line['DRes2'],
-                ];
-            });
+            // echo "<pre>";
+            // print_r($item);
+            // echo "</pre>";
+            // $data['itemWithName'] = $item->filter(function($line) {
+            //     return [
+            //         'Code' => $line['Code'],
+            //         'Name' => $line['Name'],
+            //         'Family' => $line['Family'],
+            //         'FatherName' => $line['FatherName'],
+            //         'NationalCode' => $line['NationalCode'],
+            //         'TotalBimeh' => $line['TotalBimeh'],
+            //         'BimehShare' => $line['BimehShare'],
+            //         'JameKosoor' => $line['JameKosoor'],
+            //         'JameMazaya' => $line['JameMazaya'],
+            //         'KarkardUdy' => $line['KarkardUdy'],
+            //         'Mabna' => $line['Mabna'],
+            //         'DRes1' => $line['DRes1'],
+            //         'DRes2' => $line['DRes2'],
+            //     ];
+            // });
 
-            $data['itemWithoutName'] = $item->map(function($line)
-            {
+            $data += [
+                'itemWithoutName' => $payslips->collect()->map(function($line)
+                    {
+                        return [
+                            $line['withName'] => $line['FactorValue'],
+                        ];
+                    })];
 
-                return [
-                    $line['withName'] => $line['FactorValue'],
-                ];
+            // return $data;
 
-            });
-
-            return $data;
-
-        });
-        $data = $data->toArray();
+        // });
+        // $data = $data->toArray();
         $data += [
             'date_pay' => $value
         ];
