@@ -111,7 +111,7 @@
                         <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح پرداخت ها </div>
                         @foreach ($items['itemWithoutName'] as $item)
                             @foreach ($item as $key => $value)
-                                <div class="font-medium whitespace-nowrap">{{ $key}} : {{ $value }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ $key}} : {{ number_format($value) }}</div>
                             @endforeach
                         @endforeach
                         {{-- <div class="font-medium whitespace-nowrap"> حقوق پایه : {{ number_format($items['itemWithName'][0]['Mabna']) ?? ''}}</div>

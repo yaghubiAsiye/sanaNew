@@ -16,6 +16,7 @@
             </h2>
         </div>
         @include('partials.alert')
+        @include('partials.error')
         <div class="grid grid-cols-12 gap-6">
 
             <div class="col-span-12 lg:col-span-12 xxl:col-span-12">
@@ -27,7 +28,7 @@
                         </h2>
                     </div>
                     <div class="p-5">
-                        <form action="{{ route('Payslip.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('Payslip.store') }}" id="form" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="flex flex-col-reverse xl:flex-row flex-col">
                                 <div class="flex-1 mt-6 xl:mt-0">
@@ -52,18 +53,7 @@
                                                     <option value="اسفند۱۴۰۱">اسفند ۱۴۰۱</option>
                                                 </select>
                                             </div>
-
-                                             {{-- <div id="">
-                                                <label for="date_pay" class="form-label"> تاریخ</label>
-                                                <div class="relative">
-                                                    <div class="absolute rounded-r w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 dark:bg-dark-1 dark:border-dark-4"> <i data-feather="calendar" class="w-4 h-4"></i> </div>
-                                                    <input type="date" name="date_pay" id="date_pay" class="form-control pr-12" >
-
-                                                </div>
-                                            </div> --}}
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div class="w-52 mx-auto xl:ml-0 xl:mr-6">
@@ -86,7 +76,16 @@
                             <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button>
                         </form>
                     </div>
+
+                    <div class="p-5" id="loadingIcon" style="display: none">
+                        <div  class="col-span-6 sm:col-span-3 xl:col-span-2 flex flex-col justify-end items-center">
+                            <i data-loading-icon="spinning-circles" class="w-8 h-8 "></i>
+                            <div class="text-center text-xs mt-2">لطفا منتظر بمانید !</div>
+                        </div>
+                    </div>
                 </div>
+
+
                 <!-- END: Display Information -->
             </div>
         </div>
@@ -95,8 +94,22 @@
 </div>
 @endsection
 
-{{--
+
 @section('js')
-<script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+{{-- <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script> --}}
+
+<script type="text/javascript">
+    const form = document.getElementById('form');
+    form.addEventListener('submit', logSubmit);
+
+    function logSubmit(event)
+    {
+        document.getElementById("loadingIcon").style.display = "block";
+        // event.preventDefault();
+    }
+
+</script>
+
+
 @endsection
- --}}
+

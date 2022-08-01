@@ -5,7 +5,6 @@ namespace Modules\Payslip\Http\Controllers\Operator;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
-// use Services\UploaderService;
 use Hekmatinasser\Verta\Verta;
 use Morilog\Jalali\CalendarUtils;
 use Illuminate\Routing\Controller;
@@ -14,6 +13,8 @@ use Modules\Payslip\Entities\Payslip;
 use Modules\Payslip\Entities\PayslipLog;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Payslip\Http\Requests\PayslipStoreRequest;
+use Exception;
+
 
 class PayslipController extends Controller
 {
@@ -43,31 +44,47 @@ class PayslipController extends Controller
      */
     public function store(PayslipStoreRequest $request)
     {
-        $date = $request->date_pay;
-        // dd($date);
-        $payslips = (new FastExcel)->import($request->file,function ($line) {
-            return Payslip::create([
-                'Code' => $line['Code'],
-                'Name' => $line['Name'],
-                'Family' => $line['Family'],
-                'FatherName' => $line['FatherName'],
-                'NationalCode' => $line['NationalCode'],
-                'TotalBimeh' => $line['TotalBimeh'],
-                'BimehShare' => $line['BimehShare'],
-                'JameKosoor' => $line['JameKosoor'],
-                'JameMazaya' => $line['JameMazaya'],
-                'KarkardUdy' => $line['KarkardUdy'],
-                'Mabna' => $line['Mabna'],
-                'DRes1' => $line['DRes1'],
-                'DRes2' => $line['DRes2'],
-                'withName' => $line['withName'],
-                'FactorValue' => $line['FactorValue'],
-                'FSType' => $line['FSType'],
-                'date_pay' => 'مرداد۱۴۰۱',
-                // 'month_id' => 1,
-            ]);
-        });
 
+
+        try
+        {
+            $payslips = (new FastExcel)->import($request->file,function ($line) {
+                return Payslip::create([
+                    'date_pay' => $line['تاريخ'],
+                    'code' => $line['كد پرسنلى'],
+                    'name' => $line['نام'],
+                    'family' => $line['نام خانوادگى'],
+                    'fatherName' => $line['نام پدر'],
+                    'codeMeli' => $line['كد ملى'],
+                    'shomareShenasname' => $line['شماره شناسنامه'],
+                    'job' => $line['شغل'],
+                    'shomareHesab' => $line['شماره حساب'],
+                    'mahaleKhedmat' => $line['محل خدمت'],
+                    'shomareBime' => $line['شماره بيمه'],
+                    'mablaqKhalesPardakhty' => $line['پرداختى'],
+                    'karkardAdy' => $line['کارکرد عادی '],
+                    'ezafeKary' => $line['اضافه کاری'],
+                    'shabKari' => $line['شبکاری'],
+                    'kasreKar' => $line['کسر کار'],
+                    'mamuriateKhoshky' => $line['ماموریت خشکی '],
+                    'mamuriateDarya' => $line['ماموریت دریا '],
+                    'nobateKary15' => $line['نوبت کاری 15%'],
+                    'nobateKary225' => $line['نوبت کاری 22.5%'],
+                    'aqmaryDarya' => $line['اقماری دریا'],
+                    'aqmaryKhoshky' => $line['اقماری خشکی '],
+                    'amelName' => $line['نام عامل'],
+                    'amelValue' => $line['مبلغ حكم'],
+                    'mazayaValue' => $line['مزايا'],
+                    'kosoorValue' => $line['كسور'],
+                ]);
+            });
+
+        } catch (Exception $exception)
+        {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+    
         $path = 'PayslipFile/';
         $file = \App\Services\UploaderService::fileUploader($request->file, $path);
 

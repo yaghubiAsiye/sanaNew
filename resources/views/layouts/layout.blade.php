@@ -22,6 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
         {{-- @include('partials.darkMode', ['menu' => $menu]) --}}
 
         @include('partials.js')
-        {{-- @yield('js') --}}
+        @yield('js')
+
     </body>
 </html>
