@@ -24,10 +24,11 @@ class PermissionTableSeeder extends Seeder
             'user-list',
             'user-create',
             'user-edit',
-            'user-delete'
+            'user-delete',
+            'Accountants-crud',
         ];
 
-        foreach ($permissions as $permission) 
+        foreach ($permissions as $permission)
         {
             Permission::create(['name' => $permission]);
         }

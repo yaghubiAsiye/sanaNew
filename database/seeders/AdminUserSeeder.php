@@ -25,7 +25,6 @@ class AdminUserSeeder extends Seeder
             'code_meli' => '65268822',
             'password' => bcrypt('12345678')
         ]);
-
         $role = Role::create(['name' => 'Super Admin']);
 
         $permissions = Permission::pluck('id','id')->all();
@@ -33,6 +32,28 @@ class AdminUserSeeder extends Seeder
         $role->syncPermissions($permissions);
 
         $user->assignRole([$role->id]);
+
+        $userBorumand = User::create([
+            'first_name' => 'سمیرا',
+            'last_name' => 'برومند',
+            // 'email' => 'admin@gmail.com',
+            'phone' => '09129265192',
+            'code_meli' => '12345678',
+            'password' => bcrypt('12345678')
+        ]);
+        $roleBorumand = Role::create(['name' => 'Financial']);
+
+        $permissionBorumand = Permission::where('name','Accountants-crud')->get();
+
+        $roleBorumand->syncPermissions($permissionBorumand);
+
+        $userBorumand->assignRole([$roleBorumand->id]);
+
+
+
+
+
+
 
     }
 }

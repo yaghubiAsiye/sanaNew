@@ -11,7 +11,7 @@
                 <div class="side-menu__title"> داشبرد </div>
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a href="#" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
                 <div class="side-menu__title"> اطلاعیه ها </div>
@@ -22,46 +22,35 @@
                 <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
                 <div class="side-menu__title"> فیش حقوقی </div>
             </a>
-        </li>
+        </li> --}}
 
 
         @can('Accountants-crud')
             <li class="side-nav__devider my-6"></li>
             <li>
-                <a href="javascript:;" class="side-menu {{ (Request::is('auth/reset-password-page') ? 'side-menu--active' : '') }}">
+                <a href="javascript:;" class="side-menu {{ (Request::is('Operator/Payslip*') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
                     <div class="side-menu__title">
                         امور مالی
-                        <div class="side-menu__sub-icon {{ (Request::is('auth/reset-password-page') ? 'transform rotate-180' : '') }}">
+                        <div class="side-menu__sub-icon {{ (Request::is('Operator/Payslip*') ? 'transform rotate-180' : '') }}">
                             <i data-feather="chevron-down"></i>
                         </div>
                     </div>
                 </a>
-                <ul class="{{ (Request::is('Payslip*') ? 'side-menu__sub-open' : '') }}">
+                <ul class="{{ (Request::is('Operator/Payslip*') ? 'side-menu__sub-open' : '') }}">
                     <li>
-                        <a href="{{ route('Payslip.create') }}" class="side-menu {{ (Request::is('Payslip/create') ? 'side-menu--active' : '') }}">
+                        <a href="{{ route('Payslip.create') }}" class="side-menu {{ (Request::is('Operator/Payslip/create') ? 'side-menu--active' : '') }}">
                             <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                             <div class="side-menu__title">  بارگزاری فیش حقوقی </div>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('Payslip.index') }}" class="side-menu {{ (Request::is('Payslip') ? 'side-menu--active' : '') }}">
+                        <a href="{{ route('Payslip.index') }}" class="side-menu {{ (Request::is('Operator/Payslip') ? 'side-menu--active' : '') }}">
                             <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                             <div class="side-menu__title">   فیش حقوقی </div>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="#" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="side-menu__title"> اطلاعات کاربری </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('logout')}}" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="side-menu__title">خروج </div>
-                        </a>
-                    </li> -->
+
                 </ul>
             </li>
         @endcan
@@ -114,7 +103,7 @@
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('User/index') ? 'side-menu__sub-open' : '') }}">
+            <ul class="{{ (Request::is('User*') ? 'side-menu__sub-open' : '') }}">
                 <li>
                     <a href="{{ route('User.index') }}" class="side-menu {{ (Request::is('User/index') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
@@ -138,12 +127,12 @@
             </div>
         </a>
         <ul class="{{ (Request::is('reset-password-page') ? 'side-menu__sub-open' : '') }}{{ (Request::is('profile') ? 'side-menu__sub-open' : '') }}">
-            <li>
+            {{-- <li>
                 <a href="{{route('reset-password-page')}}" class="side-menu {{ (Request::is('reset-password-page') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                     <div class="side-menu__title">بازیابی رمز عبور</div>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{ route('User.profile') }}" class="side-menu {{ (Request::is('profile') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
