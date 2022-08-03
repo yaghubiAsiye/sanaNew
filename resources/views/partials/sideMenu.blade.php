@@ -16,14 +16,14 @@
                 <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
                 <div class="side-menu__title"> اطلاعیه ها </div>
             </a>
-        </li>
+        </li> --}}
+
         <li>
             <a href="{{ route('Employee.payslips') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
                 <div class="side-menu__title"> فیش حقوقی </div>
             </a>
-        </li> --}}
-
+        </li>
 
         @can('Accountants-crud')
             <li class="side-nav__devider my-6"></li>

@@ -27,14 +27,14 @@ class ImportUserController extends Controller
     {
         $users = (new FastExcel)->import($request->file, function ($line) {
             return User::create([
-                'personal_code' => $line['personal_code'],
-                'first_name' => $line['first_name'],
-                'last_name' => $line['last_name'],
-                'code_meli' => $line['code_meli'],
-                'phone' => $line['phone'],
-                'job_title' => $line['job_title'],
-                'bank_account_number' => $line['bank_account_number'],
-                'password' => bcrypt($line['code_meli'])
+                'personal_code' => $line['كد پرسنلي'],
+                'first_name' => $line['نام'],
+                'last_name' => $line['نام خانوادگي'],
+                'code_meli' => $line['كد ملي'],
+                'phone' => $line['تلفن همراه'],
+                'job_title' => $line['سمت'],
+                'bank_account_number' => $line['شماره حساب'],
+                'password' => bcrypt($line['كد ملي'])
             ]);
         });
 

@@ -76,22 +76,25 @@
                             <tbody>
                                 <tr>
                                     <td class="border-b dark:border-dark-5">
-                                        <div class="font-medium whitespace-nowrap">{{ $items['itemWithName'][0]['Name'] ?? ''}}</div>
-                                        <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">{{ $items['itemWithName'][0]['Family'] ?? ''}} </div>
+                                        <div class="font-medium whitespace-nowrap">{{ $items['itemWithName'][0]['name'] ?? ''}}</div>
+                                        <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">{{ $items['itemWithName'][0]['family'] ?? ''}} </div>
                                     </td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['Code'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['NationalCode'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['FatherName'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['code'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['codeMeli'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['fatherName'] ?? ''}}</td>
                                     <td class="text-left border-b dark:border-dark-5 w-32 font-medium">تجارت </td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">؟ </td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">؟ </td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td>
                                 </tr>
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
+
+
+
+                {{-- <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
                     <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
                         <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">اطلاعات حکم </div>
                         <div class="font-medium whitespace-nowrap"> حقوق پایه : {{ number_format($items['itemWithName'][0]['Mabna']) ?? ''}}</div>
@@ -113,37 +116,37 @@
                             @foreach ($item as $key => $value)
                                 <div class="font-medium whitespace-nowrap">{{ $key}} : {{ number_format($value) }}</div>
                             @endforeach
-                        @endforeach
+                        @endforeach --}}
                         {{-- <div class="font-medium whitespace-nowrap"> حقوق پایه : {{ number_format($items['itemWithName'][0]['Mabna']) ?? ''}}</div>
                         <div class="font-medium whitespace-nowrap">مسکن  : {{ number_format($items['itemWithoutName'][2]['حق مسکن']) ?? ''}}</div>
                         <div class="font-medium whitespace-nowrap">بن    : {{ number_format($items['itemWithoutName'][3]['بن کارگري']) ?? ''}}</div>
                         <div class="font-medium whitespace-nowrap">تفاوت تطبیق    : ??</div>
                         <div class="font-medium whitespace-nowrap"> حق مسءولیت  : ??</div>
                         <div class="font-medium whitespace-nowrap">فوق العاده شایستگی: ??</div> --}}
-                    </div>
+                    {{-- </div> --}}
 
 
 
-                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
+                    {{-- <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
                         <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح کسور  </div>
                         <div class="font-medium whitespace-nowrap">  مالیات حقوق  : {{ number_format($items['itemWithoutName'][8]['ماليات']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap"> بیمه سهم کارمند  : {{ number_format($items['itemWithName'][0]['BimehShare']) ?? ''}}</div>
+                        <div class="font-medium whitespace-nowrap"> بیمه سهم کارمند  : {{ number_format($items['itemWithName'][0]['BimehShare']) ?? ''}}</div> --}}
                         {{-- <div class="font-medium whitespace-nowrap">بیمه تکمیلی: {{ number_format($items['itemWithoutName'][2]['بيمه تکميلي - البرز']) ?? ''}}</div> --}}
-                    </div>
+                    {{-- </div>
 
-                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
+                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10"> --}}
                         {{-- <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح کسور  </div> --}}
-                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">   جمع کسور  : {{ number_format($items['itemWithName'][0]['JameKosoor']) ?? ''}}</div>
+                        {{-- <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">   جمع کسور  : {{ number_format($items['itemWithName'][0]['JameKosoor']) ?? ''}}</div>
                         <div class="font-medium whitespace-nowrap"> خالص ماه جاری  : ??</div>
                         <div class="font-medium whitespace-nowrap"> مبلغ پرداختی: ??</div>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="text-center sm:text-left sm:mr-auto">
                         <div class="text-base text-gray-600">مبلغ کل</div>
                         <div class="text-xl text-theme-1 dark:text-theme-10 font-medium mt-2"> تومان 20.600.00</div>
                         <div class="mt-1 tetx-xs">همراه مالیات </div>
                     </div> --}}
-                </div>
+                {{-- </div> --}}
             @endforeach
 
         </div>

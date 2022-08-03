@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!-- END: Login Info -->
                 <!-- BEGIN: Login Form -->
-                
+
                 <form  action="{{route('login')}}" method="POST">
                     @csrf
                 <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
@@ -53,7 +53,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </h2>
                         @include('partials.alert')
 
-                        <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">چند کلیک دیگر برای ورود به اکانت خود دارید . همه حساب های تجارت الکترونیکی خود را در یک مکان مدیریت کنید</div>
+                        {{-- <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">چند کلیک دیگر برای ورود به اکانت خود دارید . همه حساب های تجارت الکترونیکی خود را در یک مکان مدیریت کنید</div> --}}
                         <div class="intro-x mt-8">
                             <div class="input-form mt-3 @error('phone') has-error @enderror">
                                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">  تلفن همراه <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است   </span> </label>
@@ -100,10 +100,10 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
         </div>
         <!-- BEGIN: Dark Mode Switcher-->
-        <div data-url="login-dark-login.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 left-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 ml-10">
+        {{-- <div data-url="login-dark-login.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 left-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 ml-10">
             <div class="ml-4 text-gray-700 dark:text-gray-300">حالت تیره</div>
             <div class="dark-mode-switcher__toggle border"></div>
-        </div>
+        </div> --}}
         <!-- END: Dark Mode Switcher-->
         <!-- BEGIN: JS Assets-->
         <script src="/dist/js/app.js"></script>

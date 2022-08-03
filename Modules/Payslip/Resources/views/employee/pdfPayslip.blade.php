@@ -131,38 +131,38 @@
                 <tr style="background: rgba(255,204,172,255)">
                     <td class="none-border-left">
                         <p>شماره پرسنلی :
-                            <span class="text-green">{{ $itemWithName['Code'] }}</span>
+                            <span class="text-green">{{ $itemWithName['code'] }}</span>
                         </p>
                     </td>
                     <td  class="none-border-right none-border-left">
-                        <p>کد ملی :  <span class="text-green">{{ $itemWithName['NationalCode'] }}</span></p>
+                        <p>کد ملی :  <span class="text-green">{{ $itemWithName['codeMeli'] }}</span></p>
                     </td>
                     <td colspan="2" class="none-border-right none-border-left">
-                       <p>شماره شناسنامه :  <span class="text-green">1234</span> </p>
+                       <p>شماره شناسنامه :  <span class="text-green">{{ $itemWithName['shomareShenasname'] }}</span> </p>
                     </td>
                     <td colspan="2" class="none-border-right none-border-left">
-                        <p>نام :  <span class="text-green">{{ $itemWithName['Name'] }}</span></p>
+                        <p>نام :  <span class="text-green">{{ $itemWithName['name'] }}</span></p>
                      </td>
                      <td colspan="2" class="none-border-right none-border-left">
-                        <p>نام خانوادگی :  <span class="text-green">{{ $itemWithName['Family'] }}</span></p>
+                        <p>نام خانوادگی :  <span class="text-green">{{ $itemWithName['family'] }}</span></p>
                      </td>
                 </tr>
 
                 <tr style="background: rgba(255,204,172,255)">
                     <td colspan="2" class="none-border-left">
-                        <p>شماره بیمه :  <span class="text-green">1234</span></p>
+                        <p>شماره بیمه :  <span class="text-green">{{ $itemWithName['shomareBime'] }}</span></p>
                     </td>
                     <td colspan="2"  class="none-border-right none-border-left">
-                        <p> شماره حساب :  <span class="text-green">1234</span></p>
+                        <p> شماره حساب :  <span class="text-green">{{ $itemWithName['shomareHesab'] }}</span></p>
                     </td>
                     <td colspan="2" class="none-border-right none-border-left">
-                       <p>گروه شغلی :  <span class="text-green">بدون گروه</span></p>
+                       <p>گروه شغلی :  <span class="text-green"> {{ $itemWithName['job'] }}</span></p>
                     </td>
                     <td class="none-border-right none-border-left">
-                        <p>محل خدمت : <span class="text-green">تاسیسات دریایی</span></p>
+                        <p>محل خدمت : <span class="text-green">{{ $itemWithName['mahaleKhedmat'] }} </span></p>
                      </td>
                      <td class="none-border-right none-border-left">
-                        <p>نوع حساب :  <span class="text-green">تجارت</span></p>
+                        <p>شماره حساب :  <span class="text-green">تجارت</span></p>
                      </td>
                 </tr>
 
@@ -178,29 +178,27 @@
                         </td>
 
                         <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                            شرح  مزایا
+                              مزایا
                           </td>
-                          <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                             شرح کسور
-                          </td>
-
-
+                        <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
+                             کسور
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="none-border-left"  align="right">
-                            <p>حقوق پایه</p>
-                            <p style="white-space: nowrap;">حق مسئوليت  </p>
-                            <p>فوق العاده تخصصی</p>
-                            <p> حق شایستگی</p>
-                            <p>تفاوت تطبیق</p>
+                            @foreach ($hokm as $item)
+                                @foreach ($item as $key => $value)
+                                    <p>{{ $key }}</p>
+                                @endforeach
+                            @endforeach
                         </td>
                         <td class="none-border-right"  align="left" >
-                            <p>{{ number_format($itemWithName['Mabna']) }}</p>
-                            <p>{{number_format($itemWithoutName[4]['حق مسئوليت'])}}</p>
-                            <p>123456</p>
-                            <p>{{number_format($itemWithoutName[6]['حق شايستگي'])}}</p>
-                            <p>123456</p>
+                            @foreach ($hokm as $item)
+                                @foreach ($item as $key => $value)
+                                    <p>{{ number_format($value) }}</p>
+                                @endforeach
+                            @endforeach
                         </td>
 
                         <td class="none-border-left"  align="right">
@@ -209,7 +207,7 @@
 
                         </td>
                         <td class="none-border-right"  align="left">
-                            <p>{{ $itemWithName['KarkardUdy'] }}</p>
+                            <p></p>
                             <p>123456</p>
                         </td>
 
@@ -223,11 +221,11 @@
                             <p>فوق العاده شایستگی</p>
                         </td>
                         <td class="none-border-right"  align="left" >
-                            <p>{{ number_format($itemWithName['Mabna']) }}</p>
-                            <p>{{number_format($itemWithoutName[2]['حق مسکن'])}}</p>
-                            <p>{{number_format($itemWithoutName[3]['بن کارگري'])}}</p>
+                            <p>س</p>
+                            <p>س</p>
+                            <p>س</p>
                             <p>123456</p>
-                            <p>{{number_format($itemWithoutName[4]['حق مسئوليت'])}}</p>
+                            <p>س</p>
                             <p>123456</p>
                         </td>
 
@@ -239,8 +237,8 @@
 
                         </td>
                         <td class="none-border-right"  align="left">
-                            <p>{{number_format($itemWithoutName[8]['ماليات'])}}</p>
-                            <p>{{number_format($itemWithName['BimehShare'])}}</p>
+                            <p>س</p>
+                            <p>س</p>
                             <p>1234</p>
                         </td>
 
@@ -251,7 +249,7 @@
                     </tr>
                     <tr>
                         <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right"> جمع کسور</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >{{number_format($itemWithName['JameKosoor'])}}</td>
+                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >س</td>
                     </tr>
 
                     <tr>
@@ -266,9 +264,6 @@
                         <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">مبلغ مانده</td>
                         <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >0</td>
                     </tr>
-
-
-
 
             </table>
         </div>

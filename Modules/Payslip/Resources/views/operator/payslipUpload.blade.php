@@ -81,6 +81,7 @@
                         <div  class="col-span-6 sm:col-span-3 xl:col-span-2 flex flex-col justify-end items-center">
                             <i data-loading-icon="spinning-circles" class="w-8 h-8 "></i>
                             <div class="text-center text-xs mt-2">لطفا منتظر بمانید !</div>
+                            <div class="text-center text-xs mt-2">این عملیات زمان بر می باشد ! لطفا صبور باشید):</div>
                         </div>
                     </div>
                 </div>

@@ -84,7 +84,7 @@ class PayslipController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
 
-    
+
         $path = 'PayslipFile/';
         $file = \App\Services\UploaderService::fileUploader($request->file, $path);
 

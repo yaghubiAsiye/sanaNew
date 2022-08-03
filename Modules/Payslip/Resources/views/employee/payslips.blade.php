@@ -15,7 +15,7 @@
         </h2>
         <div class="grid grid-cols-12 gap-6 mt-5">
             <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-                <a href="{{ route('Payslip.create') }}" class="btn btn-primary shadow-md ml-2">افزودن کارمند جدید</a>
+                {{-- <a href="{{ route('Payslip.create') }}" class="btn btn-primary shadow-md ml-2">افزودن کارمند جدید</a> --}}
 
                 <div class="hidden md:block mx-auto text-gray-600"></div>
                 <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
@@ -36,29 +36,22 @@
                                 <thead>
                                     <tr>
                                         <th class="whitespace-nowrap"> تاریخ</th>
-                                        <th class="text-center whitespace-nowrap">حقوق پایه  </th>
-                                        <th class="text-center whitespace-nowrap">روزهای کارکرد </th>
-                                        <th class="text-center whitespace-nowrap">بیمه سهم کارمند  </th>
-                                        <th class="text-center whitespace-nowrap">جمع کسور</th>
-                                        <th class="text-center whitespace-nowrap">جمع مزایا </th>
-
-                                        <th class="text-center whitespace-nowrap">روند ماه قبل </th>
-                                        <th class="whitespace-nowrap"> حق مسکن</th>
-                                        <th class="whitespace-nowrap"> بن کارگري</th>
-                                        <th class="whitespace-nowrap"> حق مسئوليت</th>
-                                        <th class="whitespace-nowrap"> ساير حقوق</th>
-                                        <th class="whitespace-nowrap"> حق شايستگي</th>
-                                        <th class="whitespace-nowrap"> بيمه تامين اجتماعي</th>
-                                        <th class="whitespace-nowrap"> ماليات</th>
-                                        <th class="whitespace-nowrap"> روند ماه جاري</th>
-                                        <th class="whitespace-nowrap"> بيمه سهم کارفرما</th>
-                                        <th class="whitespace-nowrap"> بيمه بيکاري</th>
-                                        {{-- <th class="whitespace-nowrap"> بيمه تکميلي - البرز	</th>
-                                        <th class="whitespace-nowrap"> وام شرکت</th> --}}
-
-
-
-                                        {{-- <th class="text-center whitespace-nowrap">وضعیت </th> --}}
+                                        <th class="text-center whitespace-nowrap"> شماره حساب  </th>
+                                        <th class="text-center whitespace-nowrap"> محل خدمت </th>
+                                        <th class="text-center whitespace-nowrap">شماره بيمه</th>
+                                        <th class="text-center whitespace-nowrap">مبلغ خالص پرداختى</th>
+                                        <th class="text-center whitespace-nowrap"> کارکرد عادی  </th>
+                                        <th class="text-center whitespace-nowrap">  اضافه کاری </th>
+                                        <th class="whitespace-nowrap">  شبکاری</th>
+                                        <th class="whitespace-nowrap">  کسر کار</th>
+                                        <th class="whitespace-nowrap">  ماموریت خشکی </th>
+                                        <th class="whitespace-nowrap">  ماموریت دریا </th>
+                                        <th class="whitespace-nowrap">  نوبت کاری 15%</th>
+                                        <th class="whitespace-nowrap">  نوبت کاری 22.5%</th>
+                                        <th class="whitespace-nowrap">  اقماری دریا</th>
+                                        <th class="whitespace-nowrap">  اقماری خشکی </th>
+                                        {{-- <th class="whitespace-nowrap">  نام عامل</th>
+                                        <th class="whitespace-nowrap">  مبلغ حكم</th> --}}
                                         <th class="text-center whitespace-nowrap">فعالیت</th>
                                     </tr>
                                 </thead>
@@ -72,13 +65,25 @@
                                                         <a href="#" class="font-medium whitespace-nowrap">{{ $items['date_pay'] ?? ''}}</a>
                                                         {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $items['date_pay'] ?? ''}}</div> --}}
                                                     </td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['Mabna'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['KarkardUdy'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['BimehShare'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['JameKosoor'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['JameMazaya'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['shomareBime'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['mablaqKhalesPardakhty'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['karkardAdy'] ?? ''}}</td>
 
-                                                    <td class="text-center">{{ $items['itemWithoutName'][1]['روند ماه قبل'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['ezafeKary'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['shabKari'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['kasreKar'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['mamuriateKhoshky'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['mamuriateDarya'] ?? ''}}</td>
+
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['nobateKary15'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['nobateKary225'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['aqmaryDarya'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['aqmaryKhoshky'] ?? ''}}</td>
+
+
+                                                    {{-- <td class="text-center">{{ $items['itemWithoutName'][1]['روند ماه قبل'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][2]['حق مسکن'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][3]['بن کارگري'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][4]['حق مسئوليت'] ?? ''}}</td>
@@ -89,7 +94,7 @@
                                                     <td class="text-center">{{ $items['itemWithoutName'][8]['ماليات'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][9]['روند ماه جاري'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][10]['بيمه سهم کارفرما'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithoutName'][11]['بيمه بيکاري'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithoutName'][11]['بيمه بيکاري'] ?? ''}}</td> --}}
                                                     {{-- <td class="text-center">{{ $items['itemWithoutName'][0]['bimeTakmili'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithoutName'][0]['vameSherkat'] ?? ''}}</td> --}}
 
