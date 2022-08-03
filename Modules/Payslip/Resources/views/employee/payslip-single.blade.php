@@ -34,15 +34,16 @@
             <div class="flex flex-col lg:flex-row pt-10 px-5 sm:px-20 sm:pt-20 lg:pb-20 text-center sm:text-left">
                 <div class="font-semibold text-theme-1 dark:text-theme-10 text-3xl">
                     <div class="w-20 h-20 flex-none image-fit rounded-md overflow-hidden">
-                        <img alt="persiatc.com" src="/dist/images/sana/logo/logo-light-sm.jpg">
+                        <img alt="persiatc.com" src="/dist/images/sana/logo/PersiaLogo3.png">
                     </div>
                 </div>
                 <div class="mt-20 lg:mt-0 lg:mr-auto lg:text-left">
                     <div class="text-xl text-theme-1 dark:text-theme-10 font-medium">شرکت ارتباطات پرشیا </div>
                     <div class="font-medium whitespace-nowrap">فیش حقوق</div>
-                    <div class="font-medium whitespace-nowrap">{{ $value ?? ''}}</div>
+                    <div class="font-medium whitespace-nowrap">{{ Verta::parse($date)->format(' %B ماه - %Y')}}</div>
                 </div>
             </div>
+
             {{-- <div class="flex flex-col lg:flex-row border-b px-5 sm:px-20 pt-10 pb-10 sm:pb-20 text-center sm:text-right">
                 <div>
                     <div class="text-base text-gray-600">جزییات مشتری</div>
@@ -56,8 +57,6 @@
                     <div class="font-medium whitespace-nowrap">2 مهر 1400</div>
                 </div>
             </div> --}}
-            @foreach ($data as $items)
-
 
                 <div class="px-5 sm:px-16 py-10 sm:py-20">
                     <div class="overflow-x-auto">
@@ -68,7 +67,6 @@
                                     <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">شماره پرسنلی</th>
                                     <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">کدملی</th>
                                     <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap"> نام پدر </th>
-                                    <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap">حساب بانک </th>
                                     <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap"> شماره حساب </th>
                                     <th class="border-b-2 dark:border-dark-5 text-left whitespace-nowrap"> محل خدمت </th>
                                 </tr>
@@ -76,15 +74,14 @@
                             <tbody>
                                 <tr>
                                     <td class="border-b dark:border-dark-5">
-                                        <div class="font-medium whitespace-nowrap">{{ $items['itemWithName'][0]['name'] ?? ''}}</div>
-                                        <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">{{ $items['itemWithName'][0]['family'] ?? ''}} </div>
+                                        <div class="font-medium whitespace-nowrap">{{ $data['itemWithName']['name'] ?? ''}}</div>
+                                        <div class="text-gray-600 text-sm mt-0.5 whitespace-nowrap">{{ $data['itemWithName']['family'] ?? ''}} </div>
                                     </td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['code'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['codeMeli'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $items['itemWithName'][0]['fatherName'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">تجارت </td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
-                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $data['itemWithName']['code'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $data['itemWithName']['codeMeli'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32">{{ $data['itemWithName']['fatherName'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $data['itemWithName']['shomareHesab'] ?? ''}}</td>
+                                    <td class="text-left border-b dark:border-dark-5 w-32 font-medium">{{ $data['itemWithName']['mahaleKhedmat'] ?? ''}}</td>
                                 </tr>
 
                             </tbody>
@@ -92,65 +89,103 @@
                     </div>
                 </div>
 
-
-
-                {{-- <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
+                <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
                     <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
                         <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">اطلاعات حکم </div>
-                        <div class="font-medium whitespace-nowrap"> حقوق پایه : {{ number_format($items['itemWithName'][0]['Mabna']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap">حق مسءولیت : ??</div>
-                        <div class="font-medium whitespace-nowrap">فوق العاده تخصصی  : ??</div>
-                        <div class="font-medium whitespace-nowrap">فوق العاده شایستگی  : ??</div>
-                        <div class="font-medium whitespace-nowrap">تفاوت تطبیق  : ??</div>
-                    </div>
-
-                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
-                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> وضعیت کارکرد </div>
-                        <div class="font-medium whitespace-nowrap"> روزهای کارکرد  : {{ $items['itemWithName'][0]['KarkardUdy'] ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap">مزد روزانه  : ??</div>
-                    </div>
-
-                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
-                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح پرداخت ها </div>
-                        @foreach ($items['itemWithoutName'] as $item)
+                        @foreach ($data['hokm'] as $item)
                             @foreach ($item as $key => $value)
-                                <div class="font-medium whitespace-nowrap">{{ $key}} : {{ number_format($value) }}</div>
+                                @if($value != 0)
+                                <div class="font-medium whitespace-nowrap">
+                                    {{ $key }} : {{ number_format($value) }}
+                                </div>
+                                @endif
                             @endforeach
-                        @endforeach --}}
-                        {{-- <div class="font-medium whitespace-nowrap"> حقوق پایه : {{ number_format($items['itemWithName'][0]['Mabna']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap">مسکن  : {{ number_format($items['itemWithoutName'][2]['حق مسکن']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap">بن    : {{ number_format($items['itemWithoutName'][3]['بن کارگري']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap">تفاوت تطبیق    : ??</div>
-                        <div class="font-medium whitespace-nowrap"> حق مسءولیت  : ??</div>
-                        <div class="font-medium whitespace-nowrap">فوق العاده شایستگی: ??</div> --}}
-                    {{-- </div> --}}
+                        @endforeach
+                    </div>
+
+                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
+                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">  مزایا </div>
+                        @foreach ($data['mazaya'] as $item)
+                            @foreach ($item as $key => $value)
+                                @if($value != 0)
+                                <div class="font-medium whitespace-nowrap">
+                                    {{ $key }} : {{ number_format($value) }}
+                                </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+
+                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
+                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">  کسور </div>
+                        @foreach ($data['kosoor'] as $item)
+                            @foreach ($item as $key => $value)
+                                @if($value != 0)
+                                <div class="font-medium whitespace-nowrap">
+                                    {{ $key }} : {{ number_format($value) }}
+                                </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+
+                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
+                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">  کارکرد </div>
+
+                        <div class="font-medium whitespace-nowrap">
+                            کارکرد عادی : {{$data['itemWithName']['karkardAdy'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            اضافه کار: {{$data['itemWithName']['ezafeKary'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            شب کاری: {{$data['itemWithName']['shabKari'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            کسر کار : {{$data['itemWithName']['kasreKar'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            ماموریت خشکی : {{$data['itemWithName']['mamuriateKhoshky'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            ماموریت دریا : {{$data['itemWithName']['mamuriateDarya'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            نوبت کاری 15%: {{$data['itemWithName']['nobateKary15'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            نوبت کاری 22.5%: {{$data['itemWithName']['nobateKary225'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            اقماری دریا : {{$data['itemWithName']['aqmaryDarya'] }}
+                        </div>
+                        <div class="font-medium whitespace-nowrap">
+                            اقماری خشکی : {{$data['itemWithName']['aqmaryKhoshky'] }}
+                        </div>
+
+                    </div>
 
 
 
-                    {{-- <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10">
-                        <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح کسور  </div>
-                        <div class="font-medium whitespace-nowrap">  مالیات حقوق  : {{ number_format($items['itemWithoutName'][8]['ماليات']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap"> بیمه سهم کارمند  : {{ number_format($items['itemWithName'][0]['BimehShare']) ?? ''}}</div> --}}
-                        {{-- <div class="font-medium whitespace-nowrap">بیمه تکمیلی: {{ number_format($items['itemWithoutName'][2]['بيمه تکميلي - البرز']) ?? ''}}</div> --}}
-                    {{-- </div>
+                    <div class="text-center sm:text-left sm:mr-auto">
+                        {{-- <div class="text-base text-gray-600"> خالص پرداختی</div> --}}
+                        <div class="text-xl text-theme-1 dark:text-theme-10 font-medium mt-2"> خالص پرداختی</div>
+                        <div class="mt-1 tetx-xs">{{ number_format($data['itemWithName']['mablaqKhalesPardakhty']) }}</div>
+                        <div class="mt-1 tetx-xs">
+                            
+                            {{-- <a class="btn btn-primary shadow-md ml-2" target="_blank" href="{{url('Employee/downloadPDF', $date)}}">پرینت</a> --}}
+                        </div>
+                    </div>
 
-                    <div class="text-center sm:text-right mt-10 sm:mt-0 ml-10"> --}}
-                        {{-- <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2"> شرح کسور  </div> --}}
-                        {{-- <div class="text-lg text-theme-1 dark:text-theme-10 font-medium mt-2">   جمع کسور  : {{ number_format($items['itemWithName'][0]['JameKosoor']) ?? ''}}</div>
-                        <div class="font-medium whitespace-nowrap"> خالص ماه جاری  : ??</div>
-                        <div class="font-medium whitespace-nowrap"> مبلغ پرداختی: ??</div>
-                    </div> --}}
 
-                    {{-- <div class="text-center sm:text-left sm:mr-auto">
-                        <div class="text-base text-gray-600">مبلغ کل</div>
-                        <div class="text-xl text-theme-1 dark:text-theme-10 font-medium mt-2"> تومان 20.600.00</div>
-                        <div class="mt-1 tetx-xs">همراه مالیات </div>
-                    </div> --}}
-                {{-- </div> --}}
-            @endforeach
+                </div>
+
+
 
         </div>
         <!-- END: Invoice -->
+
+
     </div>
     <!-- END: Content -->
 </div>
