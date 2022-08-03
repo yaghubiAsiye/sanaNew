@@ -57,7 +57,7 @@ class AdminUserSeeder extends Seeder
             'code_meli' => '12345678',
             'password' => bcrypt('12345678')
         ]);
-        $role2 = Role::create(['name' => 'Financial']);
+        $role2 = Role::create(['name' => 'Manager']);
 
         $permission2 = Permission::where('name','Accountants-crud')->get();
 
