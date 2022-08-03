@@ -50,7 +50,7 @@ class PayslipController extends Controller
         {
             $payslips = (new FastExcel)->import($request->file,function ($line) {
                 return Payslip::create([
-                    'date_pay' => $line['تاريخ'],
+                    'date_pay' => Verta::parse($line['تاريخ']),
                     'code' => $line['كد پرسنلى'],
                     'name' => $line['نام'],
                     'family' => $line['نام خانوادگى'],

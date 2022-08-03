@@ -62,7 +62,7 @@
                                             <tr class="intro-x">
                                                 {{-- @foreach ($items as $item) --}}
                                                     <td>
-                                                        <a href="#" class="font-medium whitespace-nowrap">{{ $items['date_pay'] ?? ''}}</a>
+                                                        <a href="#" class="font-medium whitespace-nowrap">{{ $items['date_pay']->format('%B - %Y') ?? ''}}</a>
                                                         {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $items['date_pay'] ?? ''}}</div> --}}
                                                     </td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
@@ -104,7 +104,7 @@
 
                                                 <td class="table-report__action w-56">
                                                     <div class="flex justify-center items-center">
-                                                        {{-- <a class="flex items-center ml-3" href="{{ route('Employee.payslipSingle', ['value' => $items['date_pay']]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
+                                                        <a class="flex items-center ml-3" href="{{ route('Employee.payslipSingle', ['date' => $items['date_pay']]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a>
                                                         {{-- <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a> --}}
                                                     </div>
                                                 </td>

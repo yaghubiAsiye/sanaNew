@@ -7,9 +7,9 @@ use Modules\Payslip\Http\Controllers\Employee\PayslipController;
 /* -------------------------------------------------------------------------- */
 Route::controller(PayslipController::class)->middleware('auth')->group(function(){
     Route::get('payslips', 'payslips')->name('Employee.payslips');
-    Route::get('payslip/{year}/{month}/{day}', 'payslipSingle')->name('Employee.payslipSingle');
+    Route::get('payslip/{date}', 'payslipSingle')->name('Employee.payslipSingle');
 
-    Route::get('downloadPDF/{year}/{month}/{day}', 'downloadPDF');
+    Route::get('downloadPDF/{date}', 'downloadPDF');
 
 
 

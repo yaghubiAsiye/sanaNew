@@ -107,7 +107,7 @@
 </head>
 
 <body>
-{{-- @dd($itemWithoutName[1]) --}}
+
     <div class="content">
         <div class="table-div" style="text-align: center">
             <table>
@@ -118,7 +118,7 @@
                     <td align="center" colspan="4" class="none-border-right none-border-left">
                         <span>
                             <p>فیش حقوقی شرکت ارتباطات پرشیا</p>
-                            <p>فیش حقوق {{ $date_pay }} </p>
+                            <p>فیش حقوق {{ Verta::parse($date_pay)->format(' %B ماه - %Y') }} </p>
                         </span>
                     </td>
                     <td colspan="2" align="left" class="none-border-right">
@@ -174,14 +174,14 @@
                        </td>
 
                        <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                           وضعیت کارکرد
+                        مزایا
                         </td>
 
                         <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                              مزایا
-                          </td>
+                            کسور
+                        </td>
                         <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                             کسور
+                             کارکرد
                         </td>
                     </tr>
 
@@ -189,81 +189,115 @@
                         <td class="none-border-left"  align="right">
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                    <p>{{ $key }}</p>
+                                    @if($value != 0) <p>{{ $key }}</p> @endif
                                 @endforeach
                             @endforeach
                         </td>
                         <td class="none-border-right"  align="left" >
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                    <p>{{ number_format($value) }}</p>
+                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
                                 @endforeach
                             @endforeach
                         </td>
 
                         <td class="none-border-left"  align="right">
-                            <p> روزهای کارکرد</p>
-                            <p>مزد روزانه </p>
-
+                            @foreach ($mazaya as $item)
+                                @foreach ($item as $key => $value)
+                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                @endforeach
+                            @endforeach
                         </td>
                         <td class="none-border-right"  align="left">
-                            <p></p>
-                            <p>123456</p>
+                            @foreach ($mazaya as $item)
+                                @foreach ($item as $key => $value)
+                                    @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                @endforeach
+                            @endforeach
                         </td>
 
 
                         <td class="none-border-left"  align="right">
-                            <p>حقوق پایه</p>
-                            <p style="white-space: nowrap;">مسکن  </p>
-                            <p> بن</p>
-                            <p>تفاوت تطبیق</p>
-                            <p style="white-space: nowrap;">حق مسئوليت </p>
-                            <p>فوق العاده شایستگی</p>
+                            @foreach ($kosoor as $item)
+                                @foreach ($item as $key => $value)
+                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                @endforeach
+                            @endforeach
                         </td>
                         <td class="none-border-right"  align="left" >
-                            <p>س</p>
-                            <p>س</p>
-                            <p>س</p>
-                            <p>123456</p>
-                            <p>س</p>
-                            <p>123456</p>
+                            @foreach ($kosoor as $item)
+                            @foreach ($item as $key => $value)
+                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                            @endforeach
+                        @endforeach
                         </td>
 
-                        <td class="none-border-left"  align="right">
-                            <p> مالیات حقوق </p>
-                            <p> بیمه سهم کارمند </p>
-                            <p>  بیمه تکمیلی </p>
 
+                        <td class="none-border-left"  align="right">
+                            <p> کارکرد عادی</p>
+                            <p> اضافه کار</p>
+                            <p>  شب کاری</p>
+                            <p>  کسر کار </p>
+                            <p>  ماموریت خشکی </p>
+                            <p>  ماموریت دریا  </p>
+                            <p>  نوبت کاری 15% </p>
+                            <p>  نوبت کاری 22.5% </p>
+                            <p>  اقماری دریا </p>
+                            <p>  اقماری خشکی  </p>
 
                         </td>
                         <td class="none-border-right"  align="left">
-                            <p>س</p>
-                            <p>س</p>
-                            <p>1234</p>
+                            <p>{{ $itemWithName['karkardAdy'] }}</p>
+                            <p>{{ $itemWithName['ezafeKary'] }}</p>
+                            <p>{{ $itemWithName['shabKari'] }}</p>
+                            <p>{{ $itemWithName['kasreKar'] }}</p>
+                            <p>{{ $itemWithName['mamuriateKhoshky'] }}</p>
+                            <p>{{ $itemWithName['mamuriateDarya'] }}</p>
+                            <p>{{ $itemWithName['nobateKary15'] }}</p>
+                            <p>{{ $itemWithName['nobateKary225'] }}</p>
+                            <p>{{ $itemWithName['aqmaryDarya'] }}</p>
+                            <p>{{ $itemWithName['aqmaryKhoshky'] }}</p>
                         </td>
 
                     </tr>
                     <tr>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" colspan="4" class="none-border-left" align="right">کسر رند ماه جاری</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px"  class="text-green none-border-right" colspan="4" align="left" >0</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="4" class="none-border-left" align="right">جمع مزایا</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="text-green none-border-right" colspan="4" align="left" >
+                            @php
+                                $sum = 0;
+                            @endphp
+                            @foreach ($mazaya as $item)
+                                @foreach ($item as $key => $value)
+                                    @php
+                                        $sum += $value;
+                                    @endphp
+                                @endforeach
+                            @endforeach
+                            <p>{{ number_format($sum) }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right"> جمع کسور</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >س</td>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right"> جمع کسور</td>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >
+                            @php
+                            $sum = 0;
+                            @endphp
+                            @foreach ($kosoor as $item)
+                                @foreach ($item as $key => $value)
+                                    @php
+                                        $sum += $value;
+                                    @endphp
+                                @endforeach
+                            @endforeach
+                        <p>{{ number_format($sum) }}</p>
+                        </td>
                     </tr>
 
                     <tr>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">خالص ماه جاری</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >1234</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">خالص  پرداختی</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
                     </tr>
-                    <tr>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">مبلغ خالص پرداختی</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >123445</td>
-                    </tr>
-                    <tr>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">مبلغ مانده</td>
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >0</td>
-                    </tr>
+
 
             </table>
         </div>
