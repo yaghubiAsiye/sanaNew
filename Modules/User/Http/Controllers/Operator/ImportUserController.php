@@ -25,6 +25,9 @@ class ImportUserController extends Controller
      */
     public function store(Request $request)
     {
+
+        try
+        {
         $users = (new FastExcel)->import($request->file, function ($line) {
             return User::create([
                 'personal_code' => $line['كد پرسنلي'],
@@ -37,6 +40,11 @@ class ImportUserController extends Controller
                 'password' => bcrypt($line['كد ملي'])
             ]);
         });
+
+    } catch (Exception $exception)
+    {
+        return back()->withError($exception->getMessage())->withInput();
+    }
 
         $request->session()->flash('alert-success' , 'عملیات موفق بود!');
         return redirect()->back();

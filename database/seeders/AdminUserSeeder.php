@@ -49,6 +49,22 @@ class AdminUserSeeder extends Seeder
 
         $userBorumand->assignRole([$roleBorumand->id]);
 
+        $user2 = User::create([
+            'first_name' => 'احمد',
+            'last_name' => 'رحمانی',
+            // 'email' => 'admin@gmail.com',
+            'phone' => '09121010328',
+            'code_meli' => '12345678',
+            'password' => bcrypt('12345678')
+        ]);
+        $role2 = Role::create(['name' => 'Financial']);
+
+        $permission2 = Permission::where('name','Accountants-crud')->get();
+
+        $role2->syncPermissions($permission2);
+
+        $user2->assignRole([$role2->id]);
+
 
 
 
