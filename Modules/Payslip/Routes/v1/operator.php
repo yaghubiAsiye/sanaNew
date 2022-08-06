@@ -12,5 +12,6 @@ Route::controller(PayslipController::class)->middleware('auth')->group(function(
 });
 
 Route::get('Payslip/create', function() {
+    dd('ok');
     dd(get_class(new PayslipController()));
 })->name('Payslip.create');
