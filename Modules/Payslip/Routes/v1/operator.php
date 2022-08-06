@@ -1,5 +1,7 @@
 <?php
 
+use Modules\Payslip\Http\Controllers\Operator\PayslipController;
+
 /* -------------------------------------------------------------------------- */
 /*                                 Payslip Operator route                       */
 /* -------------------------------------------------------------------------- */
