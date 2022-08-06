@@ -10,9 +10,9 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * The module namespace to assume when generating URLs to actions.
      *
-    //  * @var string
+     * @var string
      */
-    // protected $moduleNamespace = 'Modules\Payslip\Http\Controllers';
+    protected $moduleNamespace = 'Modules\Payslip\Http\Controllers';
 
     /**
      * Called before routes are registered.
@@ -49,7 +49,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapEmployeeRoutes()
     {
         Route::middleware('web')
-            ->namespace('Modules\Payslip\Http\Controllers' . '\Employee')
+            ->namespace($this->moduleNamespace . '\Employee')
             ->prefix('Employee')
             ->group(module_path('Payslip', '/Routes/v1/employee.php'));
     }
@@ -64,7 +64,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapOperatorRoutes()
     {
         Route::middleware('web')
-            ->namespace('Modules\Payslip\Http\Controllers' . '\Operator')
+            ->namespace($this->moduleNamespace . '\Operator')
             ->prefix('Operator')
             ->group(module_path('Payslip', '/Routes/v1/operator.php'));
     }
@@ -81,7 +81,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('api')
-            ->namespace('Modules\Payslip\Http\Controllers')
+            ->namespace($this->moduleNamespace)
             ->group(module_path('Payslip', '/Routes/api.php'));
     }
 }

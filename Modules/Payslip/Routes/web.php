@@ -14,6 +14,6 @@
 // Route::prefix('payslip')->group(function() {
 //     Route::get('/', 'PayslipController@index');
 // });
-Route::get('/rrrrr', function() {
-    dd('ok');
-});
+// Route::get('/rrrrr', function() {
+//     dd('ok');
+// });
