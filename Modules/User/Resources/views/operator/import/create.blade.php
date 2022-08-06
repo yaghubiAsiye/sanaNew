@@ -16,6 +16,7 @@
             </h2>
         </div>
         @include('partials.alert')
+        @include('partials.error')
         <div class="grid grid-cols-12 gap-6">
 
             <div class="col-span-12 lg:col-span-12 xxl:col-span-12">
@@ -27,30 +28,28 @@
                         </h2>
                     </div>
                     <div class="p-5">
-                        <form action="{{ route('ImportUser.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="{{ route('ImportUser.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="flex flex-col-reverse xl:flex-row flex-col">
-
-                                <div class="w-52 mx-auto xl:ml-0 xl:mr-6">
-                                    <div class="border-2 border-dashed shadow-sm border-gray-200 dark:border-dark-5 rounded-md p-5">
-                                        <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                                            <div class="file box rounded-md px-5 pt-8 pb-5 px-3 sm:px-5 relative ">
-                                                <a href="#" class="w-3/5 file__icon file__icon--file mx-auto">
-                                                    <div class="file__icon__file-name">Excel</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="mx-auto cursor-pointer relative mt-5">
-                                            <button type="button" class="btn btn-primary w-full">آپلود فایل حقوقی</button>
-                                            <input type="file" name="file" class="w-full h-full top-0 left-0 absolute opacity-0">
-                                        </div>
+                                <div class="w-52 mx-auto xl:ml-0 xl:mr-6 ">
+                                    <div class="mt-3">
+                                        <label for="file" class="form-label"> فایل </label>
+                                        <input type="file" id="file" name="file" data-search="true" class="form-control">
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button>
-
+                                    <button type="submit" class="btn btn-primary w-20 mt-3"> ثبت </button>
                                 </div>
                             </div>
                         </form>
                     </div>
+
+                    <div class="p-5" id="loadingIcon" style="display: none">
+                        <div  class="col-span-6 sm:col-span-3 xl:col-span-2 flex flex-col justify-end items-center">
+                            <i data-loading-icon="spinning-circles" class="w-8 h-8 "></i>
+                            <div class="text-center text-xs mt-2">لطفا منتظر بمانید !</div>
+                            <div class="text-center text-xs mt-2">این عملیات زمان بر می باشد ! لطفا صبور باشید):</div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- END: Display Information -->
             </div>
@@ -61,3 +60,16 @@
 @endsection
 
 
+@section('js')
+<script type="text/javascript">
+    const form = document.getElementById('form');
+    form.addEventListener('submit', logSubmit);
+
+    function logSubmit(event)
+    {
+        document.getElementById("loadingIcon").style.display = "block";
+        // event.preventDefault();
+    }
+
+</script>
+@endsection

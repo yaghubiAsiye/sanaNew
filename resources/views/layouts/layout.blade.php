@@ -12,6 +12,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Head -->
     <head>
         @include('partials.head')
+        @yield('style')
     </head>
     <!-- END: Head -->
     <body class="main">

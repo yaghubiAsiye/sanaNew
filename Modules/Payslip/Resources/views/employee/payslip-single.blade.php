@@ -15,7 +15,8 @@
                 فیش حقوقی
             </h2>
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a class="btn btn-primary shadow-md ml-2" target="_blank" href="{{url('Employee/downloadPDF', $date)}}">پرینت</a>
+                <a class="btn btn-primary shadow-md ml-2" target="_blank"  href="{{url('Employee/downloadPDF', $date)}}">pdf</a>
+                <a class="btn btn-primary shadow-md ml-2" target="_blank" onclick="window.print();"  href="{{url('Employee/downloadPDF', $date)}}">پرینت</a>
                 {{-- <div class="dropdown ml-auto sm:ml-0">
                     <button class="dropdown-toggle btn px-2 box text-gray-700 dark:text-gray-300" aria-expanded="false">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
@@ -172,7 +173,7 @@
                         <div class="text-xl text-theme-1 dark:text-theme-10 font-medium mt-2"> خالص پرداختی</div>
                         <div class="mt-1 tetx-xs">{{ number_format($data['itemWithName']['mablaqKhalesPardakhty']) }}</div>
                         <div class="mt-1 tetx-xs">
-                            
+
                             {{-- <a class="btn btn-primary shadow-md ml-2" target="_blank" href="{{url('Employee/downloadPDF', $date)}}">پرینت</a> --}}
                         </div>
                     </div>

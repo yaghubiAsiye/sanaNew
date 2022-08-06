@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\User\Http\Controllers;
+namespace Modules\Request\Http\Controllers\Operator;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class UserController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user::index');
+        return view('request::index');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user::create');
+        return view('request::create');
     }
 
     /**
@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('user::show');
+        return view('request::show');
     }
 
     /**
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('user::edit');
+        return view('request::edit');
     }
 
     /**

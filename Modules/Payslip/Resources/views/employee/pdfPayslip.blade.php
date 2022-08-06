@@ -117,7 +117,7 @@
                     </td>
                     <td align="center" colspan="4" class="none-border-right none-border-left">
                         <span>
-                            <p>فیش حقوقی شرکت ارتباطات پرشیا</p>
+                            <p>  شرکت ارتباطات پرشیا</p>
                             <p>فیش حقوق {{ Verta::parse($date_pay)->format(' %B ماه - %Y') }} </p>
                         </span>
                     </td>
@@ -158,12 +158,12 @@
                     <td colspan="2" class="none-border-right none-border-left">
                        <p>گروه شغلی :  <span class="text-green"> {{ $itemWithName['job'] }}</span></p>
                     </td>
-                    <td class="none-border-right none-border-left">
+                    <td colspan="2" class="none-border-right none-border-left">
                         <p>محل خدمت : <span class="text-green">{{ $itemWithName['mahaleKhedmat'] }} </span></p>
                      </td>
-                     <td class="none-border-right none-border-left">
+                     {{-- <td class="none-border-right none-border-left">
                         <p>شماره حساب :  <span class="text-green">تجارت</span></p>
-                     </td>
+                     </td> --}}
                 </tr>
 
 
@@ -261,8 +261,8 @@
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="4" class="none-border-left" align="right">جمع مزایا</td>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="text-green none-border-right" colspan="4" align="left" >
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="2" class="none-border-left" align="right">جمع مزایا</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right" colspan="4" align="right" >
                             @php
                                 $sum = 0;
                             @endphp
@@ -275,10 +275,12 @@
                             @endforeach
                             <p>{{ number_format($sum) }}</p>
                         </td>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
+
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right"> جمع کسور</td>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کسور</td>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >
                             @php
                             $sum = 0;
                             @endphp
@@ -290,12 +292,17 @@
                                 @endforeach
                             @endforeach
                         <p>{{ number_format($sum) }}</p>
-                        </td>
-                    </tr>
+
+                    </td>
+                    <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right " colspan="2" align="right">  </td>
+
+                </tr>
 
                     <tr>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="4" align="right">خالص  پرداختی</td>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="text-green none-border-right" colspan="4" align="left" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">خالص  پرداختی</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
+
                     </tr>
 
 
