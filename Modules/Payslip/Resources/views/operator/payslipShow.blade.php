@@ -28,7 +28,9 @@
                         </div>
                     </div>
                 </div> --}}
-                <div class="hidden md:block mx-auto text-gray-600">نمایش 1 تا 10 از 150 داده</div>
+                <div class="hidden md:block mx-auto text-gray-600">
+                    {{-- نمایش 1 تا 10 از 150 داده --}}
+                </div>
                 <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
                     <div class="w-56 relative text-gray-700 dark:text-gray-300">
                         <input type="text" class="form-control w-56 box pl-10 placeholder-theme-13" placeholder="جستجو...">
@@ -46,7 +48,7 @@
                                 <th class="text-center whitespace-nowrap">تاریخ آپلود</th>
                                 <th class="text-center whitespace-nowrap">وضعیت</th>
                                 {{-- <th class="text-center whitespace-nowrap">آپلود کننده</th> --}}
-                                <th class="text-center whitespace-nowrap">فعالیت</th>
+                                {{-- <th class="text-center whitespace-nowrap">فعالیت</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -69,12 +71,12 @@
                                 </td>
                                 {{-- <td class="text-center">{{$item->status ?? ''}}</td> --}}
 
-                                <td class="table-report__action w-56">
+                                {{-- <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
                                         <a class="flex items-center ml-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> ویرایش</a>
                                         <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                         {{-- <tr class="intro-x">
