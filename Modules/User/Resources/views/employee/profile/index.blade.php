@@ -13,7 +13,7 @@
         <div class="content">
             <div class="intro-y flex items-center mt-8">
                 <h2 class="text-lg font-medium ml-auto">
-                     پروفایل
+                     مشخصات پرسنلی من
                 </h2>
             </div>
             <!-- BEGIN: Profile Info -->
@@ -29,22 +29,25 @@
                             <div class="text-gray-600">{{ auth()->user()->job_title ?? '' }}</div>
                         </div>
                     </div>
+
                     <div class="mt-6 lg:mt-0 flex-1 dark:text-gray-300 px-5 border-l border-r border-gray-200 dark:border-dark-5 border-t lg:border-t-0 pt-5 lg:pt-0">
-                        <div class="font-medium text-center lg:text-right lg:mt-3">جزییات حساب</div>
+                        <div class="font-medium text-center lg:text-right lg:mt-3">جزییات </div>
                         <div class="flex flex-col justify-center items-center lg:items-start mt-4">
-                            <div class="truncate sm:whitespace-normal flex items-center"> <i data-feather="flag" class="w-4 h-4 ml-2"></i> {{ auth()->user()->code_meli ?? '' }} </div>
-                            <div class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="credit-card" class="w-4 h-4 ml-2"></i> {{ auth()->user()->bank_account_number ?? '' }}</div>
-                            <div class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="smartphone" class="w-4 h-4 ml-2"></i>  {{ auth()->user()->phone ?? '' }} </div>
+                            <div class="truncate sm:whitespace-normal flex items-center"><i data-feather="user" class="w-4 h-4 ml-2"></i>  کد پرسنلی : {{ auth()->user()->personal_code ?? '' }} </div>
+                            <div class="truncate sm:whitespace-normal flex items-center mt-3"><i data-feather="flag" class="w-4 h-4 ml-2"></i>  کد ملی : {{ auth()->user()->code_meli ?? '' }} </div>
+                            <div class="truncate sm:whitespace-normal flex items-center mt-3"><i data-feather="credit-card" class="w-4 h-4 ml-2"></i>  شماره حساب :  {{ auth()->user()->bank_account_number ?? '' }}</div>
+                            <div class="truncate sm:whitespace-normal flex items-center mt-3"><i data-feather="smartphone" class="w-4 h-4 ml-2"></i>  شماره تلفن همراه :  {{ auth()->user()->phone ?? '' }} </div>
                         </div>
                     </div>
                     <div class="mt-6 lg:mt-0 flex-1 dark:text-gray-300 px-5 border-l border-r border-gray-200 dark:border-dark-5 border-t lg:border-t-0 pt-5 lg:pt-0">
                         <div class="font-medium text-center lg:text-right lg:mt-3"> لینک سریع</div>
                         <div class="flex flex-col justify-center items-center lg:items-start mt-4">
-                            <div class="truncate sm:whitespace-normal flex items-center"> <i data-feather="book" class="w-4 h-4 ml-2"></i>ابلاغیه</div>
-                            <div class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="folder" class="w-4 h-4 ml-2"></i>اطلاعیه </div>
-                            <div class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="lock" class="w-4 h-4 ml-2"></i>تغییر رمز عبور</div>
+                            <a href="{{ route('Employee.payslips') }}" class="truncate sm:whitespace-normal flex items-center"> <i data-feather="dollar-sign" class="w-4 h-4 ml-2"></i>مشاهده فیش حقوقی</a>
+                            <a href="{{ route('Employee.request.index') }}" class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="file-text" class="w-4 h-4 ml-2"></i>درخواست </a>
+                            {{-- <div class="truncate sm:whitespace-normal flex items-center mt-3"> <i data-feather="lock" class="w-4 h-4 ml-2"></i>تغییر رمز عبور</div> --}}
                         </div>
                     </div>
+
 
                 </div>
                 {{-- <div class="nav nav-tabs flex-col sm:flex-row justify-center lg:justify-start" role="tablist"> <a id="dashboard-tab" data-toggle="tab" data-target="#dashboard" href="javascript:;" class="py-4 sm:ml-8 active" role="tab" aria-controls="dashboard" aria-selected="true">داشبرد</a> <a id="account-and-profile-tab" data-toggle="tab" data-target="#account-and-profile" href="javascript:;" class="py-4 sm:mr-8" role="tab" aria-selected="false">اکانت و پروفایل</a> <a id="activities-tab" data-toggle="tab" data-target="#activities" href="javascript:;" class="py-4 sm:mr-8" role="tab" aria-selected="false">فعالیت ها</a> <a id="tasks-tab" data-toggle="tab" data-target="#tasks" href="javascript:;" class="py-4 sm:mr-8" role="tab" aria-selected="false">تسک ها</a> </div> --}}
