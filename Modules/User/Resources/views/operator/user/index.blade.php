@@ -46,7 +46,7 @@
                             <tr class="intro-x">
                                
                                 <td>
-                                    <a href="#" class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
+                                    <a href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
                                     <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item->last_name ?? ''}}</div>
                                 </td>
                                 <td class="text-center">{{ $item->personal_code ?? ''}}</td>

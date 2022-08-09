@@ -10,7 +10,8 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $dataRequests = RequestModel::all();
+        $dataRequests = RequestModel::where('employee_id', auth()->user()->id)
+        ->get();
         return view('pages.site.home', compact('dataRequests'));
     }
 }

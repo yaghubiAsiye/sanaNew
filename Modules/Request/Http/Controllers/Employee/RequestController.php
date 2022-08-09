@@ -17,7 +17,8 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $data = RequestModel::all();
+        $data = RequestModel::where('employee_id', auth()->user()->id)
+        ->get();
         return view('request::employee.requests', compact('data'));
     }
 
