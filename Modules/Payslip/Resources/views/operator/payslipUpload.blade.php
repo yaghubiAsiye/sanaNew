@@ -35,12 +35,9 @@
                                     <div class="grid grid-cols-12 gap-x-5">
                                         <div class="col-span-12 xxl:col-span-6">
 
+
                                             <div class="mt-3">
-                                                <label for="name" class="form-label"> نام </label>
-                                                <input id="name" name="name" data-search="true" class="form-control">
-                                            </div>
-                                            <div class="mt-3">
-                                                <label for="name" class="form-label"> نام </label>
+                                                <label for="name" class="form-label"> تاریخ </label>
                                                 <select name="date_pay" id="date_pay" class="form-control pr-12">
                                                     <option value="تیر۱۴۰۱">تیر ۱۴۰۱</option>
                                                     <option value="مرداد۱۴۰۱">مرداد ۱۴۰۱</option>
@@ -53,10 +50,14 @@
                                                     <option value="اسفند۱۴۰۱">اسفند ۱۴۰۱</option>
                                                 </select>
                                             </div>
+                                            <div class="mt-3">
+                                                <label for="file" class="form-label"> فایل حقوقی </label>
+                                                <input type="file" id="file" name="file" data-search="true" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-52 mx-auto xl:ml-0 xl:mr-6">
+                                {{-- <div class="w-52 mx-auto xl:ml-0 xl:mr-6">
                                     <div class="border-2 border-dashed shadow-sm border-gray-200 dark:border-dark-5 rounded-md p-5">
                                         <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                             <div class="file box rounded-md px-5 pt-8 pb-5 px-3 sm:px-5 relative ">
@@ -64,14 +65,14 @@
                                                     <div class="file__icon__file-name">Excel</div>
                                                 </a>
                                             </div>
-                                            {{-- <div title="Remove this profile photo?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 left-0 top-0 -ml-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div> --}}
+                                            <div title="Remove this profile photo?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 left-0 top-0 -ml-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
                                         </div>
                                         <div class="mx-auto cursor-pointer relative mt-5">
                                             <button type="button" class="btn btn-primary w-full">آپلود فایل حقوقی</button>
                                             <input type="file" name="file" class="w-full h-full top-0 left-0 absolute opacity-0">
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <button type="submit" class="btn btn-primary w-20 mt-3"> ذخیره </button>
                         </form>

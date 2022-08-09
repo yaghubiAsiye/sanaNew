@@ -19,40 +19,55 @@
         </li> --}}
 
         @can('employee')
+
         <li class="side-nav__devider my-6"></li>
-            <li>
-                <a href="{{ route('Employee.payslips') }}" class="side-menu {{ (Request::is('Employee/payslip*') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
-                    <div class="side-menu__title"> فیش حقوقی </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="javascript:;" class="side-menu {{ (Request::is('Employee/request*') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                    <div class="side-menu__title">
-                    مدیریت درخواستها
-                        <div class="side-menu__sub-icon {{ (Request::is('Employee/request*') ? 'transform rotate-180' : '') }}">
-                            <i data-feather="chevron-down"></i>
-                        </div>
+        <li>
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/requests') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/payslip*') ? 'side-menu--active' : '') }} {{ (Request::is('profile') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                <div class="side-menu__title">
+                    پروفایل من
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/requests') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/payslip*') ? 'transform rotate-180' : '') }} {{ (Request::is('profile') ? 'transform rotate-180' : '') }}">
+                        <i data-feather="chevron-down"></i>
                     </div>
-                </a>
-                <ul class="{{ (Request::is('Employee/request*') ? 'side-menu__sub-open' : '') }}">
-                    <li>
-                        <a href="{{ route('Employee.request.index') }}" class="side-menu {{ (Request::is('Employee/requests') ? 'side-menu--active' : '') }}">
-                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="side-menu__title"> درخواست ها</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('Employee.request.create') }}" class="side-menu {{ (Request::is('Employee/request/create') ? 'side-menu--active' : '') }}">
-                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="side-menu__title">ثبت درخواست</div>
-                        </a>
-                    </li>
+                </div>
+            </a>
+            <ul class="{{ (Request::is('Employee/requests') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/payslip*') ? 'side-menu__sub-open' : '') }}{{ (Request::is('profile') ? 'side-menu__sub-open' : '') }}">
+                {{-- <li>
+                    <a href="{{route('reset-password-page')}}" class="side-menu {{ (Request::is('reset-password-page') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">بازیابی رمز عبور</div>
+                    </a>
+                </li> --}}
+                <li>
+                    <a href="{{ route('User.profile') }}" class="side-menu {{ (Request::is('profile') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> مشخصات پرسنلی  </div>
+                    </a>
+                </li>
 
-                </ul>
-            </li>
+                <li>
+                    <a href="{{ route('Employee.payslips') }}" class="side-menu {{ (Request::is('Employee/payslip*') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> مشاهده فیش حقوقی </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('Employee.request.index') }}" class="side-menu {{ (Request::is('Employee/requests') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> درخواست </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('logout')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">خروج </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         @endcan
 
 
@@ -112,39 +127,7 @@
         </li>
     @endcan
 
-    <li class="side-nav__devider my-6"></li>
-    <li>
-        <a href="javascript:;" class="side-menu {{ (Request::is('reset-password-page') ? 'side-menu--active' : '') }} {{ (Request::is('profile') ? 'side-menu--active' : '') }}">
-            <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
-            <div class="side-menu__title">
-                پروفایل
-                <div class="side-menu__sub-icon {{ (Request::is('reset-password-page') ? 'transform rotate-180' : '') }} {{ (Request::is('profile') ? 'transform rotate-180' : '') }}">
-                    <i data-feather="chevron-down"></i>
-                </div>
-            </div>
-        </a>
-        <ul class="{{ (Request::is('reset-password-page') ? 'side-menu__sub-open' : '') }}{{ (Request::is('profile') ? 'side-menu__sub-open' : '') }}">
-            {{-- <li>
-                <a href="{{route('reset-password-page')}}" class="side-menu {{ (Request::is('reset-password-page') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title">بازیابی رمز عبور</div>
-                </a>
-            </li> --}}
-            <li>
-                <a href="{{ route('User.profile') }}" class="side-menu {{ (Request::is('profile') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title"> اطلاعات کاربری </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('logout')}}" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title">خروج </div>
-                </a>
-            </li>
-        </ul>
-    </li>
-
+   
 
     @hasrole('Super Admin')
     <li class="side-nav__devider my-6"></li>

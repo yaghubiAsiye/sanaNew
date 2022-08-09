@@ -54,7 +54,7 @@
                                 <td class="text-center">{{ $item->phone ?? ''}}</td>
                                 <td class="text-center">{{ $item->job_title ?? ''}}</td>
                                 <td class="text-center">{{ $item->bank_account_number ?? ''}}</td>
-                                <td class="text-center">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</td>
+                                <td class="text-center">{{ $item->last_seen? Carbon\Carbon::parse($item->last_seen)->diffForHumans() : 'وارد نشده' }}</td>
                                 <td class="w-40">
                                     @if(Cache::has('user-is-online-' . $item->id))
                                         <div class="flex items-center justify-center text-theme-9"> 

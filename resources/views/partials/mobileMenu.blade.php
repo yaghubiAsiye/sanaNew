@@ -24,50 +24,38 @@
             </a>
         </li>
 
-        @can('Accountants-crud')
+        @can('employee')
         <li>
-            <a href="javascript:;" class="menu {{ (Request::is('Operator/Payslip*') ? 'menu--active' : '') }}">
+            <a href="javascript:;" class="menu {{ (Request::is('Employee/requests') ? 'menu--active' : '') }}{{ (Request::is('Employee/payslip*') ? 'menu--active' : '') }}{{ (Request::is('profile') ? 'menu--active' : '') }}">
                 <div class="menu__icon"> <i data-feather="box"></i> </div>
-                <div class="menu__title">  امور مالی
-                    <i data-feather="chevron-down" class="menu__sub-icon {{ (Request::is('Operator/Payslip*') ? 'transform rotate-180' : '') }}"></i>
+                <div class="menu__title">   پروفایل من
+                    <i data-feather="chevron-down" class="menu__sub-icon {{ (Request::is('Employee/requests') ? 'transform rotate-180' : '') }}{{ (Request::is('Employee/payslip*') ? 'transform rotate-180' : '') }}{{ (Request::is('profile') ? 'transform rotate-180' : '') }}"></i>
                 </div>
             </a>
             <ul class="">
                 <li>
-                    <a href="{{ route('Payslip.create') }}" class="menu menu--active">
+                    <a href="{{ route('User.profile') }}" class="menu {{ (Request::is('profile') ? 'menu--active' : '') }}">
                         <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="menu__title"> بارگزاری فیش حقوقی </div>
+                        <div class="menu__title"> مشخصات پرسنلی </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('Payslip.index') }}" class="menu menu--active">
+                    <a href="{{ route('Employee.payslips') }}" class="menu {{ (Request::is('Employee/payslip*') ? 'menu--active' : '') }}">
                         <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="menu__title"> فیش حقوقی </div>
+                        <div class="menu__title"> مشاهده فیش حقوقی </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('Employee.request.index') }}" class="menu {{ (Request::is('Employee/requests') ? 'menu--active' : '') }}">
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title">   درخواست </div>
                     </a>
                 </li>
 
             </ul>
         </li>
 
-        <li>
-            <a href="javascript:;" class="menu {{ (Request::is('User*') ? 'menu--active' : '') }}">
-                <div class="menu__icon"> <i data-feather="box"></i> </div>
-                <div class="menu__title">   مدیریت کاربران
-                    <i data-feather="chevron-down" class="menu__sub-icon {{ (Request::is('User*') ? 'transform rotate-180' : '') }}"></i>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ route('User.index') }}" class="menu menu--active">
-                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="menu__title">لیست کارمندان</div>
-                    </a>
-                </li>
-              
-            </ul>
-        </li>
         @endcan
-
 
 
 
