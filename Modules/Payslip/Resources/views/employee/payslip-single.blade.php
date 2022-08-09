@@ -8,7 +8,7 @@
     <!-- BEGIN: Content -->
     <div class="content">
         <!-- BEGIN: Top Bar -->
-        @include('partials.topBarSide')
+        @include('partials.topBarSide', ['breadcrumb'=> [' جزییات فیش  حقوقی']])
         <!-- END: Top Bar -->
         <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
             <h2 class="text-lg font-medium ml-auto">

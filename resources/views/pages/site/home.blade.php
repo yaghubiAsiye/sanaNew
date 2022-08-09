@@ -9,7 +9,7 @@
     <!-- BEGIN: Content -->
     <div class="content">
         <!-- BEGIN: Top Bar -->
-        @include('partials.topBarSide')
+        @include('partials.topBarSide', ['breadcrumb'=> ['داشبرد']])
 
 
 
@@ -18,7 +18,9 @@
              <div class="col-span-12 xxl:col-span-12">
                 <div class="alert alert-outline-success alert-dismissible show flex items-center mb-2" role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle w-6 h-6 ml-2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                    به سامانه نیروی انسانی ارتباطات پرشیا خوش آمدید!
+                    به سامانه نیروی انسانی ارتباطات پرشیا خوش آمدید !
+                    <p class="mr-2">  در صورت بروز مشکل با شماره ۰۲۱۸۲۸۴۹۵۰۹ تماس  بگیرید  </p>
+
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> </button>
                 </div>
              </div>
@@ -30,7 +32,7 @@
                     {{-- <div class="col-span-12 mt-8">
                         <div class="intro-y flex items-center h-10">
                             <h2 class="text-lg font-medium truncate ml-5">
-                                 گزارش کلی
+                                 اطلاعات کلی
                             </h2>
                             <a href="" class="mr-auto flex items-center text-theme-1 dark:text-theme-10"> <i data-feather="refresh-ccw" class="w-4 h-4 ml-3"></i>به روزرسانی داده</a>
                         </div>
@@ -501,11 +503,11 @@
                     <!-- END: Weekly Top Products -->
                 </div>
             </div>
-            {{-- <div class="col-span-12 xxl:col-span-3">
+            <div class="col-span-12 xxl:col-span-3">
                 <div class="xxl:border-l border-theme-5 -mb-10 pb-10">
                     <div class="xxl:pl-6 grid grid-cols-12 gap-6">
                         <!-- BEGIN: Transactions -->
-                        <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3 xxl:mt-8">
+                        {{-- <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3 xxl:mt-8">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-5">
                                      تراکنش ها
@@ -574,10 +576,10 @@
                                 </div>
                                 <a href="" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">مشاهده بیشتر</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- END: Transactions -->
                         <!-- BEGIN: Recent Activities -->
-                        <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3">
+                        {{-- <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-5">
                                     فعالیت های اخیر
@@ -656,54 +658,67 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- END: Recent Activities -->
                         <!-- BEGIN: Important Notes -->
+                        @if(count($dataRequests) > 0)
                         <div class="col-span-12 md:col-span-6 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
-                                    یادداشت های مهم
+                                   آخرین درخواست های شما
                                 </h2>
                                 <button data-carousel="important-notes" data-target="prev" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-right" class="w-4 h-4"></i> </button>
-                                    <button data-carousel="important-notes" data-target="next" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-left" class="w-4 h-4"></i> </button>
+                                <button data-carousel="important-notes" data-target="next" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-left" class="w-4 h-4"></i> </button>
                             </div>
                             <div class="mt-5 intro-x">
                                     <div class="box zoom-in">
                                         <div class="tiny-slider" id="important-notes">
-                                            <div class="p-5">
-                                                <div class="text-base font-medium truncate">لورم ایپسوم متن ساختگی با تولید سادگی</div>
-                                                <div class="text-gray-500 mt-1"> 20 ساعت قبل </div>
-                                                <div class="text-gray-600 text-right mt-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیتکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</div>
-                                                <div class="font-medium flex mt-5">
-                                                    <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
-                                                    <button type="button" class="btn btn-secondary py-1 px-2 ml-auto ml-auto">مشاهده نکته</button>
+                                            @foreach ($dataRequests as $item)
+                                                <div class="p-5">
+                                                    <div class="text-base font-medium truncate">{{ $item->type ?? ''}}</div>
+                                                    <div class="text-gray-500 mt-1"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() ?? '' }}</div>
+                                                    <div class="text-gray-600 text-right mt-1">
+                                                        {!! $item->content ?? '' !!}
+                                                    </div>
+                                                    <div class="font-medium flex mt-5">
+                                                        {{-- <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button> --}}
+                                                        <button type="button" class="btn btn-warning py-1 px-2 ml-auto ml-auto">{{ $item->status ?? ''}}</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-5">
-                                                <div class="text-base font-medium truncate">لورم ایپسوم متن ساختگی با تولید سادگی</div>
-                                                <div class="text-gray-500 mt-1"> 20 ساعت قبل </div>
-                                                <div class="text-gray-600 text-right mt-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیتکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</div>
-                                                <div class="font-medium flex mt-5">
-                                                    <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
-                                                    <button type="button" class="btn btn-secondary py-1 px-2 ml-auto ml-auto">مشاهده نکته</button>
-                                                </div>
-                                            </div>
-                                            <div class="p-5">
-                                                <div class="text-base font-medium truncate">لورم ایپسوم متن ساختگی با تولید سادگی</div>
-                                                <div class="text-gray-500 mt-1"> 20 ساعت قبل </div>
-                                                <div class="text-gray-600 text-right mt-1">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیتکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</div>
-                                                <div class="font-medium flex mt-5">
-                                                    <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
-                                                    <button type="button" class="btn btn-secondary py-1 px-2 ml-auto ml-auto">مشاهده نکته</button>
-                                                </div>
-                                            </div>
+                                            @endforeach
+
                                         </div>
                                     </div>
                                 </div>
                         </div>
+                        @else
+                        <div class="col-span-12 md:col-span-6 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
+                            <div class="intro-x flex items-center h-10">
+                                <h2 class="text-lg font-medium truncate ml-auto">
+                                   آخرین درخواست های شما
+                                </h2>
+                                <button data-carousel="important-notes" data-target="prev" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-right" class="w-4 h-4"></i> </button>
+                                <button data-carousel="important-notes" data-target="next" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-left" class="w-4 h-4"></i> </button>
+                            </div>
+                            <div class="mt-5 intro-x">
+                                <div class="box zoom-in">
+                                    <div class="p-5">
+                                        <div class="text-base font-medium truncate"></div>
+                                        <div class="text-gray-500 mt-1"></div>
+                                        <div class="text-gray-600 text-right mt-1">
+                                            هنوز درخواستی ثبت نکرده اید
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+
                         <!-- END: Important Notes -->
                         <!-- BEGIN: Schedules -->
-                        <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 xl:col-start-1 xl:row-start-2 xxl:col-start-auto xxl:row-start-auto mt-3">
+                        {{-- <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 xl:col-start-1 xl:row-start-2 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-5">
                                     برنامه ها
@@ -792,11 +807,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- END: Schedules -->
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
     <!-- END: Content -->

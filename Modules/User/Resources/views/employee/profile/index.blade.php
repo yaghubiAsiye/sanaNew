@@ -8,7 +8,7 @@
     <!-- BEGIN: Content -->
     <div class="content">
         <!-- BEGIN: Top Bar -->
-        @include('partials.topBarSide')
+        @include('partials.topBarSide', ['breadcrumb'=> ['مشخصات پرسنلی من']])
         <!-- END: Top Bar -->
         <div class="content">
             <div class="intro-y flex items-center mt-8">

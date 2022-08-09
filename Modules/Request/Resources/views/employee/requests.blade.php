@@ -8,7 +8,7 @@
     <!-- BEGIN: Content -->
     <div class="content">
         <!-- BEGIN: Top Bar -->
-        @include('partials.topBarSide')
+        @include('partials.topBarSide', ['breadcrumb'=> ['لیست   درخواست ها']])
         <!-- END: Top Bar -->
         <h2 class="intro-y text-lg font-medium mt-10">
             لیست   درخواست ها
