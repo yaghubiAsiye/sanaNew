@@ -12,8 +12,8 @@ use Spatie\Permission\Models\Permission;
 
 
 Route::get('/', function () {
-    // var_dump(Permission::where('name','Accountants-crud')->get());
-    // dd('ok');
+    dd(Permission::whereIn('name', ['employee', 'Accountants-crud'])->get());
+    dd('ok');
     if(Auth::check()){return redirect()->route('home');}
     return redirect('/login');
 });
