@@ -20,8 +20,8 @@ class PayslipController extends Controller
     {
 
 
-        // $payslips = Payslip::where('codeMeli', auth()->user()->code_meli)
-        $payslips = Payslip::where('codeMeli','0072585722')
+        $payslips = Payslip::where('codeMeli', auth()->user()->code_meli)
+        // $payslips = Payslip::where('codeMeli','0072585722')
         ->get()
         ->groupBy('date_pay');
 
@@ -143,8 +143,8 @@ class PayslipController extends Controller
     public function downloadPDF($date)
     {
 
-        // $payslips = Payslip::where('codeMeli', auth()->user()->code_meli)
-        $payslips = Payslip::where('codeMeli','0072585722')
+        $payslips = Payslip::where('codeMeli', auth()->user()->code_meli)
+        // $payslips = Payslip::where('codeMeli','0072585722')
         ->where('date_pay', $date)
         ->get();
 
