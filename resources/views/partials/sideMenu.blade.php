@@ -104,18 +104,18 @@
         @can('Official-crud')
             <li class="side-nav__devider my-6"></li>
             <li>
-                <a href="javascript:;" class="side-menu {{ (Request::is('User*') ? 'side-menu--active' : '') }}">
+                <a href="javascript:;" class="side-menu {{ (Request::is('c') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
                     <div class="side-menu__title">
                     امور اداری
-                        <div class="side-menu__sub-icon {{ (Request::is('User*') ? 'transform rotate-180' : '') }}">
+                        <div class="side-menu__sub-icon {{ (Request::is('c') ? 'transform rotate-180' : '') }}">
                             <i data-feather="chevron-down"></i>
                         </div>
                     </div>
                 </a>
-                <ul class="{{ (Request::is('User*') ? 'side-menu__sub-open' : '') }}">
+                <ul class="{{ (Request::is('c') ? 'side-menu__sub-open' : '') }}">
                     <li>
-                        <a href="#" class="side-menu {{ (Request::is('User/index') ? 'side-menu--active' : '') }}">
+                        <a href="#" class="side-menu {{ (Request::is('c') ? 'side-menu--active' : '') }}">
                             <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                             <div class="side-menu__title">  مدیریت درخواست ها</div>
                         </a>
