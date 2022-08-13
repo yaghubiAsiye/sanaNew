@@ -11,7 +11,7 @@
         @include('partials.topBarSide', ['breadcrumb'=> [' لیست کارمندان']])
         <!-- END: Top Bar -->
         <h2 class="intro-y text-lg font-medium mt-10">
-            لیست 
+            لیست
         </h2>
         <div class="grid grid-cols-12 gap-6 mt-5">
             <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
@@ -47,7 +47,7 @@
                                         <th class="text-center whitespace-nowrap"> کارکرد عادی  </th>
 
                                         <th class="text-center whitespace-nowrap">  اضافه کاری </th>
-                                        <th class="whitespace-nowrap">  شبکاری</th>
+                                        {{-- <th class="whitespace-nowrap">  شبکاری</th>
                                         <th class="whitespace-nowrap">  کسر کار</th>
                                         <th class="whitespace-nowrap">  ماموریت خشکی </th>
                                         <th class="whitespace-nowrap">  ماموریت دریا </th>
@@ -55,8 +55,8 @@
                                         <th class="whitespace-nowrap">  نوبت کاری 15%</th>
                                         <th class="whitespace-nowrap">  نوبت کاری 22.5%</th>
                                         <th class="whitespace-nowrap">  اقماری دریا</th>
-                                        <th class="whitespace-nowrap">  اقماری خشکی </th>
-                                        <th class="text-center whitespace-nowrap">فعالیت</th>
+                                        <th class="whitespace-nowrap">  اقماری خشکی </th> --}}
+                                        <th class="text-center whitespace-nowrap">دانلود فیش حقوقی</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +82,7 @@
                                             <td class="text-center">{{ $items['itemWithName'][0]['karkardAdy'] ?? ''}}</td>
 
                                             <td class="text-center">{{ $items['itemWithName'][0]['ezafeKary'] ?? ''}}</td>
-                                            <td class="text-center">{{ $items['itemWithName'][0]['shabKari'] ?? ''}}</td>
+                                            {{-- <td class="text-center">{{ $items['itemWithName'][0]['shabKari'] ?? ''}}</td>
                                             <td class="text-center">{{ $items['itemWithName'][0]['kasreKar'] ?? ''}}</td>
                                             <td class="text-center">{{ $items['itemWithName'][0]['mamuriateKhoshky'] ?? ''}}</td>
                                             <td class="text-center">{{ $items['itemWithName'][0]['mamuriateDarya'] ?? ''}}</td>
@@ -90,11 +90,15 @@
                                             <td class="text-center">{{ $items['itemWithName'][0]['nobateKary15'] ?? ''}}</td>
                                             <td class="text-center">{{ $items['itemWithName'][0]['nobateKary225'] ?? ''}}</td>
                                             <td class="text-center">{{ $items['itemWithName'][0]['aqmaryDarya'] ?? ''}}</td>
-                                            <td class="text-center">{{ $items['itemWithName'][0]['aqmaryKhoshky'] ?? ''}}</td>
+                                            <td class="text-center">{{ $items['itemWithName'][0]['aqmaryKhoshky'] ?? ''}}</td> --}}
 
                                             <td class="table-report__action w-56">
                                                 <div class="flex justify-center items-center">
-                                                    <a class="flex items-center ml-3" href="{{ route('PayslipEmployee.payslipSingle', ['date' => $items['date_pay'], 'codeMeli' => $items['itemWithName'][0]['codeMeli']]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a>
+                                                    {{-- <a class="flex items-center ml-3" href="{{ route('PayslipEmployee.payslipSingle', ['date' => $items['date_pay'], 'codeMeli' => $items['itemWithName'][0]['codeMeli']]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a> --}}
+                                                    {{-- <a class="flex items-center ml-3" target="_blank"  href="{{route('PayslipEmployee.downloadPDF', ['date' => $items['date_pay'], 'codeMeli' => $items['itemWithName'][0]['codeMeli']])}}">دانلود فیش حقوقی</a> --}}
+                                                    <a class="flex items-center ml-3" target="_blank"  href="{{route('PayslipEmployee.downloadPDF', ['date' => $items['date_pay'], 'codeMeli' => $items['itemWithName'][0]['codeMeli']])}}"><i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a>
+
+
                                                     {{-- <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a> --}}
                                                 </div>
                                             </td>

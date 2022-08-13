@@ -178,7 +178,7 @@
                         </td>
 
                         <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
-                            کسور
+                            کسورات
                         </td>
                         <td class="padding" style="background: rgba(255,204,172,255);"  colspan="2" align="center">
                              کارکرد
@@ -234,34 +234,34 @@
 
 
                         <td class="none-border-left"  align="right">
-                            <p> کارکرد عادی</p>
-                            <p> اضافه کار</p>
-                            <p>  شب کاری</p>
-                            <p>  کسر کار </p>
-                            <p>  ماموریت خشکی </p>
-                            <p>  ماموریت دریا  </p>
-                            <p>  نوبت کاری 15% </p>
-                            <p>  نوبت کاری 22.5% </p>
-                            <p>  اقماری دریا </p>
-                            <p>  اقماری خشکی  </p>
+                            @if( $itemWithName['karkardAdy'] != 0)<p> کارکرد عادی</p>@endif
+                            @if( $itemWithName['ezafeKary'] != 0)<p> اضافه کار</p>@endif
+                            @if( $itemWithName['shabKari'] != 0)<p>  شب کاری</p>@endif
+                            @if( $itemWithName['kasreKar'] != 0)<p>  کسر کار </p>@endif
+                            @if( $itemWithName['mamuriateKhoshky'] != 0)<p>  ماموریت خشکی </p>@endif
+                            @if( $itemWithName['mamuriateDarya'] != 0)<p>  ماموریت دریا  </p>@endif
+                            @if( $itemWithName['nobateKary15'] != 0)<p>  نوبت کاری 15% </p>@endif
+                            @if( $itemWithName['nobateKary225'] != 0)<p>  نوبت کاری 22.5% </p>@endif
+                            @if( $itemWithName['aqmaryDarya'] != 0)<p>  اقماری دریا </p>@endif
+                            @if( $itemWithName['aqmaryKhoshky'] != 0)<p>  اقماری خشکی  </p>@endif
 
                         </td>
                         <td class="none-border-right"  align="left">
-                            <p>{{ $itemWithName['karkardAdy'] }}</p>
-                            <p>{{ $itemWithName['ezafeKary'] }}</p>
-                            <p>{{ $itemWithName['shabKari'] }}</p>
-                            <p>{{ $itemWithName['kasreKar'] }}</p>
-                            <p>{{ $itemWithName['mamuriateKhoshky'] }}</p>
-                            <p>{{ $itemWithName['mamuriateDarya'] }}</p>
-                            <p>{{ $itemWithName['nobateKary15'] }}</p>
-                            <p>{{ $itemWithName['nobateKary225'] }}</p>
-                            <p>{{ $itemWithName['aqmaryDarya'] }}</p>
-                            <p>{{ $itemWithName['aqmaryKhoshky'] }}</p>
+                            @if( $itemWithName['karkardAdy'] != 0) <p>{{ $itemWithName['karkardAdy'] }}</p>@endif
+                            @if( $itemWithName['ezafeKary'] != 0)<p>{{ $itemWithName['ezafeKary'] }}</p>@endif
+                            @if( $itemWithName['shabKari'] != 0)<p>{{ $itemWithName['shabKari'] }}</p>@endif
+                            @if( $itemWithName['kasreKar'] != 0)<p>{{ $itemWithName['kasreKar'] }}</p>@endif
+                            @if( $itemWithName['mamuriateKhoshky'] != 0)<p>{{ $itemWithName['mamuriateKhoshky'] }}</p>@endif
+                            @if( $itemWithName['mamuriateDarya'] != 0)<p>{{ $itemWithName['mamuriateDarya'] }}</p>@endif
+                            @if( $itemWithName['nobateKary15'] != 0)<p>{{ $itemWithName['nobateKary15'] }}</p>@endif
+                            @if( $itemWithName['nobateKary225'] != 0)<p>{{ $itemWithName['nobateKary225'] }}</p>@endif
+                            @if( $itemWithName['aqmaryDarya'] != 0)<p>{{ $itemWithName['aqmaryDarya'] }}</p>@endif
+                            @if( $itemWithName['aqmaryKhoshky'] != 0)<p>{{ $itemWithName['aqmaryKhoshky'] }}</p>@endif
                         </td>
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="2" class="none-border-left" align="right">جمع مزایا</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="2" class="none-border-left" align="right">جمع مزایا (ریال)</td>
                         <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right" colspan="4" align="right" >
                             @php
                                 $sum = 0;
@@ -279,7 +279,8 @@
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کسور</td>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کسورات (ریال)</td>
+
                         <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >
                             @php
                             $sum = 0;
@@ -299,7 +300,8 @@
                 </tr>
 
                     <tr>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">خالص  پرداختی</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">جمع حقوق و مزایا   (ریال)</td>
+
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
 

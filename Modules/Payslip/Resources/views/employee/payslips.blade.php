@@ -37,22 +37,22 @@
                                     <tr>
                                         <th class="whitespace-nowrap"> تاریخ</th>
                                         <th class="text-center whitespace-nowrap"> شماره حساب  </th>
-                                        <th class="text-center whitespace-nowrap"> محل خدمت </th>
-                                        <th class="text-center whitespace-nowrap">شماره بيمه</th>
+                                        {{-- <th class="text-center whitespace-nowrap"> محل خدمت </th> --}}
+                                        {{-- <th class="text-center whitespace-nowrap">شماره بيمه</th> --}}
                                         <th class="text-center whitespace-nowrap">مبلغ خالص پرداختى</th>
                                         <th class="text-center whitespace-nowrap"> کارکرد عادی  </th>
                                         <th class="text-center whitespace-nowrap">  اضافه کاری </th>
-                                        <th class="whitespace-nowrap">  شبکاری</th>
+                                        {{-- <th class="whitespace-nowrap">  شبکاری</th> --}}
                                         <th class="whitespace-nowrap">  کسر کار</th>
-                                        <th class="whitespace-nowrap">  ماموریت خشکی </th>
+                                        {{-- <th class="whitespace-nowrap">  ماموریت خشکی </th>
                                         <th class="whitespace-nowrap">  ماموریت دریا </th>
                                         <th class="whitespace-nowrap">  نوبت کاری 15%</th>
                                         <th class="whitespace-nowrap">  نوبت کاری 22.5%</th>
                                         <th class="whitespace-nowrap">  اقماری دریا</th>
-                                        <th class="whitespace-nowrap">  اقماری خشکی </th>
+                                        <th class="whitespace-nowrap">  اقماری خشکی </th> --}}
                                         {{-- <th class="whitespace-nowrap">  نام عامل</th>
                                         <th class="whitespace-nowrap">  مبلغ حكم</th> --}}
-                                        <th class="text-center whitespace-nowrap">فعالیت</th>
+                                        <th class="text-center whitespace-nowrap">دریافت فایل فیش حقوقی</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,21 +66,21 @@
                                                         {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $items['date_pay'] ?? ''}}</div> --}}
                                                     </td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['shomareBime'] ?? ''}}</td>
+                                                    {{-- <td class="text-center">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td> --}}
+                                                    {{-- <td class="text-center">{{ $items['itemWithName'][0]['shomareBime'] ?? ''}}</td> --}}
                                                     <td class="text-center">{{ $items['itemWithName'][0]['mablaqKhalesPardakhty'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['karkardAdy'] ?? ''}}</td>
 
                                                     <td class="text-center">{{ $items['itemWithName'][0]['ezafeKary'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['shabKari'] ?? ''}}</td>
+                                                    {{-- <td class="text-center">{{ $items['itemWithName'][0]['shabKari'] ?? ''}}</td> --}}
                                                     <td class="text-center">{{ $items['itemWithName'][0]['kasreKar'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['mamuriateKhoshky'] ?? ''}}</td>
+                                                    {{-- <td class="text-center">{{ $items['itemWithName'][0]['mamuriateKhoshky'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['mamuriateDarya'] ?? ''}}</td>
 
                                                     <td class="text-center">{{ $items['itemWithName'][0]['nobateKary15'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['nobateKary225'] ?? ''}}</td>
                                                     <td class="text-center">{{ $items['itemWithName'][0]['aqmaryDarya'] ?? ''}}</td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['aqmaryKhoshky'] ?? ''}}</td>
+                                                    <td class="text-center">{{ $items['itemWithName'][0]['aqmaryKhoshky'] ?? ''}}</td> --}}
 
 
                                                     {{-- <td class="text-center">{{ $items['itemWithoutName'][1]['روند ماه قبل'] ?? ''}}</td>
@@ -104,7 +104,9 @@
 
                                                 <td class="table-report__action w-56">
                                                     <div class="flex justify-center items-center">
-                                                        <a class="flex items-center ml-3" href="{{ route('Employee.payslipSingle', ['date' => $items['date_pay']]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a>
+                                                        {{-- <a class="flex items-center ml-3" href="{{ route('Employee.payslipSingle', ['date' => $items['date_pay']]) }}"> <i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a> --}}
+                                                        <a class="flex items-center ml-3" target="_blank"  href="{{url('Employee/downloadPDF', $items['date_pay'])}}"><i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a>
+
                                                         {{-- <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a> --}}
                                                     </div>
                                                 </td>
