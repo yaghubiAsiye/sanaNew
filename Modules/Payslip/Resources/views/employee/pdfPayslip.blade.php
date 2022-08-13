@@ -49,8 +49,8 @@
         .img-container{
             display: inline;
             float: right;
-            width: 60px;
-            height: 40px;
+            width: 90px;
+            height: 50px;
         }
         .h{
             padding: 0;
@@ -99,7 +99,7 @@
             color: rgba(25,116,119,255);
         }
         .padding{
-            padding:25px;
+            padding:10px;
         }
     </style>
 
@@ -261,8 +261,8 @@
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" colspan="2" class="none-border-left" align="right">جمع مزایا (ریال)</td>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right" colspan="4" align="right" >
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">جمع کل حقوق و مزایا (ریال)</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right"  align="right" >
                             @php
                                 $sum = 0;
                             @endphp
@@ -275,11 +275,34 @@
                             @endforeach
                             <p>{{ number_format($sum) }}</p>
                         </td>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
+
+                        <td style="border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2"  align="right"> جمع کل کسورات (ریال)</td>
+
+                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >
+                            @php
+                            $sum = 0;
+                            @endphp
+                            @foreach ($kosoor as $item)
+                                @foreach ($item as $key => $value)
+                                    @php
+                                        $sum += $value;
+                                    @endphp
+                                @endforeach
+                            @endforeach
+                        <p>{{ number_format($sum) }}</p>
+
+                    </td>
+
+                    <td style="white-space:nowrap;border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left"   align="right"> خالص پرداختی(ریال)</td>
+
+                    <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
+
+                        {{-- <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td> --}}
 
                     </tr>
-                    <tr>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کسورات (ریال)</td>
+                    {{-- <tr>
+                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کل کسورات (ریال)</td>
+
                         <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >
                             @php
                             $sum = 0;
@@ -296,14 +319,15 @@
                     </td>
                     <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right " colspan="2" align="right">  </td>
 
-                </tr>
+                </tr> --}}
 
-                    <tr>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">جمع حقوق و مزایا   (ریال)</td>
+                    {{-- <tr>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> خالص پرداختی(ریال)</td>
+
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
 
-                    </tr>
+                    </tr> --}}
 
 
             </table>
