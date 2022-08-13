@@ -65,7 +65,7 @@
                                                         <a href="#" class="font-medium whitespace-nowrap">{{ $items['date_pay']->format('%B - %Y') ?? ''}}</a>
                                                         {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $items['date_pay'] ?? ''}}</div> --}}
                                                     </td>
-                                                    <td class="text-center">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
+                                                    <td class="text-center">{{ number_format($items['itemWithName'][0]['shomareHesab']) ?? ''}}</td>
                                                     {{-- <td class="text-center">{{ $items['itemWithName'][0]['mahaleKhedmat'] ?? ''}}</td> --}}
                                                     {{-- <td class="text-center">{{ $items['itemWithName'][0]['shomareBime'] ?? ''}}</td> --}}
                                                     <td class="text-center">{{ $items['itemWithName'][0]['mablaqKhalesPardakhty'] ?? ''}}</td>
