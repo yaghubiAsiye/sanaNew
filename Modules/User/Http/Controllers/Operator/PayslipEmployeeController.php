@@ -198,7 +198,7 @@ class PayslipEmployeeController extends Controller
         $pdf = PDF::loadView('user::operator.payslipEmployee.pdfPayslip', $data);
 
         // return $pdf;
-        return $pdf->download('payslip.pdf');
+        return $pdf->stream('payslip.pdf');
 
       }
 }

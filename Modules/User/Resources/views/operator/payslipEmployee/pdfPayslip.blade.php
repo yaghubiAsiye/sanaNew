@@ -20,10 +20,7 @@
         url('../../public/dist/fonts/fontPdf/Samim.ttf'); */
 
         font-family: 'samim';
-        src: url('../../public/dist/fonts/fontPdf/Farsi-Digits/Samim-FD.eot'),
-        url('../../public/dist/fonts/fontPdf/Farsi-Digits/Samim-FD.woff'),
-        url('../../public/dist/fonts/fontPdf/Farsi-Digits/Samim-FD.woff2'),
-        url('../../public/dist/fonts/fontPdf/Farsi-Digits/Samim-FD.ttf');
+        src: url('../../public/dist/fonts/fontPdf/BYekan/Yekan.ttf');
 
         }
 
@@ -42,7 +39,8 @@
 
         }
         html {
-            font: 14px/1.5 'samim', Arial, sans-serif;
+            font: 14px/1.5  Arial, sans-serif;
+            font-family: 'samim';
 
         }
 
@@ -114,6 +112,14 @@
 
 <body>
 
+    @php
+         function traverse_farsi($str)
+    {
+        $farsi_chars = ['٠', '١', '۲', '٣', '۴', '۵', '۶', '٧', '٨', '٩'];
+        $latin_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        return str_replace($latin_chars, $farsi_chars, $str);
+    }
+    @endphp
     <div class="content">
         <div class="table-div" style="text-align: center">
             <table>
@@ -195,14 +201,14 @@
                         <td class="none-border-left"  align="right">
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                    @if($value != 0) <p style="margin-top:10px">{{ $key }}</p> @endif
                                 @endforeach
                             @endforeach
                         </td>
-                        <td class="none-border-right"  align="left" >
+                        <td class="none-border-right"   align="left" >
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                @if($value != 0)<p style="padding-y:10px">{{ traverse_farsi($value) }}</p>@endif
                                 @endforeach
                             @endforeach
                         </td>
@@ -217,7 +223,7 @@
                         <td class="none-border-right"  align="left">
                             @foreach ($mazaya as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                    @if($value != 0)<p>{{ traverse_farsi($value) }}</p>@endif
                                 @endforeach
                             @endforeach
                         </td>
@@ -233,7 +239,7 @@
                         <td style="white-space: nowrap" class="none-border-right"  align="left" >
                             @foreach ($kosoor as $item)
                             @foreach ($item as $key => $value)
-                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                @if($value != 0)<p>{{ traverse_farsi($value) }}</p>@endif
                             @endforeach
                         @endforeach
                         </td>
@@ -267,8 +273,8 @@
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">جمع کل حقوق و مزایا (ریال)</td>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right"  align="right" >
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="left">جمع کل حقوق و مزایا (ریال)</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:14px"  class="none-border-left text-green none-border-right"  align="right" >
                             @php
                                 $sum = 0;
                             @endphp
@@ -279,12 +285,12 @@
                                     @endphp
                                 @endforeach
                             @endforeach
-                            <p>{{ number_format($sum) }}</p>
+                            {{ traverse_farsi($sum) }}
                         </td>
 
-                        <td style="border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2"  align="right"> جمع کل کسورات (ریال)</td>
+                        <td style="border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2"  align="left"> جمع کل کسورات (ریال)</td>
 
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >
+                        <td style="background: rgba(255,204,172,255);font-size:14px" class="none-border-left text-green none-border-right"  align="right" >
                             @php
                             $sum = 0;
                             @endphp
@@ -295,13 +301,13 @@
                                     @endphp
                                 @endforeach
                             @endforeach
-                        <p>{{ number_format($sum) }}</p>
+                        {{ traverse_farsi($sum) }}
 
                     </td>
 
-                    <td style="white-space:nowrap;border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left"   align="right"> خالص پرداختی(ریال)</td>
+                    <td style="white-space:nowrap;border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left"   align="left"> خالص پرداختی(ریال)</td>
 
-                    <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
+                    <td style="background: rgba(255,204,172,255);font-size:14px" class="none-border-left text-green none-border-right"  align="right" >{{ traverse_farsi($itemWithName['mablaqKhalesPardakhty']) }}</td>
 
                         {{-- <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td> --}}
 
@@ -320,7 +326,7 @@
                                     @endphp
                                 @endforeach
                             @endforeach
-                        <p>{{ number_format($sum) }}</p>
+                        <p>{{ traverse_farsi($sum) }}</p>
 
                     </td>
                     <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right " colspan="2" align="right">  </td>
@@ -330,7 +336,7 @@
                     {{-- <tr>
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> خالص پرداختی(ریال)</td>
 
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
+                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ traverse_farsi($itemWithName['mablaqKhalesPardakhty']) }}</td>
                         <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
 
                     </tr> --}}
@@ -339,6 +345,7 @@
             </table>
         </div>
     </div>
+
 
 
 
