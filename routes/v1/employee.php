@@ -8,8 +8,12 @@ use App\Http\Controllers\V1\Site\Auth\LoginController;
 use App\Http\Controllers\V1\Site\Auth\RegisterController;
 use App\Http\Controllers\V1\Site\Auth\ActiveCodeController;
 use App\Http\Controllers\V1\Site\Auth\ResetPasswordController;
+use Spatie\Permission\Models\Permission;
+
 
 Route::get('/', function () {
+    // var_dump(Permission::where('name','Accountants-crud')->get());
+    // dd('ok');
     if(Auth::check()){return redirect()->route('home');}
     return redirect('/login');
 });
