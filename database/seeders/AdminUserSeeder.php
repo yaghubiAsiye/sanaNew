@@ -26,11 +26,8 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $role = Role::create(['name' => 'Super Admin']);
-
         $permissions = Permission::pluck('id','id')->all();
-
         $role->syncPermissions($permissions);
-
         $user->assignRole([$role->id]);
 
         $userBorumand = User::create([
@@ -42,11 +39,8 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $roleBorumand = Role::create(['name' => 'Financial']);
-
         $permissionBorumand = Permission::where('name','Accountants-crud')->get();
-
         $roleBorumand->syncPermissions($permissionBorumand);
-
         $userBorumand->assignRole([$roleBorumand->id]);
 
         $user2 = User::create([
@@ -58,12 +52,22 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $role2 = Role::create(['name' => 'Manager']);
-
         $permission2 = Permission::where('name','Accountants-crud')->get();
-
         $role2->syncPermissions($permission2);
-
         $user2->assignRole([$role2->id]);
+
+        $user3 = User::create([
+            'first_name' => 'نادیه',
+            'last_name' => 'سمیعی',
+            // 'email' => 'admin@gmail.com',
+            'phone' => '09128810510',
+            'code_meli' => '4324473900',
+            'password' => bcrypt('12345678')
+        ]);
+        $role3 = Role::create(['name' => 'Official']);
+        $permission3 = Permission::where('name','Official-crud')->get();
+        $role3->syncPermissions($permission3);
+        $user3->assignRole([$role3->id]);
 
 
 

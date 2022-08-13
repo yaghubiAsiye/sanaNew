@@ -28,6 +28,7 @@ class PermissionTableSeeder extends Seeder
             'Accountants-crud',
             'employee',
             'operator',
+            'Official-crud',
         ];
 
         foreach ($permissions as $permission)
