@@ -129,21 +129,21 @@
                 </tr>
 
                 <tr style="background: rgba(255,204,172,255)">
-                    <td class="none-border-left">
+                    <td style="white-space: nowrap"  class="none-border-left">
                         <p>شماره پرسنلی :
                             <span class="text-green">{{ $itemWithName['code'] }}</span>
                         </p>
                     </td>
-                    <td  class="none-border-right none-border-left">
+                    <td style="white-space: nowrap"   class="none-border-right none-border-left">
                         <p>کد ملی :  <span class="text-green">{{ $itemWithName['codeMeli'] }}</span></p>
                     </td>
-                    <td colspan="2" class="none-border-right none-border-left">
+                    <td style="white-space: nowrap"  colspan="2" class="none-border-right none-border-left">
                        <p>شماره شناسنامه :  <span class="text-green">{{ $itemWithName['shomareShenasname'] }}</span> </p>
                     </td>
-                    <td colspan="2" class="none-border-right none-border-left">
+                    <td style="white-space: nowrap"  colspan="2" class="none-border-right none-border-left">
                         <p>نام :  <span class="text-green">{{ $itemWithName['name'] }}</span></p>
                      </td>
-                     <td colspan="2" class="none-border-right none-border-left">
+                     <td  style="white-space: nowrap"  colspan="2" class="none-border-right none-border-left">
                         <p>نام خانوادگی :  <span class="text-green">{{ $itemWithName['family'] }}</span></p>
                      </td>
                 </tr>
