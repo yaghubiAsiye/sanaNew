@@ -18,11 +18,11 @@ class AdminUserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'first_name' => 'super-admin',
-            'last_name' => 'admin',
+            'first_name' => 'آسیه',
+            'last_name' => 'یعقوبی',
             // 'email' => 'admin@gmail.com',
             'phone' => '09330945684',
-            'code_meli' => '65268822',
+            'code_meli' => '0922759911',
             'password' => bcrypt('12345678')
         ]);
         $role = Role::create(['name' => 'Super Admin']);
@@ -35,11 +35,11 @@ class AdminUserSeeder extends Seeder
             'last_name' => 'برومند',
             // 'email' => 'admin@gmail.com',
             'phone' => '09129265192',
-            'code_meli' => '12345678',
+            'code_meli' => '0081581068',
             'password' => bcrypt('12345678')
         ]);
         $roleBorumand = Role::create(['name' => 'Financial']);
-        $permissionBorumand = Permission::where('name','Accountants-crud')->get();
+        $permissionBorumand = Permission::where('name','Accountants-crud')->where('name','employee')->get();
         $roleBorumand->syncPermissions($permissionBorumand);
         $userBorumand->assignRole([$roleBorumand->id]);
 
@@ -48,11 +48,11 @@ class AdminUserSeeder extends Seeder
             'last_name' => 'رحمانی',
             // 'email' => 'admin@gmail.com',
             'phone' => '09121010328',
-            'code_meli' => '12345678',
+            'code_meli' => '0839224397',
             'password' => bcrypt('12345678')
         ]);
         $role2 = Role::create(['name' => 'Manager']);
-        $permission2 = Permission::where('name','Accountants-crud')->get();
+        $permission2 = Permission::where('name','Accountants-crud')->where('name','employee')->get();
         $role2->syncPermissions($permission2);
         $user2->assignRole([$role2->id]);
 
@@ -65,7 +65,7 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $role3 = Role::create(['name' => 'Official']);
-        $permission3 = Permission::where('name','Official-crud')->get();
+        $permission3 = Permission::where('name','Official-crud')->where('name','employee')->get();
         $role3->syncPermissions($permission3);
         $user3->assignRole([$role3->id]);
 

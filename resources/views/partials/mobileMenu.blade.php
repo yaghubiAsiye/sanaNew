@@ -16,13 +16,7 @@
             </a>
         </li>
 
-        <li>
-            <a href="{{ route('Employee.payslips') }}" class="menu {{ (Request::is('Employee/payslips') ? 'menu--active' : '') }}">
-                <div class="menu__icon"> <i data-feather="home"></i> </div>
-                <div class="menu__title"> فیش حقوقی
-                </div>
-            </a>
-        </li>
+       
 
         @can('employee')
         <li>
