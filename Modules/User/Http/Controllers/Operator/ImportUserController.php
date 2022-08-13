@@ -39,7 +39,7 @@ class ImportUserController extends Controller
                     'code_meli' => $line['كد ملي'],
                     'phone' => $line['تلفن همراه'],
                     'job_title' => $line['سمت'],
-                    'bank_account_number' => $line['شماره حساب'],
+                    // 'bank_account_number' => $line['شماره حساب'],
                     'password' => bcrypt($line['كد ملي'])
                 ]);
             });

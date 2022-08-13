@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('first_name', '!=', 'super-admin')
-        ->whereNotIn('id', [1,2,3])
+        ->whereNotIn('id', [1,2,3,4])
         ->paginate(20);
         return view('user::operator.user.index', compact('users'));
     }
