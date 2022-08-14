@@ -29,7 +29,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN: Login Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
                     <a href="" class="-intro-x flex items-center pt-5">
-                        <img alt="Rubick Tailwind HTML Admin Template" class="w-6" src="/dist/images/sana/logo/logo-light-sm.jpg">
+                        {{-- <img alt="Rubick Tailwind HTML Admin Template" class="w-6" src="/dist/images/sana/logo/logo-light-sm.jpg"> --}}
+                        <img  class="w-12" src="/dist/images/sana/logo/Persia Logo4.png">
+
                         <span class="text-white text-lg mr-3">سامانه <span class="font-medium">سانا</span> </span>
                     </a>
                     <div class="my-auto">
