@@ -125,21 +125,21 @@
             </li>
         @endcan
 
-        @can('Official-crud')
+        @can('MonthlyPerformance-crud')
         <li class="side-nav__devider my-6"></li>
         <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
+            <a href="javascript:;" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="aperture"></i> </div>
                 <div class="side-menu__title">
                کارکرد ماهانه پرسنل
-                    <div class="side-menu__sub-icon {{ (Request::is('Operator/requests') ? 'transform rotate-180' : '') }}">
+                    <div class="side-menu__sub-icon {{ (Request::is('O') ? 'transform rotate-180' : '') }}">
                         <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('Operator/requests') ? 'side-menu__sub-open' : '') }}">
+            <ul class="{{ (Request::is('O') ? 'side-menu__sub-open' : '') }}">
                 <li>
-                    <a href="{{ route('Operator.request.index') }}" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
+                    <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">  مدیریت کارکرد ها</div>
                     </a>
@@ -147,7 +147,7 @@
 
             </ul>
         </li>
-    @endcan
+        @endcan
 
 
 
