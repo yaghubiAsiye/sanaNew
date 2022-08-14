@@ -1,5 +1,6 @@
 {
     "Payslip": true,
     "User": true,
-    "Request": true
+    "Request": true,
+    "MonthlyPerformance": true
 }

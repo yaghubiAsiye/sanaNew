@@ -108,4 +108,5 @@ return array(
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),
     'App\\' => array($baseDir . '/app'),
+    'Alkoumi\\LaravelArabicNumbers\\' => array($vendorDir . '/alkoumi/laravel-arabic-numbers/src'),
 );

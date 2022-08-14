@@ -5,6 +5,9 @@ namespace Modules\Request\Http\Controllers\Operator;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Request\Entities\Request as RequestModel;
+
+
 
 class RequestController extends Controller
 {
@@ -14,7 +17,8 @@ class RequestController extends Controller
      */
     public function index()
     {
-        return view('request::index');
+        $data = RequestModel::all();
+        return view('request::operator.requests', compact('data'));
     }
 
     /**

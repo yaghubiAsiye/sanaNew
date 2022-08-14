@@ -99,7 +99,7 @@
             color: rgba(25,116,119,255);
         }
         .padding{
-            padding:10px;
+            padding:13px;
         }
     </style>
 
@@ -161,9 +161,7 @@
                     <td colspan="2" class="none-border-right none-border-left">
                         <p>محل خدمت : <span class="text-green">{{ $itemWithName['mahaleKhedmat'] }} </span></p>
                      </td>
-                     {{-- <td class="none-border-right none-border-left">
-                        <p>شماره حساب :  <span class="text-green">تجارت</span></p>
-                     </td> --}}
+
                 </tr>
 
 
@@ -186,148 +184,96 @@
                     </tr>
 
                     <tr>
-                        <td class="none-border-left"  align="right">
+                        <td class="none-border-left padding" style="white-space: nowrap;"  align="right">
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                    @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ $key }}</div> @endif
                                 @endforeach
                             @endforeach
                         </td>
-                        <td class="none-border-right"  align="left" >
+                        <td class="none-border-right padding"  style="white-space: nowrap" align="left" >
                             @foreach ($hokm as $item)
                                 @foreach ($item as $key => $value)
-                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ ($value) }}</div>@endif
                                 @endforeach
                             @endforeach
                         </td>
 
-                        <td class="none-border-left"  align="right">
+                        <td class="none-border-left padding" style="white-space: nowrap"  align="right">
                             @foreach ($mazaya as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                    @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ $key }}</div> @endif
                                 @endforeach
                             @endforeach
                         </td>
-                        <td class="none-border-right"  align="left">
+                        <td class="none-border-right padding" style="white-space: nowrap"  align="left">
                             @foreach ($mazaya as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                    @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ ($value) }}</div>@endif
                                 @endforeach
                             @endforeach
                         </td>
 
 
-                        <td class="none-border-left"  align="right">
+                        <td class="none-border-left"  style="white-space: nowrap" align="right">
                             @foreach ($kosoor as $item)
                                 @foreach ($item as $key => $value)
-                                    @if($value != 0) <p>{{ $key }}</p> @endif
+                                    @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ $key }}</div> @endif
                                 @endforeach
                             @endforeach
                         </td>
-                        <td class="none-border-right"  align="left" >
+                        <td class="none-border-right" style="white-space: nowrap"  align="left" >
                             @foreach ($kosoor as $item)
                             @foreach ($item as $key => $value)
-                                @if($value != 0)<p>{{ number_format($value) }}</p>@endif
+                                @if(Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($value) != 0) <div style="font-size:13px">{{ ($value) }}</div>@endif
                             @endforeach
                         @endforeach
                         </td>
 
 
-                        <td class="none-border-left"  align="right">
-                            @if( $itemWithName['karkardAdy'] != 0)<p> کارکرد عادی</p>@endif
-                            @if( $itemWithName['ezafeKary'] != 0)<p> اضافه کار</p>@endif
-                            @if( $itemWithName['shabKari'] != 0)<p>  شب کاری</p>@endif
-                            @if( $itemWithName['kasreKar'] != 0)<p>  کسر کار </p>@endif
-                            @if( $itemWithName['mamuriateKhoshky'] != 0)<p>  ماموریت خشکی </p>@endif
-                            @if( $itemWithName['mamuriateDarya'] != 0)<p>  ماموریت دریا  </p>@endif
-                            @if( $itemWithName['nobateKary15'] != 0)<p>  نوبت کاری 15% </p>@endif
-                            @if( $itemWithName['nobateKary225'] != 0)<p>  نوبت کاری 22.5% </p>@endif
-                            @if( $itemWithName['aqmaryDarya'] != 0)<p>  اقماری دریا </p>@endif
-                            @if( $itemWithName['aqmaryKhoshky'] != 0)<p>  اقماری خشکی  </p>@endif
+                        <td class="none-border-left" style="white-space: nowrap"  align="right">
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['karkardAdy']) != 0) <div style="font-size:13px"> کارکرد عادی</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['ezafeKary']) != 0)<div style="font-size:13px"> اضافه کار</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['shabKari']) != 0)<div style="font-size:13px">  شب کاری</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['kasreKar']) != 0)<div style="font-size:13px">  کسر کار </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['mamuriateKhoshky']) != 0)<div style="font-size:13px">  ماموریت خشکی </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['mamuriateDarya']) != 0)<div style="font-size:13px">  ماموریت دریا  </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['nobateKary15']) != 0)<div style="font-size:13px">  نوبت کاری 15% </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['nobateKary225']) != 0)<div style="font-size:13px">  نوبت کاری 22.5% </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['aqmaryDarya']) != 0)<div style="font-size:13px">  اقماری دریا </div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['aqmaryKhoshky']) != 0)<div style="font-size:13px">  اقماری خشکی  </div>@endif
 
                         </td>
                         <td class="none-border-right"  align="left">
-                            @if( $itemWithName['karkardAdy'] != 0) <p>{{ $itemWithName['karkardAdy'] }}</p>@endif
-                            @if( $itemWithName['ezafeKary'] != 0)<p>{{ $itemWithName['ezafeKary'] }}</p>@endif
-                            @if( $itemWithName['shabKari'] != 0)<p>{{ $itemWithName['shabKari'] }}</p>@endif
-                            @if( $itemWithName['kasreKar'] != 0)<p>{{ $itemWithName['kasreKar'] }}</p>@endif
-                            @if( $itemWithName['mamuriateKhoshky'] != 0)<p>{{ $itemWithName['mamuriateKhoshky'] }}</p>@endif
-                            @if( $itemWithName['mamuriateDarya'] != 0)<p>{{ $itemWithName['mamuriateDarya'] }}</p>@endif
-                            @if( $itemWithName['nobateKary15'] != 0)<p>{{ $itemWithName['nobateKary15'] }}</p>@endif
-                            @if( $itemWithName['nobateKary225'] != 0)<p>{{ $itemWithName['nobateKary225'] }}</p>@endif
-                            @if( $itemWithName['aqmaryDarya'] != 0)<p>{{ $itemWithName['aqmaryDarya'] }}</p>@endif
-                            @if( $itemWithName['aqmaryKhoshky'] != 0)<p>{{ $itemWithName['aqmaryKhoshky'] }}</p>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['karkardAdy']) != 0) <div style="font-size:13px">{{ $itemWithName['karkardAdy'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['ezafeKary']) != 0)<div style="font-size:13px">{{ $itemWithName['ezafeKary'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['shabKari']) != 0)<div style="font-size:13px">{{ $itemWithName['shabKari'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['kasreKar']) != 0)<div style="font-size:13px">{{ $itemWithName['kasreKar'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['mamuriateKhoshky']) != 0)<div style="font-size:13px">{{ $itemWithName['mamuriateKhoshky'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['mamuriateDarya']) != 0)<div style="font-size:13px">{{ $itemWithName['mamuriateDarya'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['nobateKary15']) != 0)<div style="font-size:13px">{{ $itemWithName['nobateKary15'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['nobateKary225']) != 0)<div style="font-size:13px">{{ $itemWithName['nobateKary225'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['aqmaryDarya']) != 0)<div style="font-size:13px">{{ $itemWithName['aqmaryDarya'] }}</div>@endif
+                            @if( Alkoumi\LaravelArabicNumbers\Numbers::ShowInEnglishDigits($itemWithName['aqmaryKhoshky']) != 0)<div style="font-size:13px">{{ $itemWithName['aqmaryKhoshky'] }}</div>@endif
                         </td>
 
                     </tr>
                     <tr>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right">جمع کل حقوق و مزایا (ریال)</td>
-                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px"  class="none-border-left text-green none-border-right"  align="right" >
-                            @php
-                                $sum = 0;
-                            @endphp
-                            @foreach ($mazaya as $item)
-                                @foreach ($item as $key => $value)
-                                    @php
-                                        $sum += $value;
-                                    @endphp
-                                @endforeach
-                            @endforeach
-                            <p>{{ number_format($sum) }}</p>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="left">جمع کل حقوق و مزایا (ریال)</td>
+                        <td style="border-bottom: none;background: rgba(255,204,172,255);font-size:12px"  class="none-border-left text-green none-border-right"  align="right" >
+                            {{ $mazayaSum }}
                         </td>
 
-                        <td style="border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2"  align="right"> جمع کل کسورات (ریال)</td>
+                        <td style="border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2"  align="left"> جمع کل کسورات (ریال)</td>
 
-                        <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >
-                            @php
-                            $sum = 0;
-                            @endphp
-                            @foreach ($kosoor as $item)
-                                @foreach ($item as $key => $value)
-                                    @php
-                                        $sum += $value;
-                                    @endphp
-                                @endforeach
-                            @endforeach
-                        <p>{{ number_format($sum) }}</p>
+                        <td style="background: rgba(255,204,172,255);font-size:12px" class="none-border-left text-green none-border-right"  align="right" >
+                            {{ $kosoorSum }}
+                        </td>
 
-                    </td>
+                        <td style="white-space:nowrap;border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left"   align="right"> خالص پرداختی(ریال)</td>
 
-                    <td style="white-space:nowrap;border-right: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left"   align="right"> خالص پرداختی(ریال)</td>
-
-                    <td style="background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right"  align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
-
-                        {{-- <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td> --}}
-
+                        <td style="background: rgba(255,204,172,255);font-size:12px" class="none-border-left text-green none-border-right"  align="right" >{{ ($itemWithName['mablaqKhalesPardakhty']) }}</td>
                     </tr>
-                    {{-- <tr>
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> جمع کل کسورات (ریال)</td>
-
-                        <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >
-                            @php
-                            $sum = 0;
-                            @endphp
-                            @foreach ($kosoor as $item)
-                                @foreach ($item as $key => $value)
-                                    @php
-                                        $sum += $value;
-                                    @endphp
-                                @endforeach
-                            @endforeach
-                        <p>{{ number_format($sum) }}</p>
-
-                    </td>
-                    <td style="border-bottom: none;border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right " colspan="2" align="right">  </td>
-
-                </tr> --}}
-
-                    {{-- <tr>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left" colspan="2" align="right"> خالص پرداختی(ریال)</td>
-
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-left text-green none-border-right" colspan="4" align="right" >{{ number_format($itemWithName['mablaqKhalesPardakhty']) }}</td>
-                        <td style="border-top: none;background: rgba(255,204,172,255);font-size:10px" class="none-border-right" colspan="2" align="right">  </td>
-
-                    </tr> --}}
 
 
             </table>

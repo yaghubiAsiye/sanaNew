@@ -20,14 +20,15 @@
                 <div class="hidden md:block mx-auto text-gray-600"></div>
                 <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
                     <div class="w-56 relative text-gray-700 dark:text-gray-300">
-                        <input type="text" class="form-control w-56 box pl-10 placeholder-theme-13" placeholder="جستجو...">
+                        <input type="search" placeholder="جستجو..." class="form-control w-56 box pl-10 placeholder-theme-13 search-input" data-table="customers-list" />
+                        {{-- <input type="text" id="myInput" onkeyup="myFunction()" class="form-control w-56 box pl-10 placeholder-theme-13" placeholder="جستجو..."> --}}
                         <i class="w-4 h-4 absolute my-auto inset-y-0 ml-3 left-0" data-feather="search"></i>
                     </div>
                 </div>
             </div>
             <!-- BEGIN: Data List -->
             <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-                <table class="table table-report -mt-2">
+                <table class="table table-report -mt-2 customers-list">
                     <thead>
                         <tr>
                             <th class="whitespace-nowrap"> نام نام خانوادگی</th>
@@ -91,6 +92,50 @@
     </div>
     <!-- END: Content -->
 </div>
+@endsection
+
+@section('js')
+
+<script>
+    (function(document) {
+        'use strict';
+
+        var TableFilter = (function(myArray) {
+            var search_input;
+
+            function _onInputSearch(e) {
+                search_input = e.target;
+                var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                myArray.forEach.call(tables, function(table) {
+                    myArray.forEach.call(table.tBodies, function(tbody) {
+                        myArray.forEach.call(tbody.rows, function(row) {
+                            var text_content = row.textContent.toLowerCase();
+                            var search_val = search_input.value.toLowerCase();
+                            row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                        });
+                    });
+                });
+            }
+
+            return {
+                init: function() {
+                    var inputs = document.getElementsByClassName('search-input');
+                    myArray.forEach.call(inputs, function(input) {
+                        input.oninput = _onInputSearch;
+                    });
+                }
+            };
+        })(Array.prototype);
+
+        document.addEventListener('readystatechange', function() {
+            if (document.readyState === 'complete') {
+                TableFilter.init();
+            }
+        });
+
+    })(document);
+</script>
+    
 @endsection
 
 

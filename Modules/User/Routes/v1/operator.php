@@ -16,7 +16,7 @@ Route::controller(ImportUserController::class)->middleware('auth')->group(functi
 
 Route::controller(PayslipEmployeeController::class)->middleware('auth')->group(function(){
     Route::get('PayslipEmployee/index/{codeMeli}', 'index')->name('PayslipEmployee.index');
-    Route::get('PayslipEmployee/{date}/{codeMeli}', 'payslipSingle')->name('PayslipEmployee.payslipSingle');
+    // Route::get('PayslipEmployee/{date}/{codeMeli}', 'payslipSingle')->name('PayslipEmployee.payslipSingle');
     Route::get('PayslipEmployee/downloadPDF/{date}/{codeMeli}', 'downloadPDF')->name('PayslipEmployee.downloadPDF');
 
 });

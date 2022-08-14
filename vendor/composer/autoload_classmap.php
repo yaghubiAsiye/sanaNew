@@ -6,6 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Alkoumi\\LaravelArabicNumbers\\ArabicNumbers' => $vendorDir . '/alkoumi/laravel-arabic-numbers/src/ArabicNumbers.php',
+    'Alkoumi\\LaravelArabicNumbers\\Http\\Middleware\\ConvertArabicDigitsToEnlishMiddleware' => $vendorDir . '/alkoumi/laravel-arabic-numbers/src/Http/Middleware/ConvertArabicDigitsToEnlishMiddleware.php',
+    'Alkoumi\\LaravelArabicNumbers\\LaravelArabicNumbersServiceProvider' => $vendorDir . '/alkoumi/laravel-arabic-numbers/src/LaravelArabicNumbersServiceProvider.php',
+    'Alkoumi\\LaravelArabicNumbers\\Numbers' => $vendorDir . '/alkoumi/laravel-arabic-numbers/src/Numbers.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -3028,6 +3032,7 @@ return array(
     'Modules\\User\\Database\\Seeders\\UserDatabaseSeeder' => $baseDir . '/Modules/User/Database/Seeders/UserDatabaseSeeder.php',
     'Modules\\User\\Http\\Controllers\\Employee\\ProfileController' => $baseDir . '/Modules/User/Http/Controllers/Employee/ProfileController.php',
     'Modules\\User\\Http\\Controllers\\Operator\\ImportUserController' => $baseDir . '/Modules/User/Http/Controllers/Operator/ImportUserController.php',
+    'Modules\\User\\Http\\Controllers\\Operator\\PayslipEmployeeController' => $baseDir . '/Modules/User/Http/Controllers/Operator/PayslipEmployeeController.php',
     'Modules\\User\\Http\\Controllers\\Operator\\UserController' => $baseDir . '/Modules/User/Http/Controllers/Operator/UserController.php',
     'Modules\\User\\Providers\\RouteServiceProvider' => $baseDir . '/Modules/User/Providers/RouteServiceProvider.php',
     'Modules\\User\\Providers\\UserServiceProvider' => $baseDir . '/Modules/User/Providers/UserServiceProvider.php',

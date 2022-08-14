@@ -210,6 +210,7 @@ class ComposerStaticInit7b213f9207b801d566dabe8e1291815b
         array (
             'Assert\\' => 7,
             'App\\' => 4,
+            'Alkoumi\\LaravelArabicNumbers\\' => 29,
         ),
     );
 
@@ -627,6 +628,10 @@ class ComposerStaticInit7b213f9207b801d566dabe8e1291815b
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Alkoumi\\LaravelArabicNumbers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alkoumi/laravel-arabic-numbers/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -640,6 +645,10 @@ class ComposerStaticInit7b213f9207b801d566dabe8e1291815b
     );
 
     public static $classMap = array (
+        'Alkoumi\\LaravelArabicNumbers\\ArabicNumbers' => __DIR__ . '/..' . '/alkoumi/laravel-arabic-numbers/src/ArabicNumbers.php',
+        'Alkoumi\\LaravelArabicNumbers\\Http\\Middleware\\ConvertArabicDigitsToEnlishMiddleware' => __DIR__ . '/..' . '/alkoumi/laravel-arabic-numbers/src/Http/Middleware/ConvertArabicDigitsToEnlishMiddleware.php',
+        'Alkoumi\\LaravelArabicNumbers\\LaravelArabicNumbersServiceProvider' => __DIR__ . '/..' . '/alkoumi/laravel-arabic-numbers/src/LaravelArabicNumbersServiceProvider.php',
+        'Alkoumi\\LaravelArabicNumbers\\Numbers' => __DIR__ . '/..' . '/alkoumi/laravel-arabic-numbers/src/Numbers.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -3662,6 +3671,7 @@ class ComposerStaticInit7b213f9207b801d566dabe8e1291815b
         'Modules\\User\\Database\\Seeders\\UserDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/User/Database/Seeders/UserDatabaseSeeder.php',
         'Modules\\User\\Http\\Controllers\\Employee\\ProfileController' => __DIR__ . '/../..' . '/Modules/User/Http/Controllers/Employee/ProfileController.php',
         'Modules\\User\\Http\\Controllers\\Operator\\ImportUserController' => __DIR__ . '/../..' . '/Modules/User/Http/Controllers/Operator/ImportUserController.php',
+        'Modules\\User\\Http\\Controllers\\Operator\\PayslipEmployeeController' => __DIR__ . '/../..' . '/Modules/User/Http/Controllers/Operator/PayslipEmployeeController.php',
         'Modules\\User\\Http\\Controllers\\Operator\\UserController' => __DIR__ . '/../..' . '/Modules/User/Http/Controllers/Operator/UserController.php',
         'Modules\\User\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/User/Providers/RouteServiceProvider.php',
         'Modules\\User\\Providers\\UserServiceProvider' => __DIR__ . '/../..' . '/Modules/User/Providers/UserServiceProvider.php',

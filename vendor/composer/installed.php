@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '592e5548146d63a9a629b2924beccd86ab83c0e0',
+        'reference' => 'c99382440f8aea9f4dcc49e1469631784cee0b74',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'alkoumi/laravel-arabic-numbers' => array(
+            'pretty_version' => 'v1.1.2',
+            'version' => '1.1.2.0',
+            'reference' => '1fcde4f7c4cec6aebbc4ddb84874a927df7e90da',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../alkoumi/laravel-arabic-numbers',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'beberlei/assert' => array(
             'pretty_version' => 'v3.3.2',
             'version' => '3.3.2.0',
@@ -457,7 +466,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '592e5548146d63a9a629b2924beccd86ab83c0e0',
+            'reference' => 'c99382440f8aea9f4dcc49e1469631784cee0b74',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -199,6 +199,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
+        Alkoumi\LaravelArabicNumbers\LaravelArabicNumbersServiceProvider::class,
     ],
 
     /*

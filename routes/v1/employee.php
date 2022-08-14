@@ -8,12 +8,9 @@ use App\Http\Controllers\V1\Site\Auth\LoginController;
 use App\Http\Controllers\V1\Site\Auth\RegisterController;
 use App\Http\Controllers\V1\Site\Auth\ActiveCodeController;
 use App\Http\Controllers\V1\Site\Auth\ResetPasswordController;
-use Spatie\Permission\Models\Permission;
 
 
 Route::get('/', function () {
-    // dd(Permission::whereIn('name', ['employee', 'Accountants-crud'])->get());
-    // dd('ok');
     if(Auth::check()){return redirect()->route('home');}
     return redirect('/login');
 });
@@ -34,20 +31,6 @@ Route::get('/', function () {
         Route::post('active-code', 'activeCode');
 
     });
-
-
-/* -------------------------------------------------------------------------- */
-/*                                 ResetPassword route                          */
-/* -------------------------------------------------------------------------- */
-// Route::controller(ResetPasswordController::class)->middleware('auth')->group(function(){
-//     Route::get('verify-phone', 'showPhonePage')->name('reset-password-phone');
-//     Route::post('send-code', 'sendCode')->name('reset-password-code');
-//     Route::get('code-page', 'showCodePage')->name('reset-password-code-page');
-//     Route::post('verify-code', 'verifyCode')->name('verify-code');
-//     Route::post('reset-password', 'resetPassword')->name('reset-password');
-//     Route::get('reset-password-page', 'showResetPasswordePage')->name('reset-password-page');
-
-// });
 
 /* -------------------------------------------------------------------------- */
 /*                                 Home route                                 */

@@ -104,18 +104,18 @@
         @can('Official-crud')
             <li class="side-nav__devider my-6"></li>
             <li>
-                <a href="javascript:;" class="side-menu {{ (Request::is('c') ? 'side-menu--active' : '') }}">
+                <a href="javascript:;" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
                     <div class="side-menu__title">
                     امور اداری
-                        <div class="side-menu__sub-icon {{ (Request::is('c') ? 'transform rotate-180' : '') }}">
+                        <div class="side-menu__sub-icon {{ (Request::is('Operator/requests') ? 'transform rotate-180' : '') }}">
                             <i data-feather="chevron-down"></i>
                         </div>
                     </div>
                 </a>
-                <ul class="{{ (Request::is('c') ? 'side-menu__sub-open' : '') }}">
+                <ul class="{{ (Request::is('Operator/requests') ? 'side-menu__sub-open' : '') }}">
                     <li>
-                        <a href="#" class="side-menu {{ (Request::is('c') ? 'side-menu--active' : '') }}">
+                        <a href="{{ route('Operator.request.index') }}" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
                             <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                             <div class="side-menu__title">  مدیریت درخواست ها</div>
                         </a>
@@ -124,6 +124,30 @@
                 </ul>
             </li>
         @endcan
+
+        @can('Official-crud')
+        <li class="side-nav__devider my-6"></li>
+        <li>
+            <a href="javascript:;" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="aperture"></i> </div>
+                <div class="side-menu__title">
+               کارکرد ماهانه پرسنل
+                    <div class="side-menu__sub-icon {{ (Request::is('Operator/requests') ? 'transform rotate-180' : '') }}">
+                        <i data-feather="chevron-down"></i>
+                    </div>
+                </div>
+            </a>
+            <ul class="{{ (Request::is('Operator/requests') ? 'side-menu__sub-open' : '') }}">
+                <li>
+                    <a href="{{ route('Operator.request.index') }}" class="side-menu {{ (Request::is('Operator/requests') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  مدیریت کارکرد ها</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+    @endcan
 
 
 
@@ -157,39 +181,39 @@
 
 
     @hasrole('Super Admin')
-    <li class="side-nav__devider my-6"></li>
-    <li>
-        <a href="javascript:;" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
-            <div class="side-menu__icon"> <i data-feather="smile"></i> </div>
-            <div class="side-menu__title">
-               ادمین
-                <div class="side-menu__sub-icon {{ (Request::is('ImportUser') ? 'transform rotate-180' : '') }}">
-                    <i data-feather="chevron-down"></i>
+        <li class="side-nav__devider my-6"></li>
+        <li>
+            <a href="javascript:;" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="smile"></i> </div>
+                <div class="side-menu__title">
+                ادمین
+                    <div class="side-menu__sub-icon {{ (Request::is('ImportUser') ? 'transform rotate-180' : '') }}">
+                        <i data-feather="chevron-down"></i>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <ul class="{{ (Request::is('ImportUser*') ? 'side-menu__sub-open' : '') }}">
-            <li>
-                <a href="{{ route('ImportUser.create') }}" class="side-menu {{ (Request::is('ImportUser/create') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title"> بارگزاری کاربران</div>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title">  لاگ کاربران</div>
-                </a>
-            </li>
-            <li>
-                <a href="{{url('/telescope/requests')}}" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title">  لاگ </div>
-                </a>
-            </li>
+            </a>
+            <ul class="{{ (Request::is('ImportUser*') ? 'side-menu__sub-open' : '') }}">
+                <li>
+                    <a href="{{ route('ImportUser.create') }}" class="side-menu {{ (Request::is('ImportUser/create') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> بارگزاری کاربران</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  لاگ کاربران</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('/telescope/requests')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  لاگ </div>
+                    </a>
+                </li>
 
-        </ul>
-    </li>
+            </ul>
+        </li>
     @endhasrole
 
     </ul>

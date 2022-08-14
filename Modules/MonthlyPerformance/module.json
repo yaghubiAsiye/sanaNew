@@ -1,0 +1,13 @@
+{
+    "name": "MonthlyPerformance",
+    "alias": "monthlyperformance",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\MonthlyPerformance\\Providers\\MonthlyPerformanceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
