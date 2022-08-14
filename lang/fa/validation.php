@@ -129,7 +129,7 @@ return [
         "second" => "ثانیه",
         "title" => "عنوان",
         "text" => "متن",
-        "content" => "محتوا",
+        "content" => "توضیحات",
         "description" => "توضیحات",
         "excerpt" => "گلچین کردن",
         "date" => "تاریخ",
@@ -146,6 +146,7 @@ return [
         "status" => "وضعیت",
         "airline_name" => "نام ایرلاین",
         "subject" => "موضوع",
+        "type" => "نوع درخواست",
 
     ],
 

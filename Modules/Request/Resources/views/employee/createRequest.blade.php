@@ -41,7 +41,6 @@
                                 <label>توضیحات</label>
                                 <div class="mt-2">
                                     <textarea name="content" data-simple-toolbar="true" class="editor">
-                                        <p> متن محتوای درخواست شما</p>
                                     </textarea>
                                 </div>
                             </div>

@@ -49,7 +49,11 @@
 
                                                 <td class="text-center">{{ $items->type ?? ''}}</td>
                                                 <td class="text-center">{!! $items->content ?? '' !!}</td>
-                                                <td class="text-center">{{ $items->status ?? ''}}</td>
+                                                <td class="text-center">
+                                                    <button style="white-space: nowrap" class="btn btn-elevated-{{ $items->status == 'درحال بررسی' ? 'warning' : 'success'}}  w-24 ml-1 mb-2">
+                                                        {{ $items->status ?? ''}}
+                                                    </button>
+                                                </td>
 
 
                                                 {{-- <td class="table-report__action w-56">

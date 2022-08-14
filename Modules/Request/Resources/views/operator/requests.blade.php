@@ -43,7 +43,7 @@
                                         <th class="text-center whitespace-nowrap"> توضیحات  </th>
                                         <th class="text-center whitespace-nowrap"> وضعیت</th>
 
-                                        {{-- <th class="text-center whitespace-nowrap">فعالیت</th> --}}
+                                        <th class="text-center whitespace-nowrap">ویرایش</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,15 +55,19 @@
                                                 <td class="text-center">{{ $items->employee->phone ?? ''}}</td>
                                                 <td class="text-center">{{ $items->type ?? ''}}</td>
                                                 <td class="text-center">{!! $items->content ?? '' !!}</td>
-                                                <td class="text-center">{{ $items->status ?? ''}}</td>
+                                                <td class="text-center">
+                                                    <button style="white-space: nowrap" class="btn btn-elevated-{{ $items->status == 'درحال بررسی' ? 'warning' : 'success'}}  w-24 ml-1 mb-2">
+                                                        {{ $items->status ?? ''}}
+                                                    </button>
+                                                </td>
 
 
-                                                {{-- <td class="table-report__action w-56">
+                                                <td class="table-report__action w-56">
                                                     <div class="flex justify-center items-center">
-                                                        <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a>
-                                                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a>
+                                                        {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
+                                                        <a class="flex items-center text-theme-1" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
                                                     </div>
-                                                </td> --}}
+                                                </td>
                                             </tr>
 
                                     @endforeach
