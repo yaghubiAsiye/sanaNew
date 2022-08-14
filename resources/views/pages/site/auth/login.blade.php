@@ -29,11 +29,12 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN: Login Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
                     <a href="" class="-intro-x flex items-center pt-5">
-                        <img  class="w-6" src="/dist/images/sana/logo/logo-light-sm.jpg">
+                        <img  class="w-12" src="/dist/images/sana/logo/Persia Logo4.png">
+                        {{-- <img  class="w-6" src="/dist/images/sana/logo/logo-light-sm.jpg"> --}}
                         <span class="text-white text-lg mr-3">سامانه <span class="font-medium">سانا</span> </span>
                     </a>
                     <div class="my-auto">
-                        <img  class="-intro-x w-1/2 -mt-16" src="/dist/images/illustration.svg">
+                        <img  class="-intro-x w-1/2 -mt-16" src="/dist/images/error-illustration.svg">
                         <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                            سامانه نیروی انسانی شرکت
                         <br>  ارتباطات پرشیا
@@ -49,10 +50,10 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
                     <div class="my-auto mx-auto xl:mr-20 bg-white dark:bg-dark-1 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
                         <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-right">
-                            ورود به
+                            ورود
                         </h2>
                         <h6 class="intro-x font-bold  text-center xl:text-right py-5 ">
-                            سامانه نیروی انسانی شرکت
+                            به سامانه نیروی انسانی شرکت
                             ارتباطات پرشیا
                         </h6>
                         @include('partials.alert')
