@@ -2,5 +2,6 @@
     "Payslip": true,
     "User": true,
     "Request": true,
-    "MonthlyPerformance": true
+    "MonthlyPerformance": true,
+    "Announcement": true
 }

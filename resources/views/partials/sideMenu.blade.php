@@ -11,12 +11,7 @@
                 <div class="side-menu__title"> داشبرد </div>
             </a>
         </li>
-        {{-- <li>
-            <a href="#" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                <div class="side-menu__title"> اطلاعیه ها </div>
-            </a>
-        </li> --}}
+
 
         @can('employee')
 
@@ -123,6 +118,13 @@
 
                 </ul>
             </li>
+
+            <li>
+                <a href="{{ route('Operator.Announcement.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+                    <div class="side-menu__title"> اطلاعیه ها </div>
+                </a>
+            </li>
         @endcan
 
         @can('MonthlyPerformance-crud')
@@ -149,9 +151,7 @@
         </li>
         @endcan
 
-
-
-        @can(['Accountants-crud'])
+        @if(auth()->user()->can('Accountants-crud') || auth()->user()->can('Official-crud'))
             <li class="side-nav__devider my-6"></li>
             <li>
                 <a href="javascript:;" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
@@ -173,35 +173,7 @@
 
                 </ul>
             </li>
-        @endcan
-
-        @can('Official-crud')
-        <li class="side-nav__devider my-6"></li>
-        <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                <div class="side-menu__title">
-                مدیریت کاربران
-                    <div class="side-menu__sub-icon {{ (Request::is('Operator/User*') ? 'transform rotate-180' : '') }}">
-                        <i data-feather="chevron-down"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="{{ (Request::is('Operator/User*') ? 'side-menu__sub-open' : '') }}">
-                <li>
-                    <a href="{{ route('Operator.User.index') }}" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title">  لیست کارمندان</div>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-    @endcan
-
-
-
-
+        @endif
 
 
     @hasrole('Super Admin')
