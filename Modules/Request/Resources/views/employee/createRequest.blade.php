@@ -29,7 +29,7 @@
                             <select name="type" data-placeholder="Select your favorite actors" class="tail-select w-full" id="crud-form-2">
                                 <option value="">انتخاب کنید</option>
                                 <option value="درخواست گواهی کسر از حقوق">درخواست گواهی کسر از حقوق</option>
-                                <option value="درخواست گواهی عضویت">درخواست گواهی عضویت </option>
+                                <option value="درخواست گواهی اشتغال به کار">درخواست گواهی اشتغال به کار </option>
                                 <option value="سایر">سایر</option>
                             </select>
                         </div>

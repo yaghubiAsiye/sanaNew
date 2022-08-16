@@ -64,7 +64,7 @@
                                             <td class="table-report__action w-56">
                                                 <div class="flex justify-center items-center">
                                                     {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
-                                                    <a class="flex items-center text-theme-1" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
+                                                    <a class="flex items-center text-theme-1" href="{{ route('Operator.request.responseshow')}}" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
                                                 </div>
                                             </td>
                                         </tr>
