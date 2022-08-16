@@ -48,27 +48,26 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $items)
-                                            <tr class="intro-x">
+                                        <tr class="intro-x">
+                                            <td class="text-center">{{ $items->employee->first_name . ' ' .  $items->employee->last_name}}</td>
+                                            <td class="text-center">{{ $items->employee->personal_code ?? ''}}</td>
+                                            <td class="text-center">{{ $items->employee->phone ?? ''}}</td>
+                                            <td class="text-center">{{ $items->type ?? ''}}</td>
+                                            <td class="text-center">{!! $items->content ?? '' !!}</td>
+                                            <td class="text-center">
+                                                <button style="white-space: nowrap" class="btn btn-elevated-{{ $items->status == 'درحال بررسی' ? 'warning' : 'success'}}  w-24 ml-1 mb-2">
+                                                    {{ $items->status ?? ''}}
+                                                </button>
+                                            </td>
 
-                                                <td class="text-center">{{ $items->employee->first_name . ' ' .  $items->employee->last_name}}</td>
-                                                <td class="text-center">{{ $items->employee->personal_code ?? ''}}</td>
-                                                <td class="text-center">{{ $items->employee->phone ?? ''}}</td>
-                                                <td class="text-center">{{ $items->type ?? ''}}</td>
-                                                <td class="text-center">{!! $items->content ?? '' !!}</td>
-                                                <td class="text-center">
-                                                    <button style="white-space: nowrap" class="btn btn-elevated-{{ $items->status == 'درحال بررسی' ? 'warning' : 'success'}}  w-24 ml-1 mb-2">
-                                                        {{ $items->status ?? ''}}
-                                                    </button>
-                                                </td>
 
-
-                                                <td class="table-report__action w-56">
-                                                    <div class="flex justify-center items-center">
-                                                        {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
-                                                        <a class="flex items-center text-theme-1" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <td class="table-report__action w-56">
+                                                <div class="flex justify-center items-center">
+                                                    {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
+                                                    <a class="flex items-center text-theme-1" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
+                                                </div>
+                                            </td>
+                                        </tr>
 
                                     @endforeach
                                 </tbody>

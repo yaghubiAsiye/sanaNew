@@ -6,8 +6,15 @@ use Modules\User\Http\Controllers\Operator\PayslipEmployeeController;
 /*                                 User Operator route                       */
 /* -------------------------------------------------------------------------- */
 Route::controller(UserController::class)->middleware('auth')->group(function(){
-    Route::get('User/index', 'index')->name('User.index');
+    Route::get('User/index', 'index')->name('Operator.User.index');
+    Route::get('User/create', 'create')->name('Operator.User.create');
+    Route::post('User/store', 'store')->name('Operator.User.store');
+    Route::get('User/edit/{user}', 'edit')->name('Operator.User.edit');
+    Route::put('User/update/{user}', 'update')->name('Operator.User.update');
+
+
 });
+
 
 Route::controller(ImportUserController::class)->middleware('auth')->group(function(){
     Route::get('ImportUser/create', 'create')->name('ImportUser.create');

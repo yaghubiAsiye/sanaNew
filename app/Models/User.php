@@ -35,6 +35,7 @@ class User extends Authenticatable
         'code_meli',
         'job_title',
         'bank_account_number',
+        'active',
         'last_seen'
     ];
 

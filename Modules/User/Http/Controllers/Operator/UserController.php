@@ -5,20 +5,54 @@ namespace Modules\User\Http\Controllers\Operator;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Contracts\Support\Renderable;
+use Modules\User\Http\Requests\Operator\UserStoreRequest;
 
 class UserController extends Controller
 {
     /**
+     * @var User|Builder
+     */
+    private $user;
+    /**
+     * @var Role|Builder
+     */
+    private $role;
+
+    /**
+     * UserController constructor.
+     * @param User $user
+     * @param Role $role
+     */
+    public function __construct(User $user, Role $role)
+    {
+        $this->user = $user;
+        $this->role = $role;
+    }
+
+
+    /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(20);
-        // ->whereNotIn('id', [1,2,3,4])
-        // ->paginate(20);
-        return view('user::operator.user.index', compact('users'));
+        $usersQuery = $this->user
+            ->with(['roles'])
+            ->where('first_name', '!=', 'super-admin');
+
+        // filter the query if user is searching for something :)
+        $usersQuery = $this->search($request, $usersQuery);
+
+        $users = $usersQuery->paginate()
+            ->appends($request->all());
+
+        return view('user::operator.user.index', [
+            'users' => $users,
+            'request' => $request,
+        ]);
     }
 
     /**
@@ -27,7 +61,14 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user::create');
+        $roles = $this->role
+        ->where('name', '!=', 'Super Admin')
+        ->where('name', '!=', 'کارمند')
+        ->get();
+
+        return view('user::operator.user.create',[
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -35,9 +76,23 @@ class UserController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        $data = $this->prepareData($request);
+        $user = $this->user->create($data);
+
+        if ($roles = $request->input('roles'))
+        {
+            $operator->assignRole($this->role->find($roles));
+        }
+
+        $role = Role::where(['name' => 'کارمند'])->first();
+        $user->assignRole([$role->id]);
+
+        $request->session()->flash('alert-success', 'کارمند با موفقیت ساخته شد');
+
+        return redirect()->route('Operator.User.index');
+
     }
 
     /**
@@ -55,9 +110,18 @@ class UserController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('user::edit');
+        $user = $user->load(['roles']);
+        $roles = $this->role
+        ->where('name', '!=', 'کارمند')
+        ->where('name', '!=', 'Super Admin')
+        ->get();
+
+        return view('user::operator.user.edit', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -66,9 +130,18 @@ class UserController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $data = $this->prepareData($request);
+
+        $user->update($data);
+
+        if ($roles = $request->input('roles')) {
+            $user->syncRoles($this->role->find($roles));
+        }
+
+        $request->session()->flash('alert-success', 'کارمند با موفقیت ویرایش شد');
+        return redirect()->route('Operator.User.index');
     }
 
     /**
@@ -80,4 +153,54 @@ class UserController extends Controller
     {
         //
     }
+
+     /**
+     * prepare data for create|update an user
+     *
+     * @param Request $request
+     * @return array
+     */
+    private function prepareData($request)
+    {
+        $data = [
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'phone' => $request->input('phone'),
+            'personal_code' => $request->input('personal_code'),
+            'code_meli' => $request->input('code_meli'),
+            'job_title' => $request->input('job_title'),
+            'bank_account_number' => $request->input('bank_account_number'),
+            'active' => $request->input('active') ? '0' : '1',
+            'password' => bcrypt('123456'),
+        ];
+
+        return $data;
+    }
+
+    /**
+     * filter query by filled term for search
+     *
+     * @param Request $request
+     * @param Builder $usersQuery
+     * @return Builder $query
+     */
+    private function search($request, $usersQuery)
+    {
+        if ($term = $request->get('term')) {
+            /** @var Builder $usersQuery */
+            $usersQuery = $usersQuery->where(function ($query) use ($term) {
+                /** @var Builder $query */
+                $query->where('first_name', 'like', "%$term%")
+                    ->orWhere('last_name', 'like', "%$term%")
+                    ->orWhere('phone', 'like', "%$term%")
+                    ->orWhere('personal_code', 'like', "%$term%")
+                    ->orWhere('code_meli', 'like', "%$term%")
+                    ->orWhere('job_title', 'like', "%$term%")
+                    ->orWhere('bank_account_number', 'like', "%$term%");
+            });
+        }
+
+        return $usersQuery;
+    }
+
 }

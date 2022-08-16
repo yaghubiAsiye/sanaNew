@@ -20,13 +20,16 @@
             <div class="block xl:grid grid-cols-2 gap-4">
                 <!-- BEGIN: Login Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
-                    <a href="" class="-intro-x flex items-center pt-5">
+                    {{-- <a href="" class="-intro-x flex items-center pt-5">
                         <img  class="w-12" src="/dist/images/sana/logo/Persia Logo4.png">
 
                         <span class="text-white text-lg mr-3">سامانه <span class="font-medium">سانا</span> </span>
-                    </a>
+                    </a> --}}
                     <div class="my-auto">
                         <img  class="-intro-x w-1/2 -mt-16" src="/dist/images/sana/logo/logo.png">
+                        <div class="-intro-x text-white font-medium text-3xl  mr-10">
+                         سانا
+                         </div>
                         <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                            سامانه نیروی انسانی شرکت
                         <br>  ارتباطات پرشیا

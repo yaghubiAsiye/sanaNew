@@ -18,7 +18,6 @@
         @include('partials.alert')
         @include('partials.error')
         <div class="grid grid-cols-12 gap-6 mt-5">
-            {{-- <div class="intro-y col-span-12 lg:col-span-3"></div> --}}
             <div class="intro-y col-span-12 lg:col-span-6">
                 <!-- BEGIN: Form Layout -->
                 <form action="{{ route('Employee.request.store') }}" method="POST">
@@ -35,19 +34,17 @@
                             </select>
                         </div>
 
-
-
-                            <div class="mt-3">
-                                <label>توضیحات</label>
-                                <div class="mt-2">
-                                    <textarea name="content" data-simple-toolbar="true" class="editor">
-                                    </textarea>
-                                </div>
+                        <div class="mt-3">
+                            <label>توضیحات</label>
+                            <div class="mt-2">
+                                <textarea name="content" data-simple-toolbar="true" class="editor">
+                                </textarea>
                             </div>
-                            <div class="text-left mt-5">
-                                <button type="button" class="btn btn-outline-secondary w-24 ml-1">لغو</button>
-                                <button type="submit" class="btn btn-primary w-24">ارسال</button>
-                            </div>
+                        </div>
+                        <div class="text-left mt-5">
+                            <button type="button" class="btn btn-outline-secondary w-24 ml-1">لغو</button>
+                            <button type="submit" class="btn btn-primary w-24">ارسال</button>
+                        </div>
                     </div>
                 </form>
                 <!-- END: Form Layout -->
