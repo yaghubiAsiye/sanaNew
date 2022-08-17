@@ -5,5 +5,5 @@
 /* -------------------------------------------------------------------------- */
 Route::controller(RequestController::class)->middleware('auth')->group(function(){
     Route::get('requests', 'index')->name('Operator.request.index');
-    Route::get('requests', 'responseshow')->name('Operator.request.responseshow');
+    Route::get('requests/response', 'responseshow')->name('Operator.request.responseshow');
 });
