@@ -5,8 +5,8 @@ namespace Modules\Request\Http\Controllers\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Contracts\Support\Renderable;
 use Modules\Request\Entities\Request as RequestModel;
+use Illuminate\Contracts\Support\Renderable;
 use Modules\Request\Http\Requests\EmployeeStoreRequest;
 
 class RequestController extends Controller
@@ -17,7 +17,8 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $data = RequestModel::where('employee_id', auth()->user()->id)
+        $data = RequestModel::where('sender_id', auth()->user()->id)
+        ->where('parent_id', Null)
         ->get();
         return view('request::employee.requests', compact('data'));
     }
@@ -39,12 +40,15 @@ class RequestController extends Controller
      */
     public function store(EmployeeStoreRequest $request)
     {
-        $request = RequestModel::create([
+        $requestType = RequestModel::create([
+            'parent_id' => Null,
+            'sender_id' => auth()->user()->id,
+            'status' =>'بررسی نشده',
             'type' => $request->type,
             'content' => $request->content,
-            'status' =>'درحال بررسی',
-            'employee_id' => auth()->user()->id,
+            'starter_type' => 'employee',
         ]);
+
 
         Session::flash('alert-success' , 'عملیات موفق بود!');
 

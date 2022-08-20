@@ -15,12 +15,21 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('operator_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('employee_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('status')->nullable();
+            $table->bigInteger('parent_id')->nullable()->default(0);
+            $table->foreignId('sender_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('status_id')->constrained('statuses')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type')->nullable();
             $table->text('content')->nullable();
-            $table->text('response')->nullable();
+            $table->enum('starter_type', ['employee', 'operator'])->nullable();
+            $table->timestamp('receiver_seen_at')->nullable();
+            
+            // $table->enum('status', ['بررسی نشده', 'درحال پیگیری', 'درحال انجام', 'پاسخ داده شده', 'انجام شده', 'پایان یافته'])->nullable();
+            // $table->foreignId('operator_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            // $table->foreignId('employee_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            // $table->string('status')->nullable();
+            // $table->string('type')->nullable();
+            // $table->text('content')->nullable();
+            // $table->text('response')->nullable();
             $table->timestamps();
         });
     }

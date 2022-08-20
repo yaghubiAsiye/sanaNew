@@ -14,7 +14,8 @@ class PayslipStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'required'
+            'file' => 'required',
+            'date_pay' => 'required|unique:payslip_logs,date_pay',
         ];
     }
 

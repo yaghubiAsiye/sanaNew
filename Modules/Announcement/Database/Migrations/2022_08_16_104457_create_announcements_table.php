@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
-
+            $table->string('title')->nullable();
+            $table->text('content')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('view')->nullable();
             $table->timestamps();
         });
     }

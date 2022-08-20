@@ -18,7 +18,7 @@
         @include('partials.alert')
         @include('partials.error')
         <div class="grid grid-cols-12 gap-6 mt-5">
-            <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y col-span-12 lg:col-span-12">
                 <!-- BEGIN: Form Layout -->
                 <form action="{{ route('Employee.request.store') }}" method="POST">
                     @csrf
@@ -30,6 +30,7 @@
                                 <option value="">انتخاب کنید</option>
                                 <option value="درخواست گواهی کسر از حقوق">درخواست گواهی کسر از حقوق</option>
                                 <option value="درخواست گواهی اشتغال به کار">درخواست گواهی اشتغال به کار </option>
+                                <option value="درخواست تغییر شماره همراه">درخواست تغییر شماره همراه</option>
                                 <option value="سایر">سایر</option>
                             </select>
                         </div>

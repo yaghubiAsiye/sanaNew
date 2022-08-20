@@ -62,7 +62,7 @@
                                     </div>
                                 </td> --}}
                                 <td>
-                                    <a href="" class="font-medium whitespace-nowrap">{{ jdate($item->created_at) ?? ''}}</a>
+                                    <a href="" class="font-medium whitespace-nowrap">{{ $item->date_pay ?? ''}}</a>
                                     {{-- <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">الکترونیک</div> --}}
                                 </td>
                                 <td class="text-center">{{ jdate($item->created_at) ?? ''}}</td>
