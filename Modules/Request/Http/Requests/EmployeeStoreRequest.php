@@ -14,7 +14,7 @@ class EmployeeStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|unique:requests,type',
+            'type' => 'required',
             'content' => 'required',
         ];
     }

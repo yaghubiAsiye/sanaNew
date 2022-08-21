@@ -2,9 +2,14 @@
 
 namespace Modules\Request\Http\Controllers\Operator;
 
-use Illuminate\Contracts\Support\Renderable;
+use App\Models\File;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
+use Modules\Request\Entities\RequestType;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Request\Entities\RequestContent;
 // use Modules\Request\Entities\Request as RequestModel;
 
 
@@ -17,17 +22,54 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $data = RequestModel::all();
-        return view('request::operator.requests', compact('data'));
+        $data = RequestType::where('starter_type', 'پرسنل')
+        ->with(['requestContents'])
+        ->get();
+        return view('request::operator.index', compact('data'));
     }
 
-   public function responseshow(RequestModel $requestModel)
+   public function responseshow(RequestType $requestType)
    {
-        return view('request::operator.response', compact('requestModel'));
+        $statuses = Status::all();
+        return view('request::operator.response', compact('requestType', 'statuses'));
    }
 
-   public function responseStore(Request $request)
+   public function reply(Request $request)
    {
 
+        $requestType = RequestType::find($request->requestType_id);
+
+
+        $requestContent = RequestContent::create([
+            'request_type_id' => $request->requestType_id,
+            'sender_id' => auth()->user()->id,
+            'status_id' => 2,
+            'parent_id' => $request->parent_id,
+            'sender_type' => 'بخش اداری',
+            'content' => $request->content,
+        ]);
+
+         if($request->file)
+         {
+             $path = 'RequestFile/';
+             $file = \App\Services\UploaderService::fileUploader($request->file, $path);
+             $fileAttach = new File();
+             $fileAttach->file = $file;
+             $name = explode('/', trim($file));
+             $fileAttach->name = $name[2];
+             $fileAttach->user_id = auth()->user()->id;
+             $requestContent->files()->save($fileAttach);
+         }
+
+
+        $requestType->status_id = 2;
+        $requestType->save();
+
+
+
+
+        Session::flash('alert-success' , 'عملیات موفق بود!');
+
+        return redirect()->route('Operator.request.index');
    }
 }

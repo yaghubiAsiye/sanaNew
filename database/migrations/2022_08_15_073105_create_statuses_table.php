@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('status')->nullable();
             $table->string('color')->nullable();
-            // $table->morphs('statusable');
             $table->timestamps();
         });
     }

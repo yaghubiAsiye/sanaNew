@@ -17,13 +17,13 @@ class Request extends Model
         return \Modules\Request\Database\factories\RequestFactory::new();
     }
 
-    public function operator()
-    {
-        return $this->belongsTo(User::class, 'operator_id');
-    }
+    // public function operator()
+    // {
+    //     return $this->belongsTo(User::class, 'operator_id');
+    // }
 
-    public function employee()
-    {
-        return $this->belongsTo(User::class, 'employee_id');
-    }
+    // public function employee()
+    // {
+    //     return $this->belongsTo(User::class, 'employee_id');
+    // }
 }

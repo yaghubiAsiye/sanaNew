@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $dataRequests = RequestModel::where('employee_id', auth()->user()->id)
+        $dataRequests = RequestModel::where('id', auth()->user()->id)
         ->get();
 
         $code_meli = auth()->user()->code_meli;

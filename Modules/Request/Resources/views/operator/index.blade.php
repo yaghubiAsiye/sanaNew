@@ -40,8 +40,9 @@
                                         <th class="text-center whitespace-nowrap"> شماره تلفن</th>
 
                                         <th class="text-center whitespace-nowrap"> نوع درخواست   </th>
-                                        <th class="text-center whitespace-nowrap"> توضیحات  </th>
                                         <th class="text-center whitespace-nowrap"> وضعیت</th>
+                                        <th class="text-center whitespace-nowrap">تاریخ ایجاد</th>
+                                        <th class="text-center whitespace-nowrap">آخرین بروزرسانی</th>
 
                                         <th class="text-center whitespace-nowrap">ویرایش</th>
                                     </tr>
@@ -49,26 +50,25 @@
                                 <tbody>
                                     @foreach ($data as $items)
                                         <tr class="intro-x">
-                                            <td class="text-center">{{ $items->employee->first_name . ' ' .  $items->employee->last_name}}</td>
-                                            <td class="text-center">{{ $items->employee->personal_code ?? ''}}</td>
-                                            <td class="text-center">{{ $items->employee->phone ?? ''}}</td>
+                                            <td class="text-center">{{ $items->starter->first_name . ' ' .  $items->starter->last_name}}</td>
+                                            <td class="text-center">{{ $items->starter->personal_code ?? ''}}</td>
+                                            <td class="text-center">{{ $items->starter->phone ?? ''}}</td>
                                             <td class="text-center">{{ $items->type ?? ''}}</td>
-                                            <td class="text-center">{!! $items->content ?? '' !!}</td>
                                             <td class="text-center">
-                                                <button style="white-space: nowrap" class="btn btn-elevated-{{ $items->status == 'درحال بررسی' ? 'warning' : 'success'}}  w-24 ml-1 mb-2">
-                                                    {{ $items->status ?? ''}}
+                                                <button style="white-space: nowrap" class="btn text-{{ $items->status->color }}  w-24 ml-1 mb-2">
+                                                    {{ $items->status->status ?? ''}}
                                                 </button>
                                             </td>
 
-
+                                            <td class="text-center">{{ jdate($items->created_at) }}</td>
+                                            <td class="text-center">{{ jdate($items->updated_at) }}</td>
                                             <td class="table-report__action w-56">
                                                 <div class="flex justify-center items-center">
                                                     {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}
-                                                    <a class="flex items-center text-theme-1" href="{{ route('Operator.request.responseshow', ['requestModel' => $items])}}" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
+                                                    <a class="flex items-center text-theme-1" href="{{ route('Operator.request.responseshow', ['requestType' => $items])}}" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="edit" class="w-4 h-4 ml-1"></i>  </a>
                                                 </div>
                                             </td>
                                         </tr>
-
                                     @endforeach
                                 </tbody>
                             </table>

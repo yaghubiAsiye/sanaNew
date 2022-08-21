@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class StatusTableSeeder extends Seeder
 {
@@ -17,30 +18,31 @@ class StatusTableSeeder extends Seeder
 
         $statuses = [
             [
-                'status' => 'بررسی نشده',
-                'color' => 'text-gray-700'
-            ],
-            [
-                'status' => 'درحال پیگیری',
-                'color' => 'text-theme-1'
-            ],
-            [
-                'status' => 'درحال انجام',
-                'color' => 'text-theme-1'
+                'status' => 'درانتظار پاسخ',
+                'color' => 'theme-12'
             ],
             [
                 'status' => 'پاسخ داده شده',
-                'color' => ''
+                'color' => 'theme-9'
             ],
             [
-                'status' => 'انجام شده',
-                'color' => 'text-theme-9'
+                'status' => 'پاسخ پرسنل',
+                'color' => 'theme-1'
             ],
             [
-                'status' => 'پایان یافته',
-                'color' => 'text-theme-9'
+                'status' => 'بسته شده',
+                'color' => 'gray-700'
             ],
 
         ];
+
+        foreach ($statuses as $status)
+        {
+            Status::create([
+                'status' => $status['status'],
+                'color' => $status['color'],
+            ]);
+        }
+
     }
 }

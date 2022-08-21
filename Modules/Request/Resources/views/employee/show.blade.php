@@ -44,7 +44,16 @@
                         </a>
                     </div>
 
-
+                    <div class="px-4 py-3 border-t border-gray-200 dark:border-dark-5">
+                        {{-- <a class="flex items-center px-4 py-2" href="">
+                            <i data-feather="edit" class="w-4 h-4 ml-2 text-theme-9"></i>
+                            <div class="flex-1 truncate text-theme-9">پاسخ</div>
+                        </a> --}}
+                        <a class="flex items-center px-4 py-2 mt-1" href="{{ route('Employee.request.closeRequest', ['requestType' => $requestType]) }}">
+                            <i data-feather="x-square" class="w-4 h-4 ml-2 text-theme-6"></i>
+                            <div class="flex-1 truncate text-theme-6">بستن </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- END: FAQ Menu -->
@@ -61,7 +70,7 @@
                             <div class="accordion-item">
                                 <div id="faq-accordion-content-1" class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-accordion-collapse-1" aria-expanded="true" aria-controls="faq-accordion-collapse-1">
-                                        <span class="text-theme-9 p-2 ml-2">
+                                        <span class="bg-{{ $requestContent->sender_type == 'مالک پروفایل' ? 'theme-9' : 'gray-200'}} p-2 ml-2">
                                             {{ $requestContent->sender_type ?? '' }}
                                         </span>
                                       {{ $requestContent->sender->first_name . ' ' . $requestContent->sender->last_name ?? '' }}
@@ -73,7 +82,12 @@
                                         {!! $requestContent->content !!}
                                     </div>
                                     <div class="accordion-body text-gray-700 dark:text-gray-600 leading-relaxed">
-                                        file
+                                        @if($requestContent->files->first())
+                                        فایل ضمیمه :
+                                            <a class="text-theme-9" href="/{{ $requestContent->files->first()->file ?? ''}}" target="blank">
+                                                {{ $requestContent->files->first()->name ?? ''}}
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +95,9 @@
                     </div>
                 </div>
 
-                @if($requestType->status->id == 1 || $requestType->status->id == 3 || $requestType->status->id == 4)
+
+
+                @if($requestType->status->id == 2  || $requestType->status->id == 4)
                 <div class="intro-y box lg:mt-5">
                     <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                         <h2 class="font-medium text-base ml-auto">
@@ -91,7 +107,7 @@
                     <div class="p-5">
                         <div class="flex flex-col-reverse xl:flex-row flex-col">
                             <div class="flex-1 mt-6 xl:mt-0">
-                                <form action="{{ route('Operator.request.reply') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('Employee.request.reply') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="grid grid-cols-12 gap-x-5">
                                         <input type="hidden" name="requestType_id" value="{{ $requestType->id }}">
@@ -140,10 +156,8 @@
                 </div>
                 @endif
 
-
             </div>
             <!-- END: FAQ Content -->
-
         </div>
     </div>
     <!-- END: Content -->
