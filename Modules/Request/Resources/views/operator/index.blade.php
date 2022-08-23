@@ -60,8 +60,8 @@
                                                 </button>
                                             </td>
 
-                                            <td class="text-center">{{ jdate($items->created_at) }}</td>
-                                            <td class="text-center">{{ jdate($items->updated_at) }}</td>
+                                            <td class="text-center">{{ jdate($items->created_at)->format('h:i Y/m/d') }}</td>
+                                            <td class="text-center">{{ jdate($items->updated_at)->format('h:i Y/m/d') }}</td>
                                             <td class="table-report__action w-56">
                                                 <div class="flex justify-center items-center">
                                                     {{-- <a class="flex items-center ml-3" href="#"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات</a> --}}

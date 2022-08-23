@@ -3,5 +3,7 @@
     "User": true,
     "Request": true,
     "MonthlyPerformance": true,
-    "Announcement": true
+    "Announcement": true,
+    "Recruitment": true,
+    "Status": true
 }

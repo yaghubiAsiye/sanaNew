@@ -2,9 +2,11 @@
 
 namespace Modules\Announcement\Http\Controllers\Operator;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Announcement\Entities\Announcement;
+use Modules\Announcement\Http\Requests\Operator\AnnouncementStoreRequest;
 
 class AnnouncementController extends Controller
 {
@@ -23,7 +25,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('announcement::create');
+        return view('announcement::operator.announcement.create');
     }
 
     /**
@@ -31,9 +33,15 @@ class AnnouncementController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(AnnouncementStoreRequest $request)
     {
-        //
+        dd($request->editor);
+        $announcement = Announcement::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'user_id' => auth()->user()->id,
+            'view' => 0,
+        ]);
     }
 
     /**
@@ -53,7 +61,7 @@ class AnnouncementController extends Controller
      */
     public function edit($id)
     {
-        return view('announcement::edit');
+        return view('announcement::operator.announcement.edit');
     }
 
     /**

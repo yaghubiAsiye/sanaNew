@@ -52,8 +52,8 @@
                                                         {{ $requestType->status->status ?? ''}}
                                                     </button>
                                                 </td>
-                                                <td class="text-center">{{ jdate($requestType->created_at) }}</td>
-                                                <td class="text-center">{{ jdate($requestType->updated_at) }}</td>
+                                                <td class="text-center">{{ jdate($requestType->created_at)->format('h:i Y/m/d') }}</td>
+                                                <td class="text-center">{{ jdate($requestType->updated_at)->format('h:i Y/m/d') }}</td>
 
                                                 <td class="text-center">
                                                     <a class="flex items-center ml-3 text-theme-1" href="{{ route('Employee.request.show', ['requestType' => $requestType]) }}"> <i data-feather="eye" class="w-4 h-4 ml-1"></i> جزییات </a>
