@@ -22,6 +22,16 @@
                 <input  value="{{ $user->vahedSazmani ?? old('vahedSazmani') }}" type="text" name="vahedSazmani" class="form-control"  >
                 @error('vahedSazmani')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
             </div>
+
+            <div class="input-form mt-3 @error('receiver_id') has-error @enderror">
+                <label  class="form-label w-full flex flex-col sm:flex-row">ارجاع به<span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600"> الزامی است    </span> </label>
+                <select name="receiver_id" class="form-control">
+                    <option value="4">خانم سمیعی</option>
+                    <option value="4">خانم سمیعی</option>
+                </select>
+                @error('receiver_id')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
+            </div>
+
         </div>
         <div class="col-span-12 xl:col-span-6">
             <div class="input-form mt-3 @error('mahaleKhedmat') has-error @enderror">
@@ -45,8 +55,3 @@
     </div>
 
 </div>
-
-
-
-
-

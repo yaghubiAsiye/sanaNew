@@ -57,7 +57,8 @@ class RecruitmentController extends Controller
 
         $recruitmentChecker = RecruitmentChecker::create([
             'recruitment_id' => $recruitment->id,
-            'user_id' => auth()->user()->id,
+            'receiver_id' => $request->receiver_id,
+            'sender_id' => auth()->user()->id,
             'status_id' => 5,
         ]);
 
@@ -117,6 +118,16 @@ class RecruitmentController extends Controller
 
     public function changeStatusShow(Recruitment $recruitment)
     {
+        if($recruitment->receiver_id === auth()->user()->id)
+        {
+            $recruitment->status_id = 6;
+            $recruitment->save();
+
+            $recruitmentCheckers = RecruitmentChecker::where('recruitment_id', $recruitment->id)
+            ->where('status_id', 5)
+            ->update(['status_id' => 6, 'receiver_seen_at' => \Carbon\Carbon::now()]);
+
+        }
         return view('recruitment::operator.changeStatus',[
             'recruitment' => $recruitment
         ]);
@@ -125,10 +136,24 @@ class RecruitmentController extends Controller
 
     public function changeStatusUpdate(Request $request, Recruitment $recruitment)
     {
-        $recruitment->sharheMavaqa = $request->sharheMavaqa;
-        $recruitment->save();
+
+        if($request->file)
+        {
+            $path = 'Recruitment/';
+            $file = \App\Services\UploaderService::fileUploader($request->file, $path);
+        }
+        $recruitmentChecker = RecruitmentChecker::create([
+            'recruitment_id' => $recruitment->id,
+            'receiver_id' => $request->receiver_id,
+            'description' => $request->description,
+            'file' => $file ?? '',
+            'sender_id' => auth()->user()->id,
+            'status_id' => $request->status_id,
+        ]);
+
         $request->session()->flash('alert-success' , 'عملیات موفق بود!');
-        return redirect()->back();
+        return redirect()->route('Operator.Recruitment.index');
+
 
     }
 }

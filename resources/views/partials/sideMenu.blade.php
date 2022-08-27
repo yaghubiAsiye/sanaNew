@@ -136,7 +136,7 @@
             </li>
         @endcan
 
-        {{-- @can('MonthlyPerformance-crud')
+        @can('MonthlyPerformance-crud')
         <li class="side-nav__devider my-6"></li>
         <li>
             <a href="javascript:;" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
@@ -158,7 +158,7 @@
 
             </ul>
         </li>
-        @endcan --}}
+        @endcan
 
         @if(auth()->user()->can('Accountants-crud') || auth()->user()->can('Official-crud'))
             <li class="side-nav__devider my-6"></li>

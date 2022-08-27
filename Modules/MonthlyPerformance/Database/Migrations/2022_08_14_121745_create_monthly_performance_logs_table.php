@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('monthly_performance_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('file')->nullable();
+            $table->string('file_1')->nullable();
+            $table->string('file_2')->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->morphs('logable');
             $table->timestamps();

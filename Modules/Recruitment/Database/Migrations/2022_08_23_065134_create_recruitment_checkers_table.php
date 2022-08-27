@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('recruitment_id')->constrained('recruitments')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('sender_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('receiver_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('receiver_id')->default(0)->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamp('receiver_seen_at')->nullable();
             $table->foreignId('status_id')->constrained('statuses')->onUpdate('cascade')->onDelete('cascade')->comment('وضعیت');
             $table->text('description')->nullable()->comment('توضیحات');
             $table->string('file')->nullable()->comment('فایل پیوست');

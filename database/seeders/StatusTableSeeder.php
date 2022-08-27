@@ -33,6 +33,26 @@ class StatusTableSeeder extends Seeder
                 'status' => 'بسته شده',
                 'color' => 'gray-700'
             ],
+            [
+                'status' => 'مشاهده نشده',
+                'color' => 'theme-12'
+            ],
+            [
+                'status' => 'مشاهده شده',
+                'color' => 'theme-1'
+            ],
+            [
+                'status' => 'تکمیل ارزیابی حقوقی',
+                'color' => 'theme-1'
+            ],
+            [
+                'status' => 'تشکیل قرارداد',
+                'color' => 'theme-9'
+            ],
+            [
+                'status' => 'پایان یافته',
+                'color' => 'gray-200'
+            ],
 
         ];
 
