@@ -59,6 +59,13 @@
         </select>
     </div>
 </div>
+
+<div class="mt-3">
+    <label> ia_operator</label>
+    <div class="mt-2">
+        <input type="checkbox" {{ $user->is_operator ? 'checked="checked"' : '' }} name="active" class="form-check-switch">
+    </div>
+</div>
 @endrole
 
 
@@ -66,6 +73,6 @@
 <div class="mt-3">
     <label>وضعیت فعال بودن</label>
     <div class="mt-2">
-        <input type="checkbox" checked="checked" name="active" class="form-check-switch">
+        <input type="checkbox" {{ ! $user->active ? 'checked="checked"' : '' }} name="active" class="form-check-switch">
     </div>
 </div>

@@ -10,7 +10,7 @@ use App\Http\Requests\V1\Site\RegisterRequest;
 
 class RegisterController extends Controller
 {
-        
+
     /**
      * register
      *
@@ -21,31 +21,10 @@ class RegisterController extends Controller
     {
         return view('pages.site.auth.register');
     }
-    
+
     public function register(RegisterRequest $request)
     {
-        //TODOs: add address,city, gender
-        // $validData = Validator::make($request->all(), [
-        //     'first_name' => 'required|string|max:255|min:3',
-        //     'last_name' => 'required|string|max:255|min:3',
-        //     'phone' => 'required|regex:/(09)[0-9]{9}/|digits:11|numeric|unique:users,phone',
-        //     'email' => 'requiredemail|unique:users,email',
-        //     'password' => 'required|min:5',
-        // ]);
-        // $validData = $request->validate([
-        //     'first_name' => 'required|string|max:255|min:3',
-        //     'last_name' => 'required|string|max:255|min:3',
-        //     'phone' => 'required|regex:/(09)[0-9]{9}/|digits:11|numeric|unique:users,phone',
-        //     'email' => 'requiredemail|unique:users,email',
-        //     'password' => 'required|min:5',
-        // ]);
-        // if($validData->fails()) 
-        // {
-
-        //     return redirect()->back() ->withErrors($validData)
-        //     ->withInput();;
-        // }
-        // dd($request->ip());
+       
         User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

@@ -70,7 +70,7 @@
                             <div class="accordion-item">
                                 <div id="faq-accordion-content-1" class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-accordion-collapse-1" aria-expanded="true" aria-controls="faq-accordion-collapse-1">
-                                        <span class="bg-{{ $requestContent->sender_type == 'مالک پروفایل' ? 'theme-9' : 'gray-200'}} p-2 ml-2">
+                                        <span class="bg-{{ $requestContent->sender_type == 'کارمند' ? 'theme-9' : 'gray-200'}} p-2 ml-2">
                                             {{ $requestContent->sender_type ?? '' }}
                                         </span>
                                       {{ $requestContent->sender->first_name . ' ' . $requestContent->sender->last_name ?? '' }}

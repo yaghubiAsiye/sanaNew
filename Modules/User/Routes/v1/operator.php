@@ -11,8 +11,24 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::post('User/store', 'store')->name('Operator.User.store');
     Route::get('User/edit/{user}', 'edit')->name('Operator.User.edit');
     Route::put('User/update/{user}', 'update')->name('Operator.User.update');
+});
 
+Route::controller(PermissionController::class)->middleware('auth')->group(function(){
+    Route::get('Permission/index', 'index')->name('Operator.Permission.index');
+    Route::get('Permission/create', 'create')->name('Operator.Permission.create');
+    Route::post('Permission/store', 'store')->name('Operator.Permission.store');
+    Route::get('Permission/edit/{permission}', 'edit')->name('Operator.Permission.edit');
+    Route::put('Permission/update/{permission}', 'update')->name('Operator.Permission.update');
+    Route::delete('Permission/destroy/{permission}', 'destroy')->name('Operator.Permission.destroy');
+});
 
+Route::controller(RoleController::class)->middleware('auth')->group(function(){
+    Route::get('Role/index', 'index')->name('Operator.Role.index');
+    Route::get('Role/create', 'create')->name('Operator.Role.create');
+    Route::post('Role/store', 'store')->name('Operator.Role.store');
+    Route::get('Role/edit/{role}', 'edit')->name('Operator.Role.edit');
+    Route::put('Role/update/{role}', 'update')->name('Operator.Role.update');
+    Route::delete('Role/destroy/{role}', 'destroy')->name('Operator.Role.destroy');
 });
 
 

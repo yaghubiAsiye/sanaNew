@@ -45,7 +45,7 @@ class RequestController extends Controller
             'sender_id' => auth()->user()->id,
             'status_id' => 2,
             'parent_id' => $request->parent_id,
-            'sender_type' => 'بخش اداری',
+            'sender_type' => 'کارشناس',
             'content' => $request->content,
         ]);
 
