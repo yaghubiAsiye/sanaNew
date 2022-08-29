@@ -40,22 +40,41 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        $this->mapEmployeeRoutes();
+        $this->mapOperatorRoutes();
     }
 
-    /**
-     * Define the "web" routes for the application.
+     /**
+     * Define the "employee" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapEmployeeRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->moduleNamespace)
-            ->group(module_path($this->moduleName, '/Routes/web.php'));
+            ->namespace($this->moduleNamespace . '\Employee')
+            ->prefix('Employee')
+            ->group(module_path($this->moduleName, '/Routes/v1/employee.php'));
     }
+
+     /**
+     * Define the "operator" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapOperatorRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->moduleNamespace . '\Operator')
+            ->prefix('Operator')
+            ->group(module_path($this->moduleName, '/Routes/v1/operator.php'));
+    }
+
+   
 
     /**
      * Define the "api" routes for the application.

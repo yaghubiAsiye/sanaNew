@@ -104,7 +104,7 @@
 
         @can('operator-monthlyPerformance-crud')
             <li>
-                <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
+                <a href="{{ route('Operator.Performance.index') }}" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="aperture"></i> </div>
                     <div class="side-menu__title">کارکرد </div>
                 </a>
