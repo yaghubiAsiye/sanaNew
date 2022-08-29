@@ -706,7 +706,7 @@
                         </div> --}}
                         <!-- END: Recent Activities -->
                         <!-- BEGIN: Important Notes -->
-                        @if(count($dataRequests) > 0)
+                        {{-- @if(count($dataRequests) > 0)
                         <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
@@ -726,7 +726,7 @@
                                                         {!! $item->content ?? '' !!}
                                                     </div>
                                                     <div class="font-medium flex mt-5">
-                                                        {{-- <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button> --}}
+                                                        <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
                                                         <button type="button" class="btn btn-warning py-1 px-2 ml-auto ml-auto">{{ $item->status ?? ''}}</button>
                                                     </div>
                                                 </div>
@@ -736,7 +736,7 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif
+                        @endif --}}
 
 
 
