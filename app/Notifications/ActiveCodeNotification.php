@@ -14,7 +14,7 @@ class ActiveCodeNotification extends Notification
     public $code;
     public $phone;
 
-    
+
 
     /**
      * Create a new notification instance.
@@ -42,8 +42,8 @@ class ActiveCodeNotification extends Notification
     public function toGhasedakSms($notifiable)
     {
         return [
-            // 'text' => "کد احرازهویت {$this->code} \n وبسایت ارتباطات پرشیا",
-            'text' => $this->code,
+            'text' => "کد احرازهویت {$this->code} \n شرکت ارتباطات پرشیا",
+            // 'text' => $this->code,
             'number' => $this->phone
         ];
     }
