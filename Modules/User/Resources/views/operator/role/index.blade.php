@@ -16,7 +16,7 @@
         @include('partials.alert')
         <div class="grid grid-cols-12 gap-6 mt-5">
             <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-                <a href="{{ route('Operator.Permission.create') }}" class="btn btn-primary shadow-md ml-2">افزودن  نقش  جدید</a>
+                <a href="{{ route('Operator.Role.create') }}" class="btn btn-primary shadow-md ml-2">افزودن  نقش  جدید</a>
                 <div class="hidden md:block mx-auto text-gray-600"></div>
                 <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
                     <form action="#">
