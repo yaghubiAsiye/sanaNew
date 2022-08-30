@@ -105,7 +105,7 @@
                                                 <td class="table-report__action w-56">
                                                     <div class="flex justify-center items-center">
                                                         {{-- <a class="flex items-center ml-3" href="{{ route('Employee.payslipSingle', ['date' => $items['date_pay']]) }}"> <i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a> --}}
-                                                        <a class="flex items-center ml-3" target="_blank"  href="{{url('Employee/downloadPDF', $items['date_pay'])}}"><i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی</a>
+                                                        <a class="flex items-center ml-3" target="_blank"  href="{{url('Employee/downloadPDF', $items['date_pay'])}}"><i data-feather="paperclip" class="w-4 h-4 ml-1"></i> دانلود فیش حقوقی {{ $items['date_pay']->format('%B - %Y') ?? ''}}</a>
 
                                                         {{-- <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 ml-1"></i> حذف </a> --}}
                                                     </div>

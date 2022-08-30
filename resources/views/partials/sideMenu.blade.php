@@ -88,7 +88,7 @@
             <li>
                 <a href="{{ route('Operator.Recruitment.index') }}" class="side-menu {{ (Request::is('Operator/Recruitment') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="user-plus"></i> </div>
-                    <div class="side-menu__title"> جذب </div>
+                    <div class="side-menu__title"> جذب کارکنان </div>
                 </a>
             </li>
         @endcan
@@ -97,7 +97,7 @@
             <li>
                 <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="align-center"></i> </div>
-                    <div class="side-menu__title">قرارداد</div>
+                    <div class="side-menu__title">قرارداد کارکنان</div>
                 </a>
             </li>
         @endcan
@@ -106,7 +106,7 @@
             <li>
                 <a href="{{ route('Operator.Performance.index') }}" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="aperture"></i> </div>
-                    <div class="side-menu__title">کارکرد </div>
+                    <div class="side-menu__title">کارکرد کارکنان </div>
                 </a>
             </li>
         @endcan
@@ -115,7 +115,7 @@
             <li>
                 <a href="{{ route('Operator.User.index') }}" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                    <div class="side-menu__title"> کارمندان </div>
+                    <div class="side-menu__title"> لیست کارکنان </div>
                 </a>
             </li>
         @endcan
