@@ -24,12 +24,12 @@ class GhasedakChannel
 
         try
         {
-            $lineNumber = "300002525";
+            $lineNumber = "3000265757";
             $type = 1;
             $template = "verifyPhone";
             $api = new GhasedakApi($apiKey);
-            $api->Verify($receptor,$type, $template, "$message");
-            // $api->SendSimple($receptor,$message,$lineNumber);
+            // $api->Verify($receptor,$type, $template, "$message");
+            $api->SendSimple($receptor,$message,$lineNumber);
         }
         catch(ApiException $e){
             throw $e;
