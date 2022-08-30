@@ -28,8 +28,8 @@ class GhasedakChannel
             $type = 1;
             $template = "verifyPhone";
             $api = new GhasedakApi($apiKey);
-            dd($receptor,$type, $template, "$message");
-            dd($api->Verify($receptor,$type, $template, "$message"));
+            // dd($receptor,$type, $template, "$message");
+            dd($api->Verify($receptor,$type, $template, $message));
             // $api->SendSimple($receptor,$message,$lineNumber);
 
         }
