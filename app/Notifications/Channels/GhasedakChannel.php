@@ -28,7 +28,7 @@ class GhasedakChannel
             $type = 1;
             $template = "verifyPhone";
             $api = new GhasedakApi($apiKey);
-            $api->Verify($receptor,$type, 'otp', "$message");
+            $api->Verify($receptor,"otp", "$message");
             // $api->SendSimple($receptor,$message,$lineNumber);
         }
         catch(ApiException $e){
