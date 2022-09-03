@@ -52,7 +52,7 @@
                                 <td class="text-center">{{ $item->type ?? ''}}</td>
                                 <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
-                                        <a class="flex items-center ml-3" href="{{ route('Operator.Performance.edit', ['user' => $item]) }}"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> </a>
+                                        <a class="flex items-center ml-3" href="#"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> </a>
                                     </div>
                                 </td>
                             </tr>
