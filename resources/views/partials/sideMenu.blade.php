@@ -171,14 +171,14 @@
             </li>
         @endcan
 
-        @can('operator-monthlyPerformance-crud')
+        {{-- @can('operator-monthlyPerformance-crud')
             <li>
                 <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="align-center"></i> </div>
                     <div class="side-menu__title">قرارداد کارکنان</div>
                 </a>
             </li>
-        @endcan
+        @endcan --}}
 
         @can('operator-monthlyPerformance-crud')
             <li>
