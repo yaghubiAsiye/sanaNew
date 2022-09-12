@@ -130,7 +130,7 @@ class CandidateController extends Controller
         }
 
         $data = [
-            'place' => auth()->user()->workplace,
+            'place' => auth()->user()->workplace ?? 'تهران',
             'education' => $request->input('education'),
             'resume_file' => $resume_file,
             'user_id' => auth()->user()->id,

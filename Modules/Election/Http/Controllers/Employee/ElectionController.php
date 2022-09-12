@@ -14,6 +14,7 @@ class ElectionController extends Controller
     public function selectElection($place)
     {
         $candidates = Candidate::where('place', $place)
+        ->where('status_id', 11)
         ->get();
         return view('election::employee.election.select-election', compact('candidates', 'place'));
     }

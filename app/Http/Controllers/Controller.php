@@ -11,4 +11,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
-    // sudo git push https://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@github.com/persiatc/sanaNew.git
+    // sudo git push https://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@github.com/persiatc/sanaNew.git
