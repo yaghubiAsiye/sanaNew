@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="text-gray-900 text-left mt-1 text-lg font-medium">
-                        شرکت ارتباطات پرشیا 
+                        شرکت ارتباطات پرشیا
                     </div>
 
                 </div>
@@ -63,6 +63,7 @@
                 <form action="{{ route('Employee.Candidates.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="intro-y box p-5">
+                        <input type="hidden" name="place" value="{{$place}}">
 
                         @include('election::employee.candidate.form')
 

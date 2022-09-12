@@ -47,7 +47,7 @@ class CandidateController extends Controller
      */
     public function create($place)
     {
-        return view('election::employee.candidate.create');
+        return view('election::employee.candidate.create', compact('place'));
     }
 
     /**
@@ -64,7 +64,7 @@ class CandidateController extends Controller
 
         $request->session()->flash('alert-success', 'عملیات با موفقیت انجام شد');
 
-        return redirect()->route('Employee.Candidates.index');
+        return redirect()->route('Employee.Candidates.index', ['place'=> $request->place]);
 
     }
 
