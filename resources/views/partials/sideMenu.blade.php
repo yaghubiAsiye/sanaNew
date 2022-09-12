@@ -53,6 +53,8 @@
                 </ul>
             </li>
         @endcan
+
+        @can('operator-election-crud')
         <li class="side-nav__devider my-6"></li>
         <li>
             <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} ">
@@ -127,6 +129,7 @@
 
             </ul>
         </li>
+        @endcan
 
         <li class="side-nav__devider my-6"></li>
 
