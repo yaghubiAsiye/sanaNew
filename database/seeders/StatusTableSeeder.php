@@ -53,6 +53,14 @@ class StatusTableSeeder extends Seeder
                 'status' => 'پایان یافته',
                 'color' => 'gray-200'
             ],
+            [
+                'status' => 'تایید شده',
+                'color' => 'theme-9'
+            ],
+            [
+                'status' => 'تایید نشده',
+                'color' => 'theme-12'
+            ],
 
         ];
 

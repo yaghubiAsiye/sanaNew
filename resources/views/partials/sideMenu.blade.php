@@ -54,6 +54,81 @@
             </li>
         @endcan
         <li class="side-nav__devider my-6"></li>
+        <li>
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} ">
+                <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
+                <div class="side-menu__title">
+                    انتخابات تهران
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/تهران') ? 'transform rotate-180' : '') }} ">
+                        <i data-feather="chevron-down"></i>
+                    </div>
+                </div>
+            </a>
+            <ul class="{{ (Request::is('Employee/Candidates/تهران') ? 'side-menu__sub-open' : '') }} ">
+
+                <li>
+                    <a href="{{ route('Employee.Candidates.index', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> لیست کاندید ها   </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('Employee.Candidates.create', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> ثبت نام کاندیدها   </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Elections*') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  شرکت در انتخابات    </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }} ">
+                <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
+                <div class="side-menu__title">
+                    انتخابات خرمشهر
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/خرمشهر') ? 'transform rotate-180' : '') }} ">
+                        <i data-feather="chevron-down"></i>
+                    </div>
+                </div>
+            </a>
+            <ul class="{{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu__sub-open' : '') }} ">
+
+                <li>
+                    <a href="{{ route('Employee.Candidates.index', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> لیست کاندید ها   </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('Employee.Candidates.create', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> ثبت نام کاندیدها   </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Elections*') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  شرکت در انتخابات    </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
+        <li class="side-nav__devider my-6"></li>
 
         @can('operator-payslip-crud')
             <li>
@@ -111,14 +186,18 @@
             </li>
         @endcan
 
+
+
+
         @can('operator-User-crud')
-            <li>
-                <a href="{{ route('Operator.User.index') }}" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                    <div class="side-menu__title"> لیست کارکنان </div>
-                </a>
-            </li>
+        <li>
+            <a href="{{ route('Operator.User.index', ['item'=> 'is_operator', 'value' => 0]) }}" class="side-menu {{ (Request::is('Operator/User*') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__title"> لیست کارکنان </div>
+            </a>
+        </li>
         @endcan
+
 
 
 
@@ -141,12 +220,12 @@
                         <div class="side-menu__title"> بارگزاری کاربران</div>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="#" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
+                <li>
+                    <a href="{{ route('Operator.User.index', ['item'=> 'is_operator', 'value' => 1]) }}" class="side-menu {{ (Request::is('ImportUser') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title">  لاگ کاربران</div>
+                        <div class="side-menu__title"> اپراتور ها</div>
                     </a>
-                </li> --}}
+                </li>
 
                 <li>
                     <a href="{{ route('Operator.Permission.index') }}" class="side-menu {{ (Request::is('Operator/Permission/*') ? 'side-menu--active' : '') }}">

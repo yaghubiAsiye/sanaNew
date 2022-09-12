@@ -10,7 +10,7 @@
         <label for="type" class="form-label"> محل  </label>
         <select data-placeholder="  انتخاب کنید" class="tail-select w-full" name="type" id="type">
             <option value="">  انتخاب کنید</option>
-            <option value="خرمشهر">خرمشهر</option>
+            <option  value="خرمشهر">خرمشهر</option>
             <option value="تهران">تهران</option>
         </select>
     </div>

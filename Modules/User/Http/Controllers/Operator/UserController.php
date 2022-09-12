@@ -37,9 +37,10 @@ class UserController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index(Request $request)
+    public function index(Request $request, $item, $value)
     {
         $usersQuery = $this->user
+        ->where($item, $value)
             ->with(['roles'])
             ->where('first_name', '!=', 'super-admin');
 
@@ -169,6 +170,7 @@ class UserController extends Controller
             'personal_code' => $request->input('personal_code'),
             'code_meli' => $request->input('code_meli'),
             'job_title' => $request->input('job_title'),
+            'workplace' => $request->input('workplace'),
             'bank_account_number' => $request->input('bank_account_number'),
             'active' => $request->input('active') ? '0' : '1',
             'password' => bcrypt('123456'),
@@ -196,7 +198,8 @@ class UserController extends Controller
                     ->orWhere('personal_code', 'like', "%$term%")
                     ->orWhere('code_meli', 'like', "%$term%")
                     ->orWhere('job_title', 'like', "%$term%")
-                    ->orWhere('bank_account_number', 'like', "%$term%");
+                    ->orWhere('bank_account_number', 'like', "%$term%")
+                    ->orWhere('workplace', 'like', "%$term%");
             });
         }
 

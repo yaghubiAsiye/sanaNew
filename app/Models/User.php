@@ -36,7 +36,8 @@ class User extends Authenticatable
         'job_title',
         'bank_account_number',
         'active',
-        'last_seen'
+        'last_seen',
+        'workplace'
     ];
 
     /**

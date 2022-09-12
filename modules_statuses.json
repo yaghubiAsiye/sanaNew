@@ -5,5 +5,6 @@
     "MonthlyPerformance": true,
     "Announcement": true,
     "Recruitment": true,
-    "Status": true
+    "Status": true,
+    "Election": true
 }

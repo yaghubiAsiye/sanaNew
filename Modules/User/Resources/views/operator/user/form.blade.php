@@ -47,6 +47,14 @@
         @error('bank_account_number')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
     </div>
 </div>
+<div class="intro-x mt-8">
+    <div class="input-form mt-3 @error('workplace') has-error @enderror">
+        <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">  محل خدمت   <span class="sm:mr-auto mt-1 sm:mt-0 text-xs text-gray-600">  الزامی است    </span> </label>
+        <input id="validation-form-1" value="{{ $user->workplace ?? old('workplace') }}" type="text" name="workplace" class="form-control"  >
+        @error('workplace')<div class="pristine-error text-primary-3 mt-2">{{$message}}</div>@enderror
+    </div>
+</div>
+
 @role('Super Admin')
 <div class="intro-x mt-8">
     <div class="input-form mt-3 @error('bank_account_number') has-error @enderror">
@@ -63,7 +71,7 @@
 <div class="mt-3">
     <label> ia_operator</label>
     <div class="mt-2">
-        <input type="checkbox" {{ $user->is_operator ? 'checked="checked"' : '' }} name="active" class="form-check-switch">
+        <input type="checkbox" {{ isset($user) ? ($user->is_operator ? 'checked="checked"' : '') : ''}} name="active" class="form-check-switch">
     </div>
 </div>
 @endrole
@@ -73,6 +81,6 @@
 <div class="mt-3">
     <label>وضعیت فعال بودن</label>
     <div class="mt-2">
-        <input type="checkbox" {{ ! $user->active ? 'checked="checked"' : '' }} name="active" class="form-check-switch">
+        <input type="checkbox" {{ isset($user) ? (! $user->active ? 'checked="checked"' : '') : '' }} name="active" class="form-check-switch">
     </div>
 </div>

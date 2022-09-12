@@ -6,7 +6,7 @@ use Modules\User\Http\Controllers\Operator\PayslipEmployeeController;
 /*                                 User Operator route                       */
 /* -------------------------------------------------------------------------- */
 Route::controller(UserController::class)->middleware('auth')->group(function(){
-    Route::get('User/index', 'index')->name('Operator.User.index');
+    Route::get('User/index/{item}/{value}', 'index')->name('Operator.User.index');
     Route::get('User/create', 'create')->name('Operator.User.create');
     Route::post('User/store', 'store')->name('Operator.User.store');
     Route::get('User/edit/{user}', 'edit')->name('Operator.User.edit');
@@ -41,6 +41,11 @@ Route::controller(PayslipEmployeeController::class)->middleware('auth')->group(f
     Route::get('PayslipEmployee/index/{codeMeli}', 'index')->name('PayslipEmployee.index');
     // Route::get('PayslipEmployee/{date}/{codeMeli}', 'payslipSingle')->name('PayslipEmployee.payslipSingle');
     Route::get('PayslipEmployee/downloadPDF/{date}/{codeMeli}', 'downloadPDF')->name('PayslipEmployee.downloadPDF');
+
+});
+
+Route::controller(OperatorController::class)->middleware('auth')->group(function(){
+    Route::get('Operator/index', 'index')->name('Operator.Operator.index');
 
 });
 
