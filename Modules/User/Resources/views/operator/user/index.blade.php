@@ -35,6 +35,7 @@
                     <table class="table table-report -mt-2 customers-list">
                         <thead>
                             <tr>
+                                <th class="text-center whitespace-nowrap">#</th>
                                 <th class="whitespace-nowrap"> نام نام خانوادگی</th>
                                 <th class="text-center whitespace-nowrap">کد پرسنلی </th>
                                 <th class="text-center whitespace-nowrap">کد ملی</th>
@@ -50,7 +51,7 @@
                         <tbody>
                             @foreach ($users as $item)
                                 <tr class="intro-x">
-                                
+                                    <td class="text-center">{{ $item->id ?? ''}}</td>
                                     <td>
                                         <a @can('operator-payslip-crud') href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" @endcan class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
                                         <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item->last_name ?? ''}}</div>
