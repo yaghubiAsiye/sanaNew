@@ -51,7 +51,7 @@
                                         <tr class="intro-x">
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $item->id ?? '' }}</td>
-                                            <td class="text-center">{{ $item->user->first_name . ' ' . $item->user->last_name}}</td>
+                                            <td class="text-center">{{ $item->user->first_name ?? '' . ' ' . $item->user->last_name ?? ''}}</td>
                                             <td class="text-center">{{ $item->user->personal_code ?? '' }}</td>
                                             <td class="text-center">{{ $item->education ?? ''}}</td>
 

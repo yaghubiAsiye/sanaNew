@@ -57,33 +57,33 @@
         @can('operator-election-crud')
         <li class="side-nav__devider my-6"></li>
         <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} ">
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
                 <div class="side-menu__title">
                     انتخابات تهران
-                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/تهران') ? 'transform rotate-180' : '') }} ">
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/تهران') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
                         <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('Employee/Candidates/تهران') ? 'side-menu__sub-open' : '') }} ">
+            <ul class="{{ (Request::is('Employee/Candidates/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu__sub-open' : '') }}">
 
                 <li>
-                    <a href="{{ route('Employee.Candidates.index', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Candidates.index', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> لیست کاندید ها   </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('Employee.Candidates.create', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Candidates.create', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> ثبت نام کاندیدها   </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Elections*') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">  شرکت در انتخابات    </div>
                     </a>
@@ -94,33 +94,33 @@
         </li>
 
         <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }} ">
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
                 <div class="side-menu__title">
                     انتخابات خرمشهر
-                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/خرمشهر') ? 'transform rotate-180' : '') }} ">
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/خرمشهر') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
                         <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu__sub-open' : '') }} ">
+            <ul class="{{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu__sub-open' : '') }}">
 
                 <li>
-                    <a href="{{ route('Employee.Candidates.index', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Candidates.index', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> لیست کاندید ها   </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('Employee.Candidates.create', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Candidates.create', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> ثبت نام کاندیدها   </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Elections*') ? 'side-menu--active' : '') }}">
+                    <a href="{{ route('Employee.Elections.selectElection', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">  شرکت در انتخابات    </div>
                     </a>

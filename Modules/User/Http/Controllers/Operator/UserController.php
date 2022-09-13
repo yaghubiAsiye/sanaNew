@@ -92,7 +92,8 @@ class UserController extends Controller
 
         $request->session()->flash('alert-success', 'کارمند با موفقیت ساخته شد');
 
-        return redirect()->route('Operator.User.index');
+        return redirect()->back();
+        // return redirect()->route('Operator.User.index');
 
     }
 
@@ -142,7 +143,9 @@ class UserController extends Controller
         }
 
         $request->session()->flash('alert-success', 'کارمند با موفقیت ویرایش شد');
-        return redirect()->route('Operator.User.index');
+        return redirect()->back();
+
+        // return redirect()->route('Operator.User.index');
     }
 
     /**

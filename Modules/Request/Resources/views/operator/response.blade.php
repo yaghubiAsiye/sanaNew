@@ -73,7 +73,7 @@
                                         {!! $requestContent->content !!}
                                     </div>
                                     <div class="accordion-body text-gray-700 dark:text-gray-600 leading-relaxed">
-                                        file
+                                        {{-- file --}}
                                     </div>
                                 </div>
                             </div>
