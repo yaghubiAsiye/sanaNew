@@ -32,72 +32,78 @@
                 </div>
                 <!-- BEGIN: Data List -->
                 <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-                    <table class="table table-report -mt-2 customers-list">
-                        <thead>
-                            <tr>
-                                <th class="text-center whitespace-nowrap">#</th>
-                                <th class="whitespace-nowrap"> نام نام خانوادگی</th>
-                                <th class="text-center whitespace-nowrap">کد پرسنلی </th>
-                                <th class="text-center whitespace-nowrap">کد ملی</th>
-                                <th class="text-center whitespace-nowrap">شماره تلفن </th>
-                                <th class="text-center whitespace-nowrap">سمت</th>
-                                <th class="text-center whitespace-nowrap">محل خدمت </th>
-                                <th class="text-center whitespace-nowrap">آخرین بازدید</th>
-                                <th class="text-center whitespace-nowrap">وضعیت </th>
-                                <th class="text-center whitespace-nowrap">ویرایش</th>
-                                {{-- <th class="text-center whitespace-nowrap">غیرفعال</th> --}}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $item)
-                                <tr class="intro-x">
-                                    <td class="text-center">{{ $item->id ?? ''}}</td>
-                                    <td>
-                                        <a @can('operator-payslip-read') href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" @endcan class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
-                                        <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item->last_name ?? ''}}</div>
-                                    </td>
-                                    <td class="text-center">{{ $item->personal_code ?? ''}}</td>
-                                    <td class="text-center">{{ $item->code_meli ?? ''}}</td>
-                                    <td class="text-center">{{ $item->phone ?? ''}}</td>
-                                    <td class="text-center">{{ $item->job_title ?? ''}}</td>
-                                    <td class="text-center">{{ $item->workplace	 ?? ''}}</td>
-                                    <td class="text-center">{{ $item->last_seen? Carbon\Carbon::parse($item->last_seen)->diffForHumans() : 'وارد نشده' }}</td>
-                                    <td class="w-40">
-                                        @if (! $item->active)
-                                            @if(Cache::has('user-is-online-' . $item->id))
-                                            <div class="flex items-center justify-center text-theme-9"> 
-                                                <i data-feather="check-square" class="w-4 h-4 ml-2"></i> Online 
-                                            </div>
-                                            @else
-                                                <div class="flex items-center justify-center text-theme-6"> 
-                                                    <i data-feather="check-square" class="w-4 h-4 ml-2"></i> Offline 
-                                                </div>
-                                            @endif
-                                        @else
-                                            <div class="flex items-center justify-center text-theme-12"> 
-                                                <i data-feather="x-square" class="w-4 h-4 ml-2"></i>  غیرفعال
-                                            </div>
-                                        @endif
+                    <div class="p-5" id="responsive-table">
+                        <div class="preview">
+                            <div class="overflow-x-auto">
+                                <table class="table table-report -mt-2 customers-list">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center whitespace-nowrap">#</th>
+                                            <th class="whitespace-nowrap"> نام نام خانوادگی</th>
+                                            <th class="text-center whitespace-nowrap">کد پرسنلی </th>
+                                            <th class="text-center whitespace-nowrap">کد ملی</th>
+                                            <th class="text-center whitespace-nowrap">شماره تلفن </th>
+                                            <th class="text-center whitespace-nowrap">سمت</th>
+                                            <th class="text-center whitespace-nowrap">محل خدمت </th>
+                                            <th class="text-center whitespace-nowrap">آخرین بازدید</th>
+                                            <th class="text-center whitespace-nowrap">وضعیت </th>
+                                            <th class="text-center whitespace-nowrap">ویرایش</th>
+                                            {{-- <th class="text-center whitespace-nowrap">غیرفعال</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($users as $item)
+                                            <tr class="intro-x">
+                                                <td class="text-center">{{ $item->id ?? ''}}</td>
+                                                <td>
+                                                    <a @can('operator-payslip-read') href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" @endcan class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
+                                                    <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item->last_name ?? ''}}</div>
+                                                </td>
+                                                <td class="text-center">{{ $item->personal_code ?? ''}}</td>
+                                                <td class="text-center">{{ $item->code_meli ?? ''}}</td>
+                                                <td class="text-center">{{ $item->phone ?? ''}}</td>
+                                                <td class="text-center">{{ $item->job_title ?? ''}}</td>
+                                                <td class="text-center">{{ $item->workplace	 ?? ''}}</td>
+                                                <td class="text-center">{{ $item->last_seen? Carbon\Carbon::parse($item->last_seen)->diffForHumans() : 'وارد نشده' }}</td>
+                                                <td class="w-40">
+                                                    @if (! $item->active)
+                                                        @if(Cache::has('user-is-online-' . $item->id))
+                                                        <div class="flex items-center justify-center text-theme-9"> 
+                                                            <i data-feather="check-square" class="w-4 h-4 ml-2"></i> Online 
+                                                        </div>
+                                                        @else
+                                                            <div class="flex items-center justify-center text-theme-6"> 
+                                                                <i data-feather="check-square" class="w-4 h-4 ml-2"></i> Offline 
+                                                            </div>
+                                                        @endif
+                                                    @else
+                                                        <div class="flex items-center justify-center text-theme-12"> 
+                                                            <i data-feather="x-square" class="w-4 h-4 ml-2"></i>  غیرفعال
+                                                        </div>
+                                                    @endif
+                                                
+                                                </td>
+                                            
+
+                                                <td class="table-report__action w-56">
+                                                    <div class="flex justify-center items-center">
+                                                        <a class="flex items-center ml-3" href="{{ route('Operator.User.edit', ['user' => $item]) }}"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> </a>
+                                                    </div>
+                                                </td>
+                                                {{-- <td class="table-report__action w-56">
+                                                    <div class="flex justify-center items-center">
+                                                        <a class="flex items-center text-theme-12" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="x-circle" class="w-4 h-4 ml-1"></i>  </a>
+                                                    </div>
+                                                </td> --}}
+                                            </tr>
+                                        @endforeach
                                     
-                                    </td>
-                                
 
-                                    <td class="table-report__action w-56">
-                                        <div class="flex justify-center items-center">
-                                            <a class="flex items-center ml-3" href="{{ route('Operator.User.edit', ['user' => $item]) }}"> <i data-feather="check-square" class="w-4 h-4 ml-1"></i> </a>
-                                        </div>
-                                    </td>
-                                    {{-- <td class="table-report__action w-56">
-                                        <div class="flex justify-center items-center">
-                                            <a class="flex items-center text-theme-12" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="x-circle" class="w-4 h-4 ml-1"></i>  </a>
-                                        </div>
-                                    </td> --}}
-                                </tr>
-                            @endforeach
-                        
-
-                        </tbody>
-                    </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
                 <!-- END: Data List -->
