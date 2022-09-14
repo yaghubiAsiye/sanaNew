@@ -40,7 +40,7 @@
                                     <th class="text-center whitespace-nowrap">کدپرسنلی</th>
                                     <th class="text-center whitespace-nowrap">مدرک تحصیلی</th>
                                     <th class="text-center whitespace-nowrap">عنوان پست سازمانی</th>
-                                    <th class="text-center whitespace-nowrap">تاریخ شرکت درانتخابات </th>
+                                    {{-- <th class="text-center whitespace-nowrap">تاریخ شرکت درانتخابات </th> --}}
                                     <th class="text-center whitespace-nowrap">دانلود رزومه </th>
                                     <th class="text-center whitespace-nowrap">وضعیت </th>
                                     <th class="text-center whitespace-nowrap">تغییر وضعیت</th>
@@ -57,7 +57,7 @@
 
                                             <td class="text-center">{{ $item->user->job_title ?? '' }}</td>
 
-                                            <td class="text-center">{{ jdate($item->created_at)->format('Y-m-d') ?? ''}}</td>
+                                            {{-- <td class="text-center">{{ jdate($item->created_at)->format('Y-m-d') ?? ''}}</td> --}}
                                             <td class="text-center">
                                                 <a  href="/{{ $item->resume_file }}" target="_blank" class="btn btn-primary-soft mr-1 mb-2">
                                                     <i data-feather="link-2" class="w-5 h-5"></i>

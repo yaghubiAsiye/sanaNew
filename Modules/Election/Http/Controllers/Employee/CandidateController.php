@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Election\Entities\Candidate;
 use Illuminate\Contracts\Support\Renderable;
+use Modules\Election\Http\Requests\Employee\CandidateStoreRequest;
 
 class CandidateController extends Controller
 {
@@ -55,7 +56,7 @@ class CandidateController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CandidateStoreRequest $request)
     {
 
         $data = $this->prepareData($request);
