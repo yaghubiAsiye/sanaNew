@@ -53,7 +53,7 @@
                                 <tr class="intro-x">
                                     <td class="text-center">{{ $item->id ?? ''}}</td>
                                     <td>
-                                        <a @can('operator-payslip-crud') href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" @endcan class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
+                                        <a @can('operator-payslip-read') href="{{ route('PayslipEmployee.index', ['codeMeli' => $item->code_meli]) }}" @endcan class="font-medium whitespace-nowrap">{{ $item->first_name ?? ''}}</a>
                                         <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $item->last_name ?? ''}}</div>
                                     </td>
                                     <td class="text-center">{{ $item->personal_code ?? ''}}</td>
