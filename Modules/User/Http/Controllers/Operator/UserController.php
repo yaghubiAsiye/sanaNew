@@ -45,7 +45,7 @@ class UserController extends Controller
             ->where('first_name', '!=', 'super-admin');
 
         // filter the query if user is searching for something :)
-        $usersQuery = $this->search($request, $usersQuery);
+        $usersQuery = $this->search($request, $usersQuery, $item, $value);
 
         $users = $usersQuery->paginate()
             ->appends($request->all());
@@ -189,7 +189,7 @@ class UserController extends Controller
      * @param Builder $usersQuery
      * @return Builder $query
      */
-    private function search($request, $usersQuery)
+    private function search($request, $usersQuery, $item, $value)
     {
         if ($term = $request->get('term')) {
             /** @var Builder $usersQuery */
@@ -202,7 +202,8 @@ class UserController extends Controller
                     ->orWhere('code_meli', 'like', "%$term%")
                     ->orWhere('job_title', 'like', "%$term%")
                     ->orWhere('bank_account_number', 'like', "%$term%")
-                    ->orWhere('workplace', 'like', "%$term%");
+                    ->orWhere('workplace', 'like', "%$term%")
+                    ->where($item, $value);
             });
         }
 
