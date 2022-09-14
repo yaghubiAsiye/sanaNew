@@ -53,6 +53,8 @@ class UserController extends Controller
         return view('user::operator.user.index', [
             'users' => $users,
             'request' => $request,
+            'item' => $item,
+            'value' => $value,
         ]);
     }
 
@@ -195,15 +197,15 @@ class UserController extends Controller
             /** @var Builder $usersQuery */
             $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value) {
                 /** @var Builder $query */
-                $query->where('first_name', 'like', "%$term%")
+                $query->where($item, $value)
+                    ->where('first_name', 'like', "%$term%")
                     ->orWhere('last_name', 'like', "%$term%")
                     ->orWhere('phone', 'like', "%$term%")
                     ->orWhere('personal_code', 'like', "%$term%")
                     ->orWhere('code_meli', 'like', "%$term%")
                     ->orWhere('job_title', 'like', "%$term%")
                     ->orWhere('bank_account_number', 'like', "%$term%")
-                    ->orWhere('workplace', 'like', "%$term%")
-                    ->where($item, $value);
+                    ->orWhere('workplace', 'like', "%$term%");
             });
         }
 

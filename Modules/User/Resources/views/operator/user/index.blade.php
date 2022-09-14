@@ -21,7 +21,7 @@
                 
                     <div class="hidden md:block mx-auto text-gray-600"></div>
                     <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
-                        <form action="{{ route('Operator.User.index', ['item'=> 'is_operator', 'value' => 0]) }}">
+                        <form action="{{ route('Operator.User.index', ['item'=> $item, 'value' => $value]) }}">
                             <div class="w-56 relative text-gray-700 dark:text-gray-300">
                                 <input type="text" name="term" value="{{ $request->get('term') }}" placeholder="جستجو..." class="form-control w-56 box pl-10 placeholder-theme-13 search-input" data-table="customers-list" />
                                 {{-- <input type="text" id="myInput" onkeyup="myFunction()" class="form-control w-56 box pl-10 placeholder-theme-13" placeholder="جستجو..."> --}}
