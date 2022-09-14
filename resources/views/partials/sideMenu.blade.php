@@ -204,28 +204,30 @@
                 </div>
             </a>
             <ul class="{{ (Request::is('Operator/User*') ? 'side-menu__sub-open' : '') }} ">
-
+                @can('operator-User-crud-tehran')
                 <li>
                     <a href="{{ route('Operator.User.index', ['item'=> 'workplace', 'value' => 'تهران']) }}" class="side-menu {{ (Request::is('Operator/User/index/workplace/تهران') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">   کارمندان تهران   </div>
                     </a>
                 </li>
-
+                @endcan
+                @can('operator-User-crud-khoramshar')
                 <li>
                     <a href="{{ route('Operator.User.index', ['item'=> 'workplace', 'value' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Operator/User/index/workplace/خرمشهر') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">  کارمندان  خرمشهر</div>
                     </a>
                 </li>
-
+                @endcan
+                @can('operator-User-crud-ertebatat')
                 <li>
                     <a href="{{ route('Operator.User.index', ['item'=> 'workplace', 'value' => 'تهران-ارتباطات']) }}" class="side-menu {{ (Request::is('Operator/User/index/workplace/تهران-ارتباطات') ? 'side-menu--active' : '') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">    کارمندان ارتباطات پرشیا    </div>
                     </a>
                 </li>
-
+                @endcan
 
             </ul>
         </li>
