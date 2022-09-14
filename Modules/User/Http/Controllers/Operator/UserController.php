@@ -193,7 +193,7 @@ class UserController extends Controller
     {
         if ($term = $request->get('term')) {
             /** @var Builder $usersQuery */
-            $usersQuery = $usersQuery->where(function ($query) use ($term) {
+            $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value) {
                 /** @var Builder $query */
                 $query->where('first_name', 'like', "%$term%")
                     ->orWhere('last_name', 'like', "%$term%")
