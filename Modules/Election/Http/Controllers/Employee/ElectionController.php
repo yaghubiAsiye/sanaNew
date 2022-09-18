@@ -14,7 +14,7 @@ class ElectionController extends Controller
     public function selectElection($place)
     {
         $candidates = Candidate::where('place', 'like', "%$place%")
-        ->where('status_id', 10)
+        ->where('status_id', 11)
         ->get();
         return view('election::employee.election.select-election', compact('candidates', 'place'));
     }
@@ -64,7 +64,7 @@ class ElectionController extends Controller
     public function resultElections($place)
     {
         $resultCandidates = Candidate::where('place', 'like', "%$place%")
-        ->where('status_id', 10)
+        ->where('status_id', 11)
         ->get();
 
         return view('election::employee.election.result-candidates', [
