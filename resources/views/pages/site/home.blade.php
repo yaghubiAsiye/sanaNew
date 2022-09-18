@@ -739,7 +739,7 @@
                         </div>
                         @endif
 
-                        @if(count($dataRequests) > 0)
+                        {{-- @if(count($dataRequests) > 0)
                         <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
@@ -769,7 +769,7 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif
+                        @endif --}}
 
 
 
