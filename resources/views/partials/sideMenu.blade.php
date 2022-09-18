@@ -57,16 +57,16 @@
         @can('operator-election-crud')
         <li class="side-nav__devider my-6"></li>
         <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/resultElections/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
                 <div class="side-menu__title">
                     انتخابات تهران
-                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/تهران') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/resultElections/تهران') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/تهران') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu--active' : '') }}">
                         <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('Employee/Candidates/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu__sub-open' : '') }}">
+            <ul class="{{ (Request::is('Employee/resultElections/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/تهران') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/تهران') ? 'side-menu__sub-open' : '') }}">
 
                 <li>
                     <a href="{{ route('Employee.Candidates.index', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/Candidates/تهران') ? 'side-menu--active' : '') }}">
@@ -89,21 +89,28 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('Employee.Elections.resultElections', ['place' => 'تهران']) }}" class="side-menu {{ (Request::is('Employee/resultElections/تهران') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  نتایج انتخابات  </div>
+                    </a>
+                </li>
+
 
             </ul>
         </li>
 
         <li>
-            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
+            <a href="javascript:;" class="side-menu {{ (Request::is('Employee/resultElections/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
                 <div class="side-menu__icon"> <i data-feather="shopping-bag"></i> </div>
                 <div class="side-menu__title">
                     انتخابات خرمشهر
-                    <div class="side-menu__sub-icon {{ (Request::is('Employee/Candidates/خرمشهر') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
+                    <div class="side-menu__sub-icon {{ (Request::is('Employee/resultElections/خرمشهر') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/خرمشهر') ? 'transform rotate-180' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu--active' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu--active' : '') }}">
                         <i data-feather="chevron-down"></i>
                     </div>
                 </div>
             </a>
-            <ul class="{{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu__sub-open' : '') }}">
+            <ul class="{{ (Request::is('Employee/resultElections/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Candidates/create/خرمشهر') ? 'side-menu__sub-open' : '') }} {{ (Request::is('Employee/Elections/خرمشهر') ? 'side-menu__sub-open' : '') }}">
 
                 <li>
                     <a href="{{ route('Employee.Candidates.index', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/Candidates/خرمشهر') ? 'side-menu--active' : '') }}">
@@ -126,8 +133,22 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('Employee.Elections.resultElections', ['place' => 'خرمشهر']) }}" class="side-menu {{ (Request::is('Employee/resultElections/خرمشهر') ? 'side-menu--active' : '') }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title">  نتایج انتخابات  </div>
+                    </a>
+                </li>
+
 
             </ul>
+        </li>
+
+        <li>
+            <a href="{{ route('Employee.Elections.myCandidates') }}" class="side-menu {{ (Request::is('Employee/candidates/myCandidates') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
+                <div class="side-menu__title">   نمایندگان من  </div>
+            </a>
         </li>
         @endcan
 

@@ -38,30 +38,26 @@
                                         <th class="whitespace-nowrap"> عنوان</th>
                                         <th class="text-center whitespace-nowrap">تاریخ </th>
                                         <th class="text-center whitespace-nowrap">   ثبت کننده</th>
+                                        <th class="whitespace-nowrap"> محتوا</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($data as $items) --}}
-
-                                            {{-- <tr class="intro-x">
-
-                                                <td>
-                                                    <a href="#" class="font-medium whitespace-nowrap">{{ $items['date_pay']->format('%B - %Y') ?? ''}}</a>
-                                                    <div class="text-gray-600 text-xs whitespace-nowrap mt-0.5">{{ $items['date_pay'] ?? ''}}</div>
+                                    @foreach ($announcements as $item)
+                                            <tr class="intro-x">
+                                                <td class="text-center">
+                                                    {{ $item->title ?? ''}}
                                                 </td>
-                                                <td class="text-center">{{ $items['itemWithName'][0]['shomareHesab'] ?? ''}}</td>
-
-                                                <td class="table-report__action w-56">
-                                                    <div class="flex justify-center items-center">
-                                                        <a class="flex items-center ml-3" target="_blank"  href="#"><i data-feather="paperclip" class="w-4 h-4 ml-1"></i></a>
-                                                    </div>
+                                                <td class="text-center">{{ jdate($item->created_at)->format('Y-m-d') ?? ''}}</td>
+                                                <td class="text-center">
+                                                    {{ $item->user->first_name . ' ' . $item->user->last_name ?? ''}}
                                                 </td>
-                                            </tr> --}}
 
-                                    {{-- @endforeach --}}
-
-
+                                                <td class="text-center">
+                                                    {!! $item->content ?? '' !!}
+                                                </td>
+                                            </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

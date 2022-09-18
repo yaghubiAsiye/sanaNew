@@ -16,7 +16,8 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        return view('announcement::operator.announcement.index');
+        $announcements = Announcement::all();
+        return view('announcement::operator.announcement.index', compact('announcements'));
     }
 
     /**
@@ -35,13 +36,16 @@ class AnnouncementController extends Controller
      */
     public function store(AnnouncementStoreRequest $request)
     {
-        dd($request->editor);
+        // dd($request->editor);
         $announcement = Announcement::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => auth()->user()->id,
             'view' => 0,
         ]);
+
+        $request->session()->flash('alert-success', 'عملیات با موفقیت انجام شد');
+        return redirect()->back();
     }
 
     /**
@@ -49,9 +53,9 @@ class AnnouncementController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(Announcement $announcement)
     {
-        return view('announcement::show');
+        return view('announcement::operator.announcement.show', compact('announcement'));
     }
 
     /**

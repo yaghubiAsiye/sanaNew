@@ -2,7 +2,9 @@
 
 namespace Modules\Election\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Election\Entities\Candidate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Election extends Model
@@ -14,5 +16,13 @@ class Election extends Model
     protected static function newFactory()
     {
         return \Modules\Election\Database\factories\ElectionFactory::new();
+    }
+    public function candidate()
+    {
+        return $this->belongsTo(Candidate::class, 'candidate_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

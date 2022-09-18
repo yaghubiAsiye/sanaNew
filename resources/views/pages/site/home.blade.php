@@ -706,7 +706,40 @@
                         </div> --}}
                         <!-- END: Recent Activities -->
                         <!-- BEGIN: Important Notes -->
-                        {{-- @if(count($dataRequests) > 0)
+                        @if(count($announcements) > 0)
+                        <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
+                            <div class="intro-x flex items-center h-10">
+                                <h2 class="text-lg font-medium truncate ml-auto">
+                                   آخرین   اطلاعیه ها
+                                </h2>
+                                <button data-carousel="important-notes" data-target="prev" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-right" class="w-4 h-4"></i> </button>
+                                <button data-carousel="important-notes" data-target="next" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2"> <i data-feather="chevron-left" class="w-4 h-4"></i> </button>
+                            </div>
+                            <div class="mt-5 intro-x">
+                                    <div class="box zoom-in">
+                                        <div class="tiny-slider" id="important-notes">
+                                            @foreach ($announcements as $item)
+                                                <div class="p-5">
+                                                    <div class="text-base font-medium truncate">{{ $item->title ?? ''}}</div>
+                                                    <div class="text-gray-500 mt-1"> {{ jdate($item->created_at)->format('Y/m/d') ?? '' }}</div>
+                                                    <div class="text-gray-600 text-right mt-1">
+                                                        {!! \Illuminate\Support\Str::limit($item->content, 403, $end=' ') ?? '' !!}
+                                                       <br>...............
+                                                    </div>
+                                                    <div class="font-medium flex mt-5">
+                                                        <a href="{{ route('Operator.Announcement.show', ['announcement' => $item])}}" class="btn btn-outline-secondary py-1 px-2 ">برای ادامه مطلب کلیک کنید</a>
+                                                        <button type="button" class="btn btn-warning py-1 px-2 ml-auto ml-auto">{{ $item->user->first_name . ' '. $item->user->last_name ?? ''}}</button>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        @endif
+
+                        @if(count($dataRequests) > 0)
                         <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
@@ -736,7 +769,7 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif --}}
+                        @endif
 
 
 
