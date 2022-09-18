@@ -706,7 +706,7 @@
                         </div> --}}
                         <!-- END: Recent Activities -->
                         <!-- BEGIN: Important Notes -->
-                        @if(count($announcements) > 0)
+                        {{-- @if(count($announcements) > 0)
                         <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
@@ -737,9 +737,9 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif
+                        @endif --}}
 
-                        @if(count($dataRequests) > 0)
+                        {{-- @if(count($dataRequests) > 0)
                         <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-2 xl:row-start-2 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
@@ -759,7 +759,7 @@
                                                         {!! $item->requestContents->last()->content ?? '' !!}
                                                     </div>
                                                     <div class="font-medium flex mt-5">
-                                                        {{-- <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button> --}}
+                                                        <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
                                                         <button type="button" class="btn text-{{ $item->status->color }} py-1 px-2 ml-auto ml-auto">{{ $item->status->status ?? ''}}</button>
                                                     </div>
                                                 </div>
@@ -769,7 +769,7 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif
+                        @endif --}}
 
 
 
