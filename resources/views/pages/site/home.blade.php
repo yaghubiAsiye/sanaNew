@@ -727,8 +727,8 @@
                                                        <br>...............
                                                     </div>
                                                     <div class="font-medium flex mt-5">
-                                                        <a href="{{ route('Operator.Announcement.show', ['announcement' => $item])}}" class="btn btn-outline-secondary py-1 px-2 ">برای ادامه مطلب کلیک کنید</a>
-                                                        <button type="button" class="btn btn-warning py-1 px-2 ml-auto ml-auto">{{ $item->user->first_name . ' '. $item->user->last_name ?? ''}}</button>
+                                                        <a href="{{ route('Operator.Announcement.show', ['announcement' => $item])}}" class="btn btn-primary-soft py-1 px-2 ">برای ادامه مطلب کلیک کنید</a>
+                                                        <button type="button" class="btn py-1 px-2 ml-auto ml-auto">{{ $item->user->first_name . ' '. $item->user->last_name ?? ''}}</button>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -739,8 +739,8 @@
                         </div>
                         @endif
 
-                        {{-- @if(count($dataRequests) > 0)
-                        <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
+                        @if(count($dataRequests) > 0)
+                        <div class="col-span-12 md:col-span-12 xl:col-span-12 xl:col-start-2 xl:row-start-2 xxl:col-start-auto xxl:row-start-auto mt-3">
                             <div class="intro-x flex items-center h-10">
                                 <h2 class="text-lg font-medium truncate ml-auto">
                                    آخرین درخواست های شما
@@ -756,11 +756,11 @@
                                                     <div class="text-base font-medium truncate">{{ $item->type ?? ''}}</div>
                                                     <div class="text-gray-500 mt-1"> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() ?? '' }}</div>
                                                     <div class="text-gray-600 text-right mt-1">
-                                                        {!! $item->content ?? '' !!}
+                                                        {!! $item->requestContents->last()->content ?? '' !!}
                                                     </div>
                                                     <div class="font-medium flex mt-5">
-                                                        <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button>
-                                                        <button type="button" class="btn btn-warning py-1 px-2 ml-auto ml-auto">{{ $item->status ?? ''}}</button>
+                                                        {{-- <button type="button" class="btn btn-outline-secondary py-1 px-2 ">رد کردن</button> --}}
+                                                        <button type="button" class="btn text-{{ $item->status->color }} py-1 px-2 ml-auto ml-auto">{{ $item->status->status ?? ''}}</button>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -769,7 +769,7 @@
                                     </div>
                                 </div>
                         </div>
-                        @endif --}}
+                        @endif
 
 
 
