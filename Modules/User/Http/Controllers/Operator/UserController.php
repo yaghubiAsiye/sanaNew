@@ -39,18 +39,24 @@ class UserController extends Controller
      */
     public function index(Request $request, $item, $value)
     {
-        $usersQuery = $this->user
-        ->where($item, $value)
-            ->with(['roles'])
-            ->where('first_name', '!=', 'super-admin');
+
 
         // filter the query if user is searching for something :)
         // $usersQuery = $this->search($request, $usersQuery, $item, $value);
         if($value == 'تهران' || $value ==  'تهران-ارتباطات')
         {
+            $usersQuery = $this->user
+            ->where($item, $value)
+                ->with(['roles'])
+                ->where('first_name', '!=', 'super-admin');
             $usersQuery = $this->search($request, $usersQuery, $item, $value);
         }
         else {
+            $usersQuery = $this->user
+            ->where('workplace','!=','تهران')
+            ->where('workplace', '!=','تهران-ارتباطات')
+                ->with(['roles'])
+                ->where('first_name', '!=', 'super-admin');
             if ($term = $request->get('term')) {
                 /** @var Builder $usersQuery */
                 $usersQuery = $usersQuery->where(function ($query) use ($term, $value) {
