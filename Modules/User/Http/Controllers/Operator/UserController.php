@@ -46,12 +46,27 @@ class UserController extends Controller
 
         // filter the query if user is searching for something :)
         // $usersQuery = $this->search($request, $usersQuery, $item, $value);
-        if($value !==  'تهران')
+        if($value ==  'تهران' || $value ==  'تهران-ارتباطات')
         {
-            $usersQuery = $this->search($request, $usersQuery, $item, $value, '!=');
+            $usersQuery = $this->search($request, $usersQuery, $item, $value);
         }
         else {
-            $usersQuery = $this->search($request, $usersQuery, $item, $value, '=');
+            if ($term = $request->get('term')) {
+                /** @var Builder $usersQuery */
+                $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value) {
+                    /** @var Builder $query */
+                    $query->where($item,'!=','تهران')
+                    ->where($item, '!=','تهران-ارتباطات')
+                        ->where('first_name', 'like', "%$term%")
+                        ->orWhere('last_name', 'like', "%$term%")
+                        ->orWhere('phone', 'like', "%$term%")
+                        ->orWhere('personal_code', 'like', "%$term%")
+                        ->orWhere('code_meli', 'like', "%$term%")
+                        ->orWhere('job_title', 'like', "%$term%")
+                        ->orWhere('bank_account_number', 'like', "%$term%")
+                        ->orWhere('workplace', 'like', "%$term%");
+                });
+            }
         }
 
         $users = $usersQuery->paginate()
@@ -199,13 +214,13 @@ class UserController extends Controller
      * @param Builder $usersQuery
      * @return Builder $query
      */
-    private function search($request, $usersQuery, $item, $value, $operator)
+    private function search($request, $usersQuery, $item, $value)
     {
         if ($term = $request->get('term')) {
             /** @var Builder $usersQuery */
-            $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value, $operator) {
+            $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value) {
                 /** @var Builder $query */
-                $query->where($item, $operator,$value)
+                $query->where($item,$value)
                     ->where('first_name', 'like', "%$term%")
                     ->orWhere('last_name', 'like', "%$term%")
                     ->orWhere('phone', 'like', "%$term%")
