@@ -8,7 +8,10 @@ use Illuminate\Routing\Controller;
 
 class TerminatedContractController extends Controller
 {
-   
+    public function search()
+    {
+        return view('terminatedcontracts::operator.search');
+    }
     public function index()
     {
         return view('terminatedcontracts::index');

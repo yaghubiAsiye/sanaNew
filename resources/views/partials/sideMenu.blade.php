@@ -195,15 +195,15 @@
         @can('operator-renewedContracts-crud')
             <li>
                 <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
-                    <div class="side-menu__icon"> <i data-feather="align-center"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="rotate-cw"></i> </div>
                     <div class="side-menu__title">تمدید قراردادها </div>
                 </a>
             </li>
         @endcan
         @can('operator-terminatedContracts-crud')
         <li>
-            <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
-                <div class="side-menu__icon"> <i data-feather="align-center"></i> </div>
+            <a href="{{ route('Operator.TerminatedContract.search')}}" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
+                <div class="side-menu__icon"> <i data-feather="power"></i> </div>
                 <div class="side-menu__title">خاتمه همکاری  </div>
             </a>
         </li>
