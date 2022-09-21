@@ -194,7 +194,7 @@
 
         @can('operator-renewedContracts-crud')
             <li>
-                <a href="#" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
+                <a href="{{ route('Operator.RenewedContract.index')}}" class="side-menu {{ (Request::is('O') ? 'side-menu--active' : '') }}">
                     <div class="side-menu__icon"> <i data-feather="rotate-cw"></i> </div>
                     <div class="side-menu__title">تمدید قراردادها </div>
                 </a>

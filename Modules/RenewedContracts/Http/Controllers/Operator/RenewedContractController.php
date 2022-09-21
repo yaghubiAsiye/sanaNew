@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\RenewedContracts\Http\Controllers;
+namespace Modules\RenewedContracts\Http\Controllers\Operator;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class RenewedContractsController extends Controller
+class RenewedContractController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class RenewedContractsController extends Controller
      */
     public function index()
     {
-        return view('renewedcontracts::index');
+        return view('renewedcontracts::operator.index');
     }
 
     /**

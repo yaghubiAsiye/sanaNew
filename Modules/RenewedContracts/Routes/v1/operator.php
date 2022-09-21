@@ -1,9 +1,9 @@
 <?php
 
 /* -------------------------------------------------------------------------- */
-/*                                 TerminatedContract Operator route                       */
+/*                                 RenewedContract Operator route                       */
 /* -------------------------------------------------------------------------- */
-Route::controller(TerminatedContractController::class)->middleware('auth')->group(function(){
-    Route::get('TerminatedContract/search', 'search')->name('Operator.TerminatedContract.search');
+Route::controller(RenewedContractController::class)->middleware('auth')->group(function(){
+    Route::get('RenewedContract/index', 'index')->name('Operator.RenewedContract.index');
 
 });
