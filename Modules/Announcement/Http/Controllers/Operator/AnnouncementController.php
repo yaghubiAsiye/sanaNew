@@ -36,7 +36,7 @@ class AnnouncementController extends Controller
      */
     public function store(AnnouncementStoreRequest $request)
     {
-        // dd($request->editor);
+        
         $announcement = Announcement::create([
             'title' => $request->title,
             'content' => $request->content,

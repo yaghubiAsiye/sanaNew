@@ -69,9 +69,9 @@
 </div>
 
 <div class="mt-3">
-    <label> ia_operator</label>
+    <label> is_operator</label>
     <div class="mt-2">
-        <input type="checkbox" {{ isset($user) ? ($user->is_operator ? 'checked="checked"' : '') : ''}} name="active" class="form-check-switch">
+        <input type="checkbox" {{ isset($user) ? ($user->is_operator ? 'checked="checked"' : '') : ''}} name="is_operator" class="form-check-switch">
     </div>
 </div>
 @endrole
