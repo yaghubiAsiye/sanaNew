@@ -1,0 +1,13 @@
+{
+    "name": "RenewedContracts",
+    "alias": "renewedcontracts",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\RenewedContracts\\Providers\\RenewedContractsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

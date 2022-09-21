@@ -1,0 +1,13 @@
+{
+    "name": "TerminatedContracts",
+    "alias": "terminatedcontracts",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\TerminatedContracts\\Providers\\TerminatedContractsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

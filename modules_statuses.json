@@ -6,5 +6,7 @@
     "Announcement": true,
     "Recruitment": true,
     "Status": true,
-    "Election": true
+    "Election": true,
+    "TerminatedContracts": true,
+    "RenewedContracts": true
 }

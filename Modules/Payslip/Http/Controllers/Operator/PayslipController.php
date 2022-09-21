@@ -63,7 +63,7 @@ class PayslipController extends Controller
                     'mahaleKhedmat' => $line['محل خدمت'],
                     'shomareBime' => $line['شماره بيمه'],
                     'mablaqKhalesPardakhty' => $line['پرداختى'],
-                    'karkardAdy' => $line['کارکرد عادی '],
+                    'karkardAdy' => $line['کارکرد عادی'],
                     'ezafeKary' => $line['اضافه کاری'],
                     'shabKari' => $line['شبکاری'],
                     'kasreKar' => $line['کسر کار'],
