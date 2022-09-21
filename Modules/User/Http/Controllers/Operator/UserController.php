@@ -46,17 +46,17 @@ class UserController extends Controller
 
         // filter the query if user is searching for something :)
         // $usersQuery = $this->search($request, $usersQuery, $item, $value);
-        if($value ==  'تهران' || $value ==  'تهران-ارتباطات')
+        if($value == 'تهران' || $value ==  'تهران-ارتباطات')
         {
             $usersQuery = $this->search($request, $usersQuery, $item, $value);
         }
         else {
             if ($term = $request->get('term')) {
                 /** @var Builder $usersQuery */
-                $usersQuery = $usersQuery->where(function ($query) use ($term, $item, $value) {
+                $usersQuery = $usersQuery->where(function ($query) use ($term, $value) {
                     /** @var Builder $query */
-                    $query->where($item,'!=','تهران')
-                    ->where($item, '!=','تهران-ارتباطات')
+                    $query->where('workplace','!=','تهران')
+                    ->where('workplace', '!=','تهران-ارتباطات')
                         ->where('first_name', 'like', "%$term%")
                         ->orWhere('last_name', 'like', "%$term%")
                         ->orWhere('phone', 'like', "%$term%")
