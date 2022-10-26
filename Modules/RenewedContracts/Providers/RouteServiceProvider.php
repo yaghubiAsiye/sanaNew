@@ -74,7 +74,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(module_path($this->moduleName, '/Routes/v1/operator.php'));
     }
 
-
+ 
 
     /**
      * Define the "api" routes for the application.

@@ -15,6 +15,8 @@ class RenewedContractController extends Controller
     public function index()
     {
         return view('renewedcontracts::operator.index');
+       
+
     }
 
     /**
@@ -24,6 +26,8 @@ class RenewedContractController extends Controller
     public function create()
     {
         return view('renewedcontracts::create');
+
+
     }
 
     /**
