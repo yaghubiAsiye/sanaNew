@@ -11,9 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
-    
+
     public function up()
     {
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('first_name')->nullable();
@@ -35,6 +36,7 @@ return new class extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
@@ -43,5 +45,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+
     }
 };

@@ -35,7 +35,7 @@ class ImportUserController extends Controller
                 return User::create([
                     'personal_code' => $line['كد پرسنلي'],
                     'first_name' => $line['نام'],
-                    'last_name' => $line['نام خانوادگي'],
+                    'last_name' => $line['  '],
                     'code_meli' => $line['كد ملي'],
                     'phone' => $line['تلفن همراه'],
                     'job_title' => $line['سمت'],

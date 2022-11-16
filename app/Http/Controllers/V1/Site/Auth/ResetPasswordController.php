@@ -14,7 +14,7 @@ use App\Notifications\ActiveCodeNotification;
 use App\Http\Requests\V1\Site\ResetPasswordRequest;
 
 class ResetPasswordController extends Controller
-{    
+{
     /**
      # Date: 2022/6/27 , Developr: Asiye Yaghubi
      * showPhonePage
@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
     {
         return view('pages.site.auth.reset-password-1-phone');
     }
-    
+
     /**
      # Date: 2022/6/28 , Developr: Asiye Yaghubi
      * sendCode
@@ -41,7 +41,8 @@ class ResetPasswordController extends Controller
         $user->notify(new ActiveCodeNotification($code, $user->phone));
         return redirect()->route('reset-password-code-page');
     }
-        
+    
+
     /**
      # Date: 2022/6/28 , Developr: Asiye Yaghubi
      * showCodePage
@@ -52,7 +53,7 @@ class ResetPasswordController extends Controller
     {
         return view('pages.site.auth.reset-password-2-code');
     }
-    
+
     /**
      # Date: 2022/6/28 , Developr: Asiye Yaghubi
      * verifyCode
@@ -62,7 +63,7 @@ class ResetPasswordController extends Controller
      */
     public function verifyCode(CodeRequest $request)
     {
-        
+
         $status = ActiveCode::verifyCode($request->code , $request->user());
         if($status) {
             $request->user()->activeCode()->delete();
@@ -75,12 +76,12 @@ class ResetPasswordController extends Controller
 
         } else {
             $request->session()->flash('alert-danger' , 'کد وارد شده نادرست است!');
-           
+
             return redirect()->back();
         }
-      
+
     }
-    
+
     /**
      # Date: 2022/6/28 , Developr: Asiye Yaghubi
      * showResetPasswordePage
@@ -91,7 +92,7 @@ class ResetPasswordController extends Controller
     {
         return view('pages.site.auth.reset-password-3');
     }
-    
+
     /**
      # Date: 2022/6/28 , Developr: Asiye Yaghubi
      * resetPassword
@@ -100,8 +101,8 @@ class ResetPasswordController extends Controller
      * @return void
      */
     public function resetPassword(ResetPasswordRequest $request)
-    {   
-        
+    {
+
         $request->user()->update([
             'password' => bcrypt($request->password),
             'password_update_at' => Carbon::now()

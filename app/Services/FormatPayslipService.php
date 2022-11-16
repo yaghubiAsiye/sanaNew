@@ -10,18 +10,21 @@ use Alkoumi\LaravelArabicNumbers\Numbers;
 
 class FormatPayslipService
 {
-    
+
     public function pdfFormat($date, $code_meli)
     {
         $payslips = Payslip::where('codeMeli', $code_meli)
+        ->orWhere('codeMeli', convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->get();
 
         $kosoorSum = Payslip::where('codeMeli', $code_meli)
+        ->orWhere('codeMeli', convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->sum('kosoorValue');
 
         $mazayaSum = Payslip::where('codeMeli', $code_meli)
+        ->orWhere('codeMeli', convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->sum('mazayaValue');
 
@@ -149,70 +152,7 @@ class FormatPayslipService
         return $newStr;
     }
 
-    // public function payslipSingle($date)
-    // {
-    //     $payslips = Payslip::where('codeMeli', auth()->user()->code_meli)
-    //     // $payslips = Payslip::where('codeMeli','0072585722')
-    //     ->where('date_pay', $date)
-    //     ->get();
 
-    //     $data['itemWithName'] = [
-    //         'code' => $payslips->first()['code'],
-    //         'name' => $payslips->first()['name'],
-    //         'family' => $payslips->first()['family'],
-    //         'fatherName' => $payslips->first()['fatherName'],
-    //         'codeMeli' => $payslips->first()['codeMeli'],
-    //         'shomareShenasname' => $payslips->first()['shomareShenasname'],
-    //         'job' => $payslips->first()['job'],
-    //         'shomareHesab' => $payslips->first()['shomareHesab'],
-    //         'mahaleKhedmat' => $payslips->first()['mahaleKhedmat'],
-    //         'shomareBime' => $payslips->first()['shomareBime'],
-    //         'mablaqKhalesPardakhty' => $payslips->first()['mablaqKhalesPardakhty'],
-    //         'karkardAdy' => $payslips->first()['karkardAdy'],
-    //         'ezafeKary' => $payslips->first()['ezafeKary'],
-    //         'shabKari' => $payslips->first()['shabKari'],
-    //         'kasreKar' => $payslips->first()['kasreKar'],
-    //         'mamuriateKhoshky' => $payslips->first()['mamuriateKhoshky'],
-    //         'mamuriateDarya' => $payslips->first()['mamuriateDarya'],
-    //         'nobateKary15' => $payslips->first()['nobateKary15'],
-    //         'nobateKary225' => $payslips->first()['nobateKary225'],
-    //         'aqmaryDarya' => $payslips->first()['aqmaryDarya'],
-    //         'aqmaryKhoshky' => $payslips->first()['aqmaryKhoshky'],
-
-    //     ];
-    //     $data += [
-    //         'hokm' => $payslips->collect()->map(function($line)
-    //             {
-    //                 return [
-    //                     $line['amelName'] => $line['amelValue'],
-
-    //                 ];
-    //     })];
-    //     $data += [
-    //         'mazaya' => $payslips->collect()->map(function($line)
-    //             {
-    //                 return [
-    //                     $line['amelName'] => $line['mazayaValue'],
-    //                 ];
-    //     })];
-
-    //     $data += [
-    //         'kosoor' => $payslips->collect()->map(function($line)
-    //             {
-    //                 return [
-    //                     $line['amelName'] => $line['kosoorValue'],
-    //                 ];
-    //     })];
-
-    //     $data += [
-    //         'date_pay' => $date
-    //     ];
-
-
-    //     return view('payslip::employee.payslip-single', compact('data', 'date'));
-
-
-    // }
 
 
 
