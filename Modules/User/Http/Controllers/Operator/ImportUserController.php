@@ -1,3 +1,12 @@
+<?php
+
+namespace Modules\User\Http\Controllers\Operator;
+
+use Exception;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Role;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Contracts\Support\Renderable;
@@ -37,6 +46,8 @@ class ImportUserController extends Controller
             });
 
             $role = Role::where('name','کارمند')->get()->first();
+            // $role = Role::create(['name' => 'کارمند']);
+
             $permission = Permission::where('name','employee')->get();
             $role->syncPermissions($permission);
             foreach($users as $user)
@@ -53,3 +64,11 @@ class ImportUserController extends Controller
         return redirect()->back();
     }
 
+
+
+
+
+
+
+
+}
