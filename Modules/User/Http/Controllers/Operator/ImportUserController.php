@@ -46,7 +46,10 @@ class ImportUserController extends Controller
             });
 
             $role = Role::where('name','کارمند')->get()->first();
-            // $role = Role::create(['name' => 'کارمند']);
+            if(! $role)
+            {
+                $role = Role::create(['name' => 'کارمند']);
+            }
 
             $permission = Permission::where('name','employee')->get();
             $role->syncPermissions($permission);
