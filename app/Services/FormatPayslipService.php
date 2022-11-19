@@ -14,17 +14,14 @@ class FormatPayslipService
     public function pdfFormat($date, $code_meli)
     {
         $payslips = Payslip::where('codeMeli', $code_meli)
-        ->orWhere('codeMeli', $this->convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->get();
 
         $kosoorSum = Payslip::where('codeMeli', $code_meli)
-        ->orWhere('codeMeli', $this->convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->sum('kosoorValue');
 
         $mazayaSum = Payslip::where('codeMeli', $code_meli)
-        ->orWhere('codeMeli', $this->convertToPersianNumber($code_meli))
         ->where('date_pay', $date)
         ->sum('mazayaValue');
 
@@ -93,7 +90,6 @@ class FormatPayslipService
     public function payslipsFormat($code_meli)
     {
         $payslips = Payslip::where('codeMeli', $code_meli)
-        ->orWhere('codeMeli', $this->convertToPersianNumber($code_meli))
         ->get()
         ->groupBy('date_pay');
 
