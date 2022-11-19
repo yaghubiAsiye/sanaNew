@@ -22,13 +22,13 @@
                 <div class="text-white mt-10 lg:mt-0">
                     <div class="intro-x text-8xl font-medium">Error!</div>
                     <div class="intro-x text-xl lg:text-3xl font-medium mt-5">بروز خطا!</div>
-                    <div class="intro-x text-lg mt-3">به دلیل بستن سرویس های پیامکی توسط مخابرات تا اطلاع ثانوی سامانه غیر فعال می باشد :) </div>
-                   
+                    <div class="intro-x text-lg mt-3"> سامانه غیر فعال می باشد :) </div>
+
                 </div>
             </div>
             <!-- END: Error Page -->
         </div>
-      
+
         <!-- BEGIN: JS Assets-->
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>

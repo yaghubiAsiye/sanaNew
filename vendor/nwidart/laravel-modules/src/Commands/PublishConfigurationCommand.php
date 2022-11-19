@@ -26,8 +26,10 @@ class PublishConfigurationCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle() : int
+    public function handle(): int
     {
+        $this->components->info('publishing module config files...');
+
         if ($module = $this->argument('module')) {
             $this->publishConfiguration($module);
 
@@ -47,7 +49,7 @@ class PublishConfigurationCommand extends Command
      */
     private function getServiceProviderForModule($module)
     {
-        $namespace  = $this->laravel['config']->get('modules.namespace');
+        $namespace = $this->laravel['config']->get('modules.namespace');
         $studlyName = Str::studly($module);
 
         return "$namespace\\$studlyName\\Providers\\{$studlyName}ServiceProvider";
@@ -60,8 +62,8 @@ class PublishConfigurationCommand extends Command
     {
         $this->call('vendor:publish', [
             '--provider' => $this->getServiceProviderForModule($module),
-            '--force'    => $this->option('force'),
-            '--tag'      => ['config'],
+            '--force' => $this->option('force'),
+            '--tag' => ['config'],
         ]);
     }
 

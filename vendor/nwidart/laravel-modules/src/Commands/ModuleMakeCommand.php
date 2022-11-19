@@ -27,9 +27,9 @@ class ModuleMakeCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle() : int
+    public function handle(): int
     {
-        $names   = $this->argument('name');
+        $names = $this->argument('name');
         $success = true;
 
         foreach ($names as $name) {
@@ -39,9 +39,10 @@ class ModuleMakeCommand extends Command
                 ->setConfig($this->laravel['config'])
                 ->setActivator($this->laravel[ActivatorInterface::class])
                 ->setConsole($this)
+                ->setComponent($this->components)
                 ->setForce($this->option('force'))
                 ->setType($this->getModuleType())
-                ->setActive(! $this->option('disabled'))
+                ->setActive(!$this->option('disabled'))
                 ->generate();
 
             if ($code === E_ERROR) {
@@ -76,14 +77,14 @@ class ModuleMakeCommand extends Command
     }
 
     /**
-     * Get module type .
-     *
-     * @return string
-     */
+    * Get module type .
+    *
+    * @return string
+    */
     private function getModuleType()
     {
         $isPlain = $this->option('plain');
-        $isApi   = $this->option('api');
+        $isApi = $this->option('api');
 
         if ($isPlain && $isApi) {
             return 'web';

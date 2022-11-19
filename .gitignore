@@ -1,2 +1,5 @@
 /public/upload
 .env
+.env.example
+index.html--
+

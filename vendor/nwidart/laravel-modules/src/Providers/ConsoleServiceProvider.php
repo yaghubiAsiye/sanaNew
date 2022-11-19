@@ -8,7 +8,7 @@ use Nwidart\Modules\Commands;
 class ConsoleServiceProvider extends ServiceProvider
 {
     /**
-     * The available commands.
+     * The available commands
      * @var array
      */
     protected $commands = [
@@ -41,6 +41,7 @@ class ConsoleServiceProvider extends ServiceProvider
         Commands\MigrateStatusCommand::class,
         Commands\MigrationMakeCommand::class,
         Commands\ModelMakeCommand::class,
+        Commands\ModelShowCommand::class,
         Commands\PublishCommand::class,
         Commands\PublishConfigurationCommand::class,
         Commands\PublishMigrationCommand::class,
