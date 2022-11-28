@@ -20,7 +20,7 @@ class UserStoreRequest extends FormRequest
             'personal_code' => 'numeric|required|unique:users,personal_code',
             'code_meli' => 'numeric|required|unique:users,code_meli',
             'job_title' => 'required',
-            'bank_account_number' => 'numeric|required',
+            'bank_account_number' => 'numeric',
         ];
     }
 
